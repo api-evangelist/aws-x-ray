@@ -1,10 +1,17 @@
 aid: aws-x-ray
 name: AWS X-Ray
 description: >-
-  AWS X-Ray is a service for analyzing and debugging distributed applications providing end-to-end tracing of requests.
+  AWS X-Ray is a service that helps developers analyze and debug distributed
+  applications by providing end-to-end tracing of requests as they travel
+  through the application, identifying performance bottlenecks and errors. It is
+  now part of Amazon CloudWatch Application Signals for unified observability.
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
+  - Distributed Tracing
+  - Observability
+  - AWS
+  - Debugging
   - Microservices
 url: >-
   https://raw.githubusercontent.com/api-evangelist/aws-x-ray/refs/heads/main/apis.yml
@@ -15,14 +22,30 @@ apis:
   - aid: aws-x-ray:aws-x-ray
     name: AWS X-Ray
     description: >-
-      AWS X-Ray is a service for analyzing and debugging distributed applications providing end-to-end tracing of requests.
-    humanURL: https://aws.amazon.com/
+      AWS X-Ray is a service that helps developers analyze and debug distributed
+      applications by providing end-to-end tracing of requests as they travel
+      through the application, identifying performance bottlenecks and errors.
+      It is now part of Amazon CloudWatch Application Signals for unified
+      observability.
+    humanURL: https://aws.amazon.com/xray/
     tags:
+      - Distributed Tracing
+      - Observability
+      - AWS
+      - Debugging
       - Microservices
     properties: []
 common:
   - type: Website
-    url: https://aws.amazon.com/
+    url: https://aws.amazon.com/xray/
+  - type: Documentation
+    url: https://docs.aws.amazon.com/xray/latest/devguide/aws-xray.html
+  - type: Getting Started
+    url: https://aws.amazon.com/xray/getting-started/
+  - type: Pricing
+    url: https://aws.amazon.com/xray/pricing/
+  - type: FAQs
+    url: https://aws.amazon.com/xray/faqs/
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
