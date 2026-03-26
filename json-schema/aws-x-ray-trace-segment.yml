@@ -1,0 +1,170 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+$id: aws-x-ray-trace-segment
+title: AWS X-Ray Trace Segment
+description: >-
+  A segment document representing a unit of work done by a service in response
+  to a request. Segments are the fundamental building blocks of X-Ray traces.
+type: object
+required:
+  - name
+  - id
+  - trace_id
+  - start_time
+  - end_time
+properties:
+  name:
+    type: string
+    description: The logical name of the service that handled the request.
+  id:
+    type: string
+    description: A 64-bit identifier for the segment, unique among segments in the same trace.
+    pattern: '^[a-f0-9]{16}$'
+  trace_id:
+    type: string
+    description: A unique identifier that connects all segments in a trace.
+    pattern: '^1-[a-f0-9]{8}-[a-f0-9]{24}$'
+  start_time:
+    type: number
+    description: Start time of the segment (epoch seconds with millisecond precision).
+  end_time:
+    type: number
+    description: End time of the segment (epoch seconds with millisecond precision).
+  in_progress:
+    type: boolean
+    description: Set to true if the segment is in progress.
+  parent_id:
+    type: string
+    description: The segment ID of the parent segment (for subsegments).
+  fault:
+    type: boolean
+    description: Indicates that a server error occurred (5xx response).
+  error:
+    type: boolean
+    description: Indicates that a client error occurred (4xx response).
+  throttle:
+    type: boolean
+    description: Indicates that a request was throttled (429 response).
+  cause:
+    type: object
+    description: Error information including exception details.
+    properties:
+      working_directory:
+        type: string
+      paths:
+        type: array
+        items:
+          type: string
+      exceptions:
+        type: array
+        items:
+          type: object
+          properties:
+            id:
+              type: string
+            message:
+              type: string
+            type:
+              type: string
+            remote:
+              type: boolean
+            truncated:
+              type: integer
+            skipped:
+              type: integer
+            cause:
+              type: string
+            stack:
+              type: array
+              items:
+                type: object
+                properties:
+                  path:
+                    type: string
+                  line:
+                    type: integer
+                  label:
+                    type: string
+  http:
+    type: object
+    description: HTTP request and response details.
+    properties:
+      request:
+        type: object
+        properties:
+          method:
+            type: string
+          url:
+            type: string
+          user_agent:
+            type: string
+          client_ip:
+            type: string
+          x_forwarded_for:
+            type: boolean
+          traced:
+            type: boolean
+      response:
+        type: object
+        properties:
+          status:
+            type: integer
+          content_length:
+            type: integer
+            format: int64
+  annotations:
+    type: object
+    additionalProperties:
+      oneOf:
+        - type: string
+        - type: number
+        - type: boolean
+    description: Key-value pairs for filtering traces in the X-Ray console.
+  metadata:
+    type: object
+    additionalProperties:
+      type: object
+    description: Object with any keys and values for storing non-searchable data.
+  aws:
+    type: object
+    description: AWS resource data for the segment.
+    properties:
+      account_id:
+        type: string
+      region:
+        type: string
+      operation:
+        type: string
+      request_id:
+        type: string
+      queue_url:
+        type: string
+      table_name:
+        type: string
+  subsegments:
+    type: array
+    items:
+      type: object
+      description: A subsegment representing a remote call or local compute.
+    description: Array of subsegment objects.
+  service:
+    type: object
+    properties:
+      version:
+        type: string
+      runtime:
+        type: string
+      runtime_version:
+        type: string
+      sdk:
+        type: string
+      sdk_version:
+        type: string
+  origin:
+    type: string
+    description: The type of AWS resource running the application.
+    enum:
+      - AWS::EC2::Instance
+      - AWS::ECS::Container
+      - AWS::ElasticBeanstalk::Environment
+      - AWS::AppRunner::Service
+      - AWS::Lambda::Function

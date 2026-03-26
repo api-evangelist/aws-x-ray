@@ -1,0 +1,1373 @@
+openapi: 3.1.0
+info:
+  title: AWS X-Ray API
+  description: >-
+    AWS X-Ray provides APIs for managing trace data, sampling rules, groups,
+    and encryption configuration. X-Ray helps developers analyze and debug
+    distributed applications by collecting trace data as requests travel
+    through application components.
+  version: '2016-04-12'
+  contact:
+    name: Amazon Web Services
+    url: https://aws.amazon.com/xray/
+servers:
+  - url: https://xray.{region}.amazonaws.com
+    description: AWS X-Ray regional endpoint
+    variables:
+      region:
+        default: us-east-1
+        description: AWS region
+paths:
+  /Traces:
+    post:
+      operationId: PutTraceSegments
+      summary: Upload trace segments
+      description: >-
+        Uploads segment documents to AWS X-Ray. A segment document can be a
+        completed segment, an in-progress segment, or a subsegment.
+      tags:
+        - Traces
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - TraceSegmentDocuments
+              properties:
+                TraceSegmentDocuments:
+                  type: array
+                  items:
+                    type: string
+                  description: >-
+                    A string containing a JSON document defining one or more
+                    segments or subsegments.
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  UnprocessedTraceSegments:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        Id:
+                          type: string
+                        ErrorCode:
+                          type: string
+                        Message:
+                          type: string
+  /TraceGraph:
+    post:
+      operationId: BatchGetTraces
+      summary: Get a list of traces by ID
+      description: >-
+        Retrieves a list of traces specified by ID. Each trace is a
+        collection of segment documents that originates from a single
+        request.
+      tags:
+        - Traces
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - TraceIds
+              properties:
+                TraceIds:
+                  type: array
+                  items:
+                    type: string
+                  description: Specify the trace IDs of requests to retrieve.
+                NextToken:
+                  type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BatchGetTracesResult'
+  /TraceSummaries:
+    post:
+      operationId: GetTraceSummaries
+      summary: Get trace summaries
+      description: >-
+        Retrieves IDs and annotations for traces available for a specified
+        time frame using an optional filter. To get the full traces, pass
+        the trace IDs to BatchGetTraces.
+      tags:
+        - Traces
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - StartTime
+                - EndTime
+              properties:
+                StartTime:
+                  type: string
+                  format: date-time
+                  description: Start of the time frame for trace retrieval.
+                EndTime:
+                  type: string
+                  format: date-time
+                  description: End of the time frame for trace retrieval.
+                TimeRangeType:
+                  type: string
+                  enum:
+                    - TraceId
+                    - Event
+                  description: Value to use for filtering based on time range type.
+                Sampling:
+                  type: boolean
+                  description: Set to true to get a sampled subset of trace summaries.
+                SamplingStrategy:
+                  type: object
+                  properties:
+                    Name:
+                      type: string
+                      enum:
+                        - PartialScan
+                        - FixedRate
+                    Value:
+                      type: number
+                FilterExpression:
+                  type: string
+                  description: Filter expression to narrow results.
+                NextToken:
+                  type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetTraceSummariesResult'
+  /ServiceGraph:
+    post:
+      operationId: GetServiceGraph
+      summary: Get the service graph
+      description: >-
+        Retrieves a document that describes services that process incoming
+        requests, and downstream services that they call as a result.
+      tags:
+        - Service Graph
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - StartTime
+                - EndTime
+              properties:
+                StartTime:
+                  type: string
+                  format: date-time
+                EndTime:
+                  type: string
+                  format: date-time
+                GroupName:
+                  type: string
+                GroupARN:
+                  type: string
+                NextToken:
+                  type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetServiceGraphResult'
+  /TimeSeriesServiceStatistics:
+    post:
+      operationId: GetTimeSeriesServiceStatistics
+      summary: Get time series service statistics
+      description: Get an aggregation of service statistics over a time period.
+      tags:
+        - Service Graph
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - StartTime
+                - EndTime
+              properties:
+                StartTime:
+                  type: string
+                  format: date-time
+                EndTime:
+                  type: string
+                  format: date-time
+                GroupName:
+                  type: string
+                GroupARN:
+                  type: string
+                EntitySelectorExpression:
+                  type: string
+                Period:
+                  type: integer
+                ForecastStatistics:
+                  type: boolean
+                NextToken:
+                  type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  TimeSeriesServiceStatistics:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/TimeSeriesServiceStatistics'
+                  ContainsOldGroupVersions:
+                    type: boolean
+                  NextToken:
+                    type: string
+  /Groups:
+    post:
+      operationId: CreateGroup
+      summary: Create a group
+      description: Creates a group resource with a name and a filter expression.
+      tags:
+        - Groups
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - GroupName
+              properties:
+                GroupName:
+                  type: string
+                FilterExpression:
+                  type: string
+                InsightsConfiguration:
+                  type: object
+                  properties:
+                    InsightsEnabled:
+                      type: boolean
+                    NotificationsEnabled:
+                      type: boolean
+                Tags:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/Tag'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Group:
+                    $ref: '#/components/schemas/Group'
+  /GetGroups:
+    post:
+      operationId: GetGroups
+      summary: Get all active groups
+      description: Retrieves all active group details.
+      tags:
+        - Groups
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                NextToken:
+                  type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Groups:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/GroupSummary'
+                  NextToken:
+                    type: string
+  /Group:
+    post:
+      operationId: GetGroup
+      summary: Get a group
+      description: Retrieves group resource details.
+      tags:
+        - Groups
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                GroupName:
+                  type: string
+                GroupARN:
+                  type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Group:
+                    $ref: '#/components/schemas/Group'
+  /UpdateGroup:
+    post:
+      operationId: UpdateGroup
+      summary: Update a group
+      description: Updates a group resource.
+      tags:
+        - Groups
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                GroupName:
+                  type: string
+                GroupARN:
+                  type: string
+                FilterExpression:
+                  type: string
+                InsightsConfiguration:
+                  type: object
+                  properties:
+                    InsightsEnabled:
+                      type: boolean
+                    NotificationsEnabled:
+                      type: boolean
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Group:
+                    $ref: '#/components/schemas/Group'
+  /DeleteGroup:
+    post:
+      operationId: DeleteGroup
+      summary: Delete a group
+      description: Deletes a group resource.
+      tags:
+        - Groups
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                GroupName:
+                  type: string
+                GroupARN:
+                  type: string
+      responses:
+        '200':
+          description: Successful response
+  /SamplingRules:
+    post:
+      operationId: GetSamplingRules
+      summary: Get all sampling rules
+      description: Retrieves all sampling rules.
+      tags:
+        - Sampling
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                NextToken:
+                  type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  SamplingRuleRecords:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/SamplingRuleRecord'
+                  NextToken:
+                    type: string
+  /CreateSamplingRule:
+    post:
+      operationId: CreateSamplingRule
+      summary: Create a sampling rule
+      description: Creates a rule to control sampling behavior for instrumented applications.
+      tags:
+        - Sampling
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - SamplingRule
+              properties:
+                SamplingRule:
+                  $ref: '#/components/schemas/SamplingRule'
+                Tags:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/Tag'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  SamplingRuleRecord:
+                    $ref: '#/components/schemas/SamplingRuleRecord'
+  /UpdateSamplingRule:
+    post:
+      operationId: UpdateSamplingRule
+      summary: Update a sampling rule
+      description: Modifies a sampling rule's configuration.
+      tags:
+        - Sampling
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - SamplingRuleUpdate
+              properties:
+                SamplingRuleUpdate:
+                  type: object
+                  properties:
+                    RuleName:
+                      type: string
+                    RuleARN:
+                      type: string
+                    ResourceARN:
+                      type: string
+                    Priority:
+                      type: integer
+                    FixedRate:
+                      type: number
+                    ReservoirSize:
+                      type: integer
+                    Host:
+                      type: string
+                    ServiceName:
+                      type: string
+                    ServiceType:
+                      type: string
+                    HTTPMethod:
+                      type: string
+                    URLPath:
+                      type: string
+                    Attributes:
+                      type: object
+                      additionalProperties:
+                        type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  SamplingRuleRecord:
+                    $ref: '#/components/schemas/SamplingRuleRecord'
+  /DeleteSamplingRule:
+    post:
+      operationId: DeleteSamplingRule
+      summary: Delete a sampling rule
+      description: Deletes a sampling rule.
+      tags:
+        - Sampling
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                RuleName:
+                  type: string
+                RuleARN:
+                  type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  SamplingRuleRecord:
+                    $ref: '#/components/schemas/SamplingRuleRecord'
+  /SamplingTargets:
+    post:
+      operationId: GetSamplingTargets
+      summary: Get sampling targets
+      description: >-
+        Requests a sampling quota for rules that the service is using to
+        sample requests.
+      tags:
+        - Sampling
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - SamplingStatisticsDocuments
+              properties:
+                SamplingStatisticsDocuments:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      RuleName:
+                        type: string
+                      ClientID:
+                        type: string
+                      Timestamp:
+                        type: string
+                        format: date-time
+                      RequestCount:
+                        type: integer
+                      SampledCount:
+                        type: integer
+                      BorrowCount:
+                        type: integer
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  SamplingTargetDocuments:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        RuleName:
+                          type: string
+                        FixedRate:
+                          type: number
+                        ReservoirQuota:
+                          type: integer
+                        ReservoirQuotaTTL:
+                          type: string
+                          format: date-time
+                        Interval:
+                          type: integer
+                  LastRuleModification:
+                    type: string
+                    format: date-time
+                  UnprocessedStatistics:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        RuleName:
+                          type: string
+                        ErrorCode:
+                          type: string
+                        Message:
+                          type: string
+  /EncryptionConfig:
+    post:
+      operationId: GetEncryptionConfig
+      summary: Get encryption configuration
+      description: Retrieves the current encryption configuration for X-Ray data.
+      tags:
+        - Encryption
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  EncryptionConfig:
+                    $ref: '#/components/schemas/EncryptionConfig'
+  /PutEncryptionConfig:
+    post:
+      operationId: PutEncryptionConfig
+      summary: Update encryption configuration
+      description: Updates the encryption configuration for X-Ray data.
+      tags:
+        - Encryption
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - Type
+              properties:
+                KeyId:
+                  type: string
+                  description: >-
+                    An AWS KMS key in one of the following formats: Alias
+                    name, Key ID, or ARN.
+                Type:
+                  type: string
+                  enum:
+                    - NONE
+                    - KMS
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  EncryptionConfig:
+                    $ref: '#/components/schemas/EncryptionConfig'
+  /Tags:
+    post:
+      operationId: ListTagsForResource
+      summary: List tags for a resource
+      description: Returns a list of tags applied to the specified X-Ray resource.
+      tags:
+        - Tags
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - ResourceARN
+              properties:
+                ResourceARN:
+                  type: string
+                NextToken:
+                  type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Tags:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Tag'
+                  NextToken:
+                    type: string
+  /TagResource:
+    post:
+      operationId: TagResource
+      summary: Tag a resource
+      description: Applies tags to an existing X-Ray resource.
+      tags:
+        - Tags
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - ResourceARN
+                - Tags
+              properties:
+                ResourceARN:
+                  type: string
+                Tags:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/Tag'
+      responses:
+        '200':
+          description: Successful response
+  /UntagResource:
+    post:
+      operationId: UntagResource
+      summary: Untag a resource
+      description: Removes tags from an X-Ray resource.
+      tags:
+        - Tags
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - ResourceARN
+                - TagKeys
+              properties:
+                ResourceARN:
+                  type: string
+                TagKeys:
+                  type: array
+                  items:
+                    type: string
+      responses:
+        '200':
+          description: Successful response
+  /Insights:
+    post:
+      operationId: GetInsightSummaries
+      summary: Get insight summaries
+      description: Retrieves the summaries of all insights for the specified group.
+      tags:
+        - Insights
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - StartTime
+                - EndTime
+              properties:
+                States:
+                  type: array
+                  items:
+                    type: string
+                    enum:
+                      - ACTIVE
+                      - CLOSED
+                GroupARN:
+                  type: string
+                GroupName:
+                  type: string
+                StartTime:
+                  type: string
+                  format: date-time
+                EndTime:
+                  type: string
+                  format: date-time
+                MaxResults:
+                  type: integer
+                NextToken:
+                  type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  InsightSummaries:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/InsightSummary'
+                  NextToken:
+                    type: string
+  /Insight:
+    post:
+      operationId: GetInsight
+      summary: Get insight details
+      description: Retrieves the summary information of an insight.
+      tags:
+        - Insights
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - InsightId
+              properties:
+                InsightId:
+                  type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Insight:
+                    $ref: '#/components/schemas/Insight'
+components:
+  schemas:
+    BatchGetTracesResult:
+      type: object
+      properties:
+        Traces:
+          type: array
+          items:
+            $ref: '#/components/schemas/Trace'
+        UnprocessedTraceIds:
+          type: array
+          items:
+            type: string
+        NextToken:
+          type: string
+    Trace:
+      type: object
+      properties:
+        Id:
+          type: string
+          description: The unique identifier for the request that generated the trace.
+        Duration:
+          type: number
+          description: The length of time in seconds between the start and end times.
+        LimitExceeded:
+          type: boolean
+        Segments:
+          type: array
+          items:
+            type: object
+            properties:
+              Id:
+                type: string
+              Document:
+                type: string
+    GetTraceSummariesResult:
+      type: object
+      properties:
+        TraceSummaries:
+          type: array
+          items:
+            $ref: '#/components/schemas/TraceSummary'
+        ApproximateTime:
+          type: string
+          format: date-time
+        TracesProcessedCount:
+          type: integer
+          format: int64
+        NextToken:
+          type: string
+    TraceSummary:
+      type: object
+      properties:
+        Id:
+          type: string
+        Duration:
+          type: number
+        ResponseTime:
+          type: number
+        HasFault:
+          type: boolean
+        HasError:
+          type: boolean
+        HasThrottle:
+          type: boolean
+        IsPartial:
+          type: boolean
+        Http:
+          type: object
+          properties:
+            HttpURL:
+              type: string
+            HttpStatus:
+              type: integer
+            HttpMethod:
+              type: string
+            UserAgent:
+              type: string
+            ClientIp:
+              type: string
+        Annotations:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              type: object
+        Users:
+          type: array
+          items:
+            type: object
+            properties:
+              UserName:
+                type: string
+        ServiceIds:
+          type: array
+          items:
+            $ref: '#/components/schemas/ServiceId'
+        EntryPoint:
+          $ref: '#/components/schemas/ServiceId'
+        MatchedEventTime:
+          type: string
+          format: date-time
+    ServiceId:
+      type: object
+      properties:
+        Name:
+          type: string
+        Names:
+          type: array
+          items:
+            type: string
+        AccountId:
+          type: string
+        Type:
+          type: string
+    GetServiceGraphResult:
+      type: object
+      properties:
+        StartTime:
+          type: string
+          format: date-time
+        EndTime:
+          type: string
+          format: date-time
+        Services:
+          type: array
+          items:
+            $ref: '#/components/schemas/Service'
+        ContainsOldGroupVersions:
+          type: boolean
+        NextToken:
+          type: string
+    Service:
+      type: object
+      properties:
+        ReferenceId:
+          type: integer
+        Name:
+          type: string
+        Names:
+          type: array
+          items:
+            type: string
+        Root:
+          type: boolean
+        AccountId:
+          type: string
+        Type:
+          type: string
+        State:
+          type: string
+        StartTime:
+          type: string
+          format: date-time
+        EndTime:
+          type: string
+          format: date-time
+        Edges:
+          type: array
+          items:
+            type: object
+            properties:
+              ReferenceId:
+                type: integer
+              StartTime:
+                type: string
+                format: date-time
+              EndTime:
+                type: string
+                format: date-time
+              SummaryStatistics:
+                $ref: '#/components/schemas/EdgeStatistics'
+              ResponseTimeHistogram:
+                type: array
+                items:
+                  $ref: '#/components/schemas/HistogramEntry'
+        SummaryStatistics:
+          $ref: '#/components/schemas/ServiceStatistics'
+        ResponseTimeHistogram:
+          type: array
+          items:
+            $ref: '#/components/schemas/HistogramEntry'
+        DurationHistogram:
+          type: array
+          items:
+            $ref: '#/components/schemas/HistogramEntry'
+    EdgeStatistics:
+      type: object
+      properties:
+        OkCount:
+          type: integer
+          format: int64
+        ErrorStatistics:
+          type: object
+          properties:
+            ThrottleCount:
+              type: integer
+              format: int64
+            OtherCount:
+              type: integer
+              format: int64
+            TotalCount:
+              type: integer
+              format: int64
+        FaultStatistics:
+          type: object
+          properties:
+            OtherCount:
+              type: integer
+              format: int64
+            TotalCount:
+              type: integer
+              format: int64
+        TotalCount:
+          type: integer
+          format: int64
+        TotalResponseTime:
+          type: number
+    ServiceStatistics:
+      type: object
+      properties:
+        OkCount:
+          type: integer
+          format: int64
+        ErrorStatistics:
+          type: object
+          properties:
+            ThrottleCount:
+              type: integer
+              format: int64
+            OtherCount:
+              type: integer
+              format: int64
+            TotalCount:
+              type: integer
+              format: int64
+        FaultStatistics:
+          type: object
+          properties:
+            OtherCount:
+              type: integer
+              format: int64
+            TotalCount:
+              type: integer
+              format: int64
+        TotalCount:
+          type: integer
+          format: int64
+        TotalResponseTime:
+          type: number
+    HistogramEntry:
+      type: object
+      properties:
+        Value:
+          type: number
+        Count:
+          type: integer
+    TimeSeriesServiceStatistics:
+      type: object
+      properties:
+        Timestamp:
+          type: string
+          format: date-time
+        EdgeSummaryStatistics:
+          $ref: '#/components/schemas/EdgeStatistics'
+        ServiceSummaryStatistics:
+          $ref: '#/components/schemas/ServiceStatistics'
+        ServiceForecastStatistics:
+          type: object
+          properties:
+            FaultCountHigh:
+              type: integer
+              format: int64
+            FaultCountLow:
+              type: integer
+              format: int64
+        ResponseTimeHistogram:
+          type: array
+          items:
+            $ref: '#/components/schemas/HistogramEntry'
+    Group:
+      type: object
+      properties:
+        GroupName:
+          type: string
+        GroupARN:
+          type: string
+        FilterExpression:
+          type: string
+        InsightsConfiguration:
+          type: object
+          properties:
+            InsightsEnabled:
+              type: boolean
+            NotificationsEnabled:
+              type: boolean
+    GroupSummary:
+      type: object
+      properties:
+        GroupName:
+          type: string
+        GroupARN:
+          type: string
+        FilterExpression:
+          type: string
+        InsightsConfiguration:
+          type: object
+          properties:
+            InsightsEnabled:
+              type: boolean
+            NotificationsEnabled:
+              type: boolean
+    SamplingRule:
+      type: object
+      required:
+        - ResourceARN
+        - Priority
+        - FixedRate
+        - ReservoirSize
+        - ServiceName
+        - ServiceType
+        - Host
+        - HTTPMethod
+        - URLPath
+        - Version
+      properties:
+        RuleName:
+          type: string
+        RuleARN:
+          type: string
+        ResourceARN:
+          type: string
+        Priority:
+          type: integer
+        FixedRate:
+          type: number
+        ReservoirSize:
+          type: integer
+        ServiceName:
+          type: string
+        ServiceType:
+          type: string
+        Host:
+          type: string
+        HTTPMethod:
+          type: string
+        URLPath:
+          type: string
+        Version:
+          type: integer
+        Attributes:
+          type: object
+          additionalProperties:
+            type: string
+    SamplingRuleRecord:
+      type: object
+      properties:
+        SamplingRule:
+          $ref: '#/components/schemas/SamplingRule'
+        CreatedAt:
+          type: string
+          format: date-time
+        ModifiedAt:
+          type: string
+          format: date-time
+    EncryptionConfig:
+      type: object
+      properties:
+        KeyId:
+          type: string
+        Status:
+          type: string
+          enum:
+            - UPDATING
+            - ACTIVE
+        Type:
+          type: string
+          enum:
+            - NONE
+            - KMS
+    InsightSummary:
+      type: object
+      properties:
+        InsightId:
+          type: string
+        GroupARN:
+          type: string
+        GroupName:
+          type: string
+        RootCauseServiceId:
+          $ref: '#/components/schemas/ServiceId'
+        Categories:
+          type: array
+          items:
+            type: string
+            enum:
+              - FAULT
+        State:
+          type: string
+          enum:
+            - ACTIVE
+            - CLOSED
+        StartTime:
+          type: string
+          format: date-time
+        EndTime:
+          type: string
+          format: date-time
+        Summary:
+          type: string
+        ClientRequestImpactStatistics:
+          type: object
+          properties:
+            FaultCount:
+              type: integer
+              format: int64
+            OkCount:
+              type: integer
+              format: int64
+            TotalCount:
+              type: integer
+              format: int64
+        RootCauseServiceRequestImpactStatistics:
+          type: object
+          properties:
+            FaultCount:
+              type: integer
+              format: int64
+            OkCount:
+              type: integer
+              format: int64
+            TotalCount:
+              type: integer
+              format: int64
+        TopAnomalousServices:
+          type: array
+          items:
+            type: object
+            properties:
+              ServiceId:
+                $ref: '#/components/schemas/ServiceId'
+        LastUpdateTime:
+          type: string
+          format: date-time
+    Insight:
+      type: object
+      properties:
+        InsightId:
+          type: string
+        GroupARN:
+          type: string
+        GroupName:
+          type: string
+        RootCauseServiceId:
+          $ref: '#/components/schemas/ServiceId'
+        Categories:
+          type: array
+          items:
+            type: string
+        State:
+          type: string
+          enum:
+            - ACTIVE
+            - CLOSED
+        StartTime:
+          type: string
+          format: date-time
+        EndTime:
+          type: string
+          format: date-time
+        Summary:
+          type: string
+        ClientRequestImpactStatistics:
+          type: object
+          properties:
+            FaultCount:
+              type: integer
+              format: int64
+            OkCount:
+              type: integer
+              format: int64
+            TotalCount:
+              type: integer
+              format: int64
+        RootCauseServiceRequestImpactStatistics:
+          type: object
+          properties:
+            FaultCount:
+              type: integer
+              format: int64
+            OkCount:
+              type: integer
+              format: int64
+            TotalCount:
+              type: integer
+              format: int64
+        TopAnomalousServices:
+          type: array
+          items:
+            type: object
+            properties:
+              ServiceId:
+                $ref: '#/components/schemas/ServiceId'
+    Tag:
+      type: object
+      required:
+        - Key
+        - Value
+      properties:
+        Key:
+          type: string
+        Value:
+          type: string
+  securitySchemes:
+    aws_sig_v4:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: AWS Signature Version 4
+security:
+  - aws_sig_v4: []
+tags:
+  - name: Traces
+    description: Upload and retrieve trace data
+  - name: Service Graph
+    description: Service map and statistics
+  - name: Groups
+    description: Manage trace groups
+  - name: Sampling
+    description: Manage sampling rules
+  - name: Encryption
+    description: Manage encryption configuration
+  - name: Tags
+    description: Resource tagging
+  - name: Insights
+    description: Automated anomaly detection insights
