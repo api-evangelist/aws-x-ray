@@ -1,0 +1,28 @@
+aid: aws-x-ray
+name: AWS X-Ray
+description: >-
+  AWS X-Ray is a service for analyzing and debugging distributed applications providing end-to-end tracing of requests.
+type: Index
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - Microservices
+url: >-
+  https://raw.githubusercontent.com/api-evangelist/aws-x-ray/refs/heads/main/apis.yml
+created: '2026-03-26'
+modified: '2026-03-26'
+specificationVersion: '0.19'
+apis:
+  - aid: aws-x-ray:aws-x-ray
+    name: AWS X-Ray
+    description: >-
+      AWS X-Ray is a service for analyzing and debugging distributed applications providing end-to-end tracing of requests.
+    humanURL: https://aws.amazon.com/
+    tags:
+      - Microservices
+    properties: []
+common:
+  - type: Website
+    url: https://aws.amazon.com/
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
