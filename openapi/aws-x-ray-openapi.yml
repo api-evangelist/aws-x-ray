@@ -21,7 +21,7 @@ paths:
   /Traces:
     post:
       operationId: PutTraceSegments
-      summary: Upload trace segments
+      summary: AWS X-Ray Upload trace segments
       description: >-
         Uploads segment documents to AWS X-Ray. A segment document can be a
         completed segment, an in-progress segment, or a subsegment.
@@ -65,7 +65,7 @@ paths:
   /TraceGraph:
     post:
       operationId: BatchGetTraces
-      summary: Get a list of traces by ID
+      summary: AWS X-Ray Get a list of traces by ID
       description: >-
         Retrieves a list of traces specified by ID. Each trace is a
         collection of segment documents that originates from a single
@@ -98,7 +98,7 @@ paths:
   /TraceSummaries:
     post:
       operationId: GetTraceSummaries
-      summary: Get trace summaries
+      summary: AWS X-Ray Get trace summaries
       description: >-
         Retrieves IDs and annotations for traces available for a specified
         time frame using an optional filter. To get the full traces, pass
@@ -157,7 +157,7 @@ paths:
   /ServiceGraph:
     post:
       operationId: GetServiceGraph
-      summary: Get the service graph
+      summary: AWS X-Ray Get the service graph
       description: >-
         Retrieves a document that describes services that process incoming
         requests, and downstream services that they call as a result.
@@ -195,7 +195,7 @@ paths:
   /TimeSeriesServiceStatistics:
     post:
       operationId: GetTimeSeriesServiceStatistics
-      summary: Get time series service statistics
+      summary: AWS X-Ray Get time series service statistics
       description: Get an aggregation of service statistics over a time period.
       tags:
         - Service Graph
@@ -246,7 +246,7 @@ paths:
   /Groups:
     post:
       operationId: CreateGroup
-      summary: Create a group
+      summary: AWS X-Ray Create a group
       description: Creates a group resource with a name and a filter expression.
       tags:
         - Groups
@@ -287,7 +287,7 @@ paths:
   /GetGroups:
     post:
       operationId: GetGroups
-      summary: Get all active groups
+      summary: AWS X-Ray Get all active groups
       description: Retrieves all active group details.
       tags:
         - Groups
@@ -316,7 +316,7 @@ paths:
   /Group:
     post:
       operationId: GetGroup
-      summary: Get a group
+      summary: AWS X-Ray Get a group
       description: Retrieves group resource details.
       tags:
         - Groups
@@ -343,7 +343,7 @@ paths:
   /UpdateGroup:
     post:
       operationId: UpdateGroup
-      summary: Update a group
+      summary: AWS X-Ray Update a group
       description: Updates a group resource.
       tags:
         - Groups
@@ -380,7 +380,7 @@ paths:
   /DeleteGroup:
     post:
       operationId: DeleteGroup
-      summary: Delete a group
+      summary: AWS X-Ray Delete a group
       description: Deletes a group resource.
       tags:
         - Groups
@@ -401,7 +401,7 @@ paths:
   /SamplingRules:
     post:
       operationId: GetSamplingRules
-      summary: Get all sampling rules
+      summary: AWS X-Ray Get all sampling rules
       description: Retrieves all sampling rules.
       tags:
         - Sampling
@@ -430,7 +430,7 @@ paths:
   /CreateSamplingRule:
     post:
       operationId: CreateSamplingRule
-      summary: Create a sampling rule
+      summary: AWS X-Ray Create a sampling rule
       description: Creates a rule to control sampling behavior for instrumented applications.
       tags:
         - Sampling
@@ -462,7 +462,7 @@ paths:
   /UpdateSamplingRule:
     post:
       operationId: UpdateSamplingRule
-      summary: Update a sampling rule
+      summary: AWS X-Ray Update a sampling rule
       description: Modifies a sampling rule's configuration.
       tags:
         - Sampling
@@ -517,7 +517,7 @@ paths:
   /DeleteSamplingRule:
     post:
       operationId: DeleteSamplingRule
-      summary: Delete a sampling rule
+      summary: AWS X-Ray Delete a sampling rule
       description: Deletes a sampling rule.
       tags:
         - Sampling
@@ -545,7 +545,7 @@ paths:
   /SamplingTargets:
     post:
       operationId: GetSamplingTargets
-      summary: Get sampling targets
+      summary: AWS X-Ray Get sampling targets
       description: >-
         Requests a sampling quota for rules that the service is using to
         sample requests.
@@ -619,7 +619,7 @@ paths:
   /EncryptionConfig:
     post:
       operationId: GetEncryptionConfig
-      summary: Get encryption configuration
+      summary: AWS X-Ray Get encryption configuration
       description: Retrieves the current encryption configuration for X-Ray data.
       tags:
         - Encryption
@@ -636,7 +636,7 @@ paths:
   /PutEncryptionConfig:
     post:
       operationId: PutEncryptionConfig
-      summary: Update encryption configuration
+      summary: AWS X-Ray Update encryption configuration
       description: Updates the encryption configuration for X-Ray data.
       tags:
         - Encryption
@@ -672,7 +672,7 @@ paths:
   /Tags:
     post:
       operationId: ListTagsForResource
-      summary: List tags for a resource
+      summary: AWS X-Ray List tags for a resource
       description: Returns a list of tags applied to the specified X-Ray resource.
       tags:
         - Tags
@@ -706,7 +706,7 @@ paths:
   /TagResource:
     post:
       operationId: TagResource
-      summary: Tag a resource
+      summary: AWS X-Ray Tag a resource
       description: Applies tags to an existing X-Ray resource.
       tags:
         - Tags
@@ -732,7 +732,7 @@ paths:
   /UntagResource:
     post:
       operationId: UntagResource
-      summary: Untag a resource
+      summary: AWS X-Ray Untag a resource
       description: Removes tags from an X-Ray resource.
       tags:
         - Tags
@@ -758,7 +758,7 @@ paths:
   /Insights:
     post:
       operationId: GetInsightSummaries
-      summary: Get insight summaries
+      summary: AWS X-Ray Get insight summaries
       description: Retrieves the summaries of all insights for the specified group.
       tags:
         - Insights
@@ -810,7 +810,7 @@ paths:
   /Insight:
     post:
       operationId: GetInsight
-      summary: Get insight details
+      summary: AWS X-Ray Get insight details
       description: Retrieves the summary information of an insight.
       tags:
         - Insights
