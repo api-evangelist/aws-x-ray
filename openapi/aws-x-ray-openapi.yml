@@ -674,8 +674,7 @@ paths:
       operationId: ListTagsForResource
       summary: AWS X-Ray List tags for a resource
       description: Returns a list of tags applied to the specified X-Ray resource.
-      tags:
-        - Tags
+      tags: []
       requestBody:
         required: true
         content:
@@ -708,8 +707,7 @@ paths:
       operationId: TagResource
       summary: AWS X-Ray Tag a resource
       description: Applies tags to an existing X-Ray resource.
-      tags:
-        - Tags
+      tags: []
       requestBody:
         required: true
         content:
@@ -734,8 +732,7 @@ paths:
       operationId: UntagResource
       summary: AWS X-Ray Untag a resource
       description: Removes tags from an X-Ray resource.
-      tags:
-        - Tags
+      tags: []
       requestBody:
         required: true
         content:
@@ -1357,17 +1354,15 @@ components:
 security:
   - aws_sig_v4: []
 tags:
-  - name: Traces
-    description: Upload and retrieve trace data
-  - name: Service Graph
-    description: Service map and statistics
-  - name: Groups
-    description: Manage trace groups
-  - name: Sampling
-    description: Manage sampling rules
   - name: Encryption
     description: Manage encryption configuration
-  - name: Tags
-    description: Resource tagging
+  - name: Groups
+    description: Manage trace groups
   - name: Insights
     description: Automated anomaly detection insights
+  - name: Sampling
+    description: Manage sampling rules
+  - name: Service Graph
+    description: Service map and statistics
+  - name: Traces
+    description: Upload and retrieve trace data

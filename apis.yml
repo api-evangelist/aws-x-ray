@@ -8,11 +8,11 @@ description: >-
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
-  - Distributed Tracing
-  - Observability
   - AWS
   - Debugging
+  - Distributed Tracing
   - Microservices
+  - Observability
 url: >-
   https://raw.githubusercontent.com/api-evangelist/aws-x-ray/refs/heads/main/apis.yml
 created: '2026-03-26'
@@ -29,11 +29,11 @@ apis:
       observability.
     humanURL: https://aws.amazon.com/xray/
     tags:
-      - Distributed Tracing
-      - Observability
       - AWS
       - Debugging
+      - Distributed Tracing
       - Microservices
+      - Observability
     properties:
       - type: OpenAPI
         url: >-
