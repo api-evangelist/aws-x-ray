@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Group",
+  "example": {
+    "GroupName": "example-x-ray-group",
+    "GroupARN": "example-x-ray-group",
+    "FilterExpression": "example-x-ray-group",
+    "InsightsConfiguration": {
+      "InsightsEnabled": true,
+      "NotificationsEnabled": true
+    }
+  }
+}

@@ -11,22 +11,22 @@ info:
     name: Amazon Web Services
     url: https://aws.amazon.com/xray/
 servers:
-  - url: https://xray.{region}.amazonaws.com
-    description: AWS X-Ray regional endpoint
-    variables:
-      region:
-        default: us-east-1
-        description: AWS region
+- url: https://xray.{region}.amazonaws.com
+  description: AWS X-Ray regional endpoint
+  variables:
+    region:
+      default: us-east-1
+      description: AWS region
 paths:
   /Traces:
     post:
       operationId: PutTraceSegments
-      summary: AWS X-Ray Upload trace segments
+      summary: AWS X-Ray Upload Trace Segments
       description: >-
         Uploads segment documents to AWS X-Ray. A segment document can be a
         completed segment, an in-progress segment, or a subsegment.
       tags:
-        - Traces
+      - Traces
       requestBody:
         required: true
         content:
@@ -34,7 +34,7 @@ paths:
             schema:
               type: object
               required:
-                - TraceSegmentDocuments
+              - TraceSegmentDocuments
               properties:
                 TraceSegmentDocuments:
                   type: array
@@ -62,16 +62,19 @@ paths:
                           type: string
                         Message:
                           type: string
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /TraceGraph:
     post:
       operationId: BatchGetTraces
-      summary: AWS X-Ray Get a list of traces by ID
+      summary: AWS X-Ray Get a List of Traces by ID
       description: >-
         Retrieves a list of traces specified by ID. Each trace is a
         collection of segment documents that originates from a single
         request.
       tags:
-        - Traces
+      - Traces
       requestBody:
         required: true
         content:
@@ -79,7 +82,7 @@ paths:
             schema:
               type: object
               required:
-                - TraceIds
+              - TraceIds
               properties:
                 TraceIds:
                   type: array
@@ -95,16 +98,19 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/BatchGetTracesResult'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /TraceSummaries:
     post:
       operationId: GetTraceSummaries
-      summary: AWS X-Ray Get trace summaries
+      summary: AWS X-Ray Get Trace Summaries
       description: >-
         Retrieves IDs and annotations for traces available for a specified
         time frame using an optional filter. To get the full traces, pass
         the trace IDs to BatchGetTraces.
       tags:
-        - Traces
+      - Traces
       requestBody:
         required: true
         content:
@@ -112,8 +118,8 @@ paths:
             schema:
               type: object
               required:
-                - StartTime
-                - EndTime
+              - StartTime
+              - EndTime
               properties:
                 StartTime:
                   type: string
@@ -126,8 +132,8 @@ paths:
                 TimeRangeType:
                   type: string
                   enum:
-                    - TraceId
-                    - Event
+                  - TraceId
+                  - Event
                   description: Value to use for filtering based on time range type.
                 Sampling:
                   type: boolean
@@ -138,8 +144,8 @@ paths:
                     Name:
                       type: string
                       enum:
-                        - PartialScan
-                        - FixedRate
+                      - PartialScan
+                      - FixedRate
                     Value:
                       type: number
                 FilterExpression:
@@ -154,15 +160,18 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/GetTraceSummariesResult'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /ServiceGraph:
     post:
       operationId: GetServiceGraph
-      summary: AWS X-Ray Get the service graph
+      summary: AWS X-Ray Get the Service Graph
       description: >-
         Retrieves a document that describes services that process incoming
         requests, and downstream services that they call as a result.
       tags:
-        - Service Graph
+      - Service Graph
       requestBody:
         required: true
         content:
@@ -170,8 +179,8 @@ paths:
             schema:
               type: object
               required:
-                - StartTime
-                - EndTime
+              - StartTime
+              - EndTime
               properties:
                 StartTime:
                   type: string
@@ -192,13 +201,16 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/GetServiceGraphResult'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /TimeSeriesServiceStatistics:
     post:
       operationId: GetTimeSeriesServiceStatistics
-      summary: AWS X-Ray Get time series service statistics
+      summary: AWS X-Ray Get Time Series Service Statistics
       description: Get an aggregation of service statistics over a time period.
       tags:
-        - Service Graph
+      - Service Graph
       requestBody:
         required: true
         content:
@@ -206,8 +218,8 @@ paths:
             schema:
               type: object
               required:
-                - StartTime
-                - EndTime
+              - StartTime
+              - EndTime
               properties:
                 StartTime:
                   type: string
@@ -243,13 +255,16 @@ paths:
                     type: boolean
                   NextToken:
                     type: string
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /Groups:
     post:
       operationId: CreateGroup
-      summary: AWS X-Ray Create a group
+      summary: AWS X-Ray Create a Group
       description: Creates a group resource with a name and a filter expression.
       tags:
-        - Groups
+      - Groups
       requestBody:
         required: true
         content:
@@ -257,7 +272,7 @@ paths:
             schema:
               type: object
               required:
-                - GroupName
+              - GroupName
               properties:
                 GroupName:
                   type: string
@@ -284,13 +299,16 @@ paths:
                 properties:
                   Group:
                     $ref: '#/components/schemas/Group'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /GetGroups:
     post:
       operationId: GetGroups
-      summary: AWS X-Ray Get all active groups
+      summary: AWS X-Ray Get All Active Groups
       description: Retrieves all active group details.
       tags:
-        - Groups
+      - Groups
       requestBody:
         content:
           application/json:
@@ -313,13 +331,16 @@ paths:
                       $ref: '#/components/schemas/GroupSummary'
                   NextToken:
                     type: string
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /Group:
     post:
       operationId: GetGroup
-      summary: AWS X-Ray Get a group
+      summary: AWS X-Ray Get a Group
       description: Retrieves group resource details.
       tags:
-        - Groups
+      - Groups
       requestBody:
         content:
           application/json:
@@ -340,13 +361,16 @@ paths:
                 properties:
                   Group:
                     $ref: '#/components/schemas/Group'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /UpdateGroup:
     post:
       operationId: UpdateGroup
-      summary: AWS X-Ray Update a group
+      summary: AWS X-Ray Update a Group
       description: Updates a group resource.
       tags:
-        - Groups
+      - Groups
       requestBody:
         required: true
         content:
@@ -377,13 +401,16 @@ paths:
                 properties:
                   Group:
                     $ref: '#/components/schemas/Group'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /DeleteGroup:
     post:
       operationId: DeleteGroup
-      summary: AWS X-Ray Delete a group
+      summary: AWS X-Ray Delete a Group
       description: Deletes a group resource.
       tags:
-        - Groups
+      - Groups
       requestBody:
         required: true
         content:
@@ -398,13 +425,16 @@ paths:
       responses:
         '200':
           description: Successful response
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /SamplingRules:
     post:
       operationId: GetSamplingRules
-      summary: AWS X-Ray Get all sampling rules
+      summary: AWS X-Ray Get All Sampling Rules
       description: Retrieves all sampling rules.
       tags:
-        - Sampling
+      - Sampling
       requestBody:
         content:
           application/json:
@@ -427,13 +457,16 @@ paths:
                       $ref: '#/components/schemas/SamplingRuleRecord'
                   NextToken:
                     type: string
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /CreateSamplingRule:
     post:
       operationId: CreateSamplingRule
-      summary: AWS X-Ray Create a sampling rule
+      summary: AWS X-Ray Create a Sampling Rule
       description: Creates a rule to control sampling behavior for instrumented applications.
       tags:
-        - Sampling
+      - Sampling
       requestBody:
         required: true
         content:
@@ -441,7 +474,7 @@ paths:
             schema:
               type: object
               required:
-                - SamplingRule
+              - SamplingRule
               properties:
                 SamplingRule:
                   $ref: '#/components/schemas/SamplingRule'
@@ -459,13 +492,16 @@ paths:
                 properties:
                   SamplingRuleRecord:
                     $ref: '#/components/schemas/SamplingRuleRecord'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /UpdateSamplingRule:
     post:
       operationId: UpdateSamplingRule
-      summary: AWS X-Ray Update a sampling rule
+      summary: AWS X-Ray Update a Sampling Rule
       description: Modifies a sampling rule's configuration.
       tags:
-        - Sampling
+      - Sampling
       requestBody:
         required: true
         content:
@@ -473,7 +509,7 @@ paths:
             schema:
               type: object
               required:
-                - SamplingRuleUpdate
+              - SamplingRuleUpdate
               properties:
                 SamplingRuleUpdate:
                   type: object
@@ -514,13 +550,16 @@ paths:
                 properties:
                   SamplingRuleRecord:
                     $ref: '#/components/schemas/SamplingRuleRecord'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /DeleteSamplingRule:
     post:
       operationId: DeleteSamplingRule
-      summary: AWS X-Ray Delete a sampling rule
+      summary: AWS X-Ray Delete a Sampling Rule
       description: Deletes a sampling rule.
       tags:
-        - Sampling
+      - Sampling
       requestBody:
         required: true
         content:
@@ -542,15 +581,18 @@ paths:
                 properties:
                   SamplingRuleRecord:
                     $ref: '#/components/schemas/SamplingRuleRecord'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /SamplingTargets:
     post:
       operationId: GetSamplingTargets
-      summary: AWS X-Ray Get sampling targets
+      summary: AWS X-Ray Get Sampling Targets
       description: >-
         Requests a sampling quota for rules that the service is using to
         sample requests.
       tags:
-        - Sampling
+      - Sampling
       requestBody:
         required: true
         content:
@@ -558,7 +600,7 @@ paths:
             schema:
               type: object
               required:
-                - SamplingStatisticsDocuments
+              - SamplingStatisticsDocuments
               properties:
                 SamplingStatisticsDocuments:
                   type: array
@@ -616,13 +658,16 @@ paths:
                           type: string
                         Message:
                           type: string
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /EncryptionConfig:
     post:
       operationId: GetEncryptionConfig
-      summary: AWS X-Ray Get encryption configuration
+      summary: AWS X-Ray Get Encryption Configuration
       description: Retrieves the current encryption configuration for X-Ray data.
       tags:
-        - Encryption
+      - Encryption
       responses:
         '200':
           description: Successful response
@@ -633,13 +678,16 @@ paths:
                 properties:
                   EncryptionConfig:
                     $ref: '#/components/schemas/EncryptionConfig'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /PutEncryptionConfig:
     post:
       operationId: PutEncryptionConfig
-      summary: AWS X-Ray Update encryption configuration
+      summary: AWS X-Ray Update Encryption Configuration
       description: Updates the encryption configuration for X-Ray data.
       tags:
-        - Encryption
+      - Encryption
       requestBody:
         required: true
         content:
@@ -647,7 +695,7 @@ paths:
             schema:
               type: object
               required:
-                - Type
+              - Type
               properties:
                 KeyId:
                   type: string
@@ -657,8 +705,8 @@ paths:
                 Type:
                   type: string
                   enum:
-                    - NONE
-                    - KMS
+                  - NONE
+                  - KMS
       responses:
         '200':
           description: Successful response
@@ -669,10 +717,13 @@ paths:
                 properties:
                   EncryptionConfig:
                     $ref: '#/components/schemas/EncryptionConfig'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /Tags:
     post:
       operationId: ListTagsForResource
-      summary: AWS X-Ray List tags for a resource
+      summary: AWS X-Ray List Tags for a Resource
       description: Returns a list of tags applied to the specified X-Ray resource.
       tags: []
       requestBody:
@@ -682,7 +733,7 @@ paths:
             schema:
               type: object
               required:
-                - ResourceARN
+              - ResourceARN
               properties:
                 ResourceARN:
                   type: string
@@ -702,10 +753,13 @@ paths:
                       $ref: '#/components/schemas/Tag'
                   NextToken:
                     type: string
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /TagResource:
     post:
       operationId: TagResource
-      summary: AWS X-Ray Tag a resource
+      summary: AWS X-Ray Tag a Resource
       description: Applies tags to an existing X-Ray resource.
       tags: []
       requestBody:
@@ -715,8 +769,8 @@ paths:
             schema:
               type: object
               required:
-                - ResourceARN
-                - Tags
+              - ResourceARN
+              - Tags
               properties:
                 ResourceARN:
                   type: string
@@ -727,10 +781,13 @@ paths:
       responses:
         '200':
           description: Successful response
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /UntagResource:
     post:
       operationId: UntagResource
-      summary: AWS X-Ray Untag a resource
+      summary: AWS X-Ray Untag a Resource
       description: Removes tags from an X-Ray resource.
       tags: []
       requestBody:
@@ -740,8 +797,8 @@ paths:
             schema:
               type: object
               required:
-                - ResourceARN
-                - TagKeys
+              - ResourceARN
+              - TagKeys
               properties:
                 ResourceARN:
                   type: string
@@ -752,13 +809,16 @@ paths:
       responses:
         '200':
           description: Successful response
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /Insights:
     post:
       operationId: GetInsightSummaries
-      summary: AWS X-Ray Get insight summaries
+      summary: AWS X-Ray Get Insight Summaries
       description: Retrieves the summaries of all insights for the specified group.
       tags:
-        - Insights
+      - Insights
       requestBody:
         required: true
         content:
@@ -766,16 +826,16 @@ paths:
             schema:
               type: object
               required:
-                - StartTime
-                - EndTime
+              - StartTime
+              - EndTime
               properties:
                 States:
                   type: array
                   items:
                     type: string
                     enum:
-                      - ACTIVE
-                      - CLOSED
+                    - ACTIVE
+                    - CLOSED
                 GroupARN:
                   type: string
                 GroupName:
@@ -804,13 +864,16 @@ paths:
                       $ref: '#/components/schemas/InsightSummary'
                   NextToken:
                     type: string
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /Insight:
     post:
       operationId: GetInsight
-      summary: AWS X-Ray Get insight details
+      summary: AWS X-Ray Get Insight Details
       description: Retrieves the summary information of an insight.
       tags:
-        - Insights
+      - Insights
       requestBody:
         required: true
         content:
@@ -818,7 +881,7 @@ paths:
             schema:
               type: object
               required:
-                - InsightId
+              - InsightId
               properties:
                 InsightId:
                   type: string
@@ -832,6 +895,9 @@ paths:
                 properties:
                   Insight:
                     $ref: '#/components/schemas/Insight'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
 components:
   schemas:
     BatchGetTracesResult:
@@ -1147,16 +1213,16 @@ components:
     SamplingRule:
       type: object
       required:
-        - ResourceARN
-        - Priority
-        - FixedRate
-        - ReservoirSize
-        - ServiceName
-        - ServiceType
-        - Host
-        - HTTPMethod
-        - URLPath
-        - Version
+      - ResourceARN
+      - Priority
+      - FixedRate
+      - ReservoirSize
+      - ServiceName
+      - ServiceType
+      - Host
+      - HTTPMethod
+      - URLPath
+      - Version
       properties:
         RuleName:
           type: string
@@ -1205,13 +1271,13 @@ components:
         Status:
           type: string
           enum:
-            - UPDATING
-            - ACTIVE
+          - UPDATING
+          - ACTIVE
         Type:
           type: string
           enum:
-            - NONE
-            - KMS
+          - NONE
+          - KMS
     InsightSummary:
       type: object
       properties:
@@ -1228,12 +1294,12 @@ components:
           items:
             type: string
             enum:
-              - FAULT
+            - FAULT
         State:
           type: string
           enum:
-            - ACTIVE
-            - CLOSED
+          - ACTIVE
+          - CLOSED
         StartTime:
           type: string
           format: date-time
@@ -1294,8 +1360,8 @@ components:
         State:
           type: string
           enum:
-            - ACTIVE
-            - CLOSED
+          - ACTIVE
+          - CLOSED
         StartTime:
           type: string
           format: date-time
@@ -1338,8 +1404,8 @@ components:
     Tag:
       type: object
       required:
-        - Key
-        - Value
+      - Key
+      - Value
       properties:
         Key:
           type: string
@@ -1352,17 +1418,17 @@ components:
       in: header
       description: AWS Signature Version 4
 security:
-  - aws_sig_v4: []
+- aws_sig_v4: []
 tags:
-  - name: Encryption
-    description: Manage encryption configuration
-  - name: Groups
-    description: Manage trace groups
-  - name: Insights
-    description: Automated anomaly detection insights
-  - name: Sampling
-    description: Manage sampling rules
-  - name: Service Graph
-    description: Service map and statistics
-  - name: Traces
-    description: Upload and retrieve trace data
+- name: Encryption
+  description: Manage encryption configuration
+- name: Groups
+  description: Manage trace groups
+- name: Insights
+  description: Automated anomaly detection insights
+- name: Sampling
+  description: Manage sampling rules
+- name: Service Graph
+  description: Service map and statistics
+- name: Traces
+  description: Upload and retrieve trace data

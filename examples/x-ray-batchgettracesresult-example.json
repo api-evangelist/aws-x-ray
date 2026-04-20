@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "BatchGetTracesResult",
+  "example": {
+    "Traces": [
+      {
+        "Id": "example-x-ray-batchgett",
+        "Duration": 40.13,
+        "LimitExceeded": true,
+        "Segments": [
+          null
+        ]
+      }
+    ],
+    "UnprocessedTraceIds": [
+      "example-x-ray-batchgett"
+    ],
+    "NextToken": "example-x-ray-batchgett"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "GroupSummary",
+  "example": {
+    "GroupName": "example-x-ray-groupsumm",
+    "GroupARN": "example-x-ray-groupsumm",
+    "FilterExpression": "example-x-ray-groupsumm",
+    "InsightsConfiguration": {
+      "InsightsEnabled": true,
+      "NotificationsEnabled": true
+    }
+  }
+}

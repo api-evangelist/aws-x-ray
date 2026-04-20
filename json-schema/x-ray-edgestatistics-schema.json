@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "EdgeStatistics",
+  "type": "object",
+  "properties": {
+    "OkCount": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "ErrorStatistics": {
+      "type": "object",
+      "properties": {
+        "ThrottleCount": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "OtherCount": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "TotalCount": {
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    },
+    "FaultStatistics": {
+      "type": "object",
+      "properties": {
+        "OtherCount": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "TotalCount": {
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    },
+    "TotalCount": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "TotalResponseTime": {
+      "type": "number"
+    }
+  }
+}

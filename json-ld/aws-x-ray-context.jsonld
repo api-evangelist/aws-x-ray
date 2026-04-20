@@ -1,0 +1,27 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "xray": "https://docs.aws.amazon.com/xray/latest/api/",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "BatchGetTracesResult": "xray:BatchGetTracesResult",
+    "Trace": "xray:Trace",
+    "GetTraceSummariesResult": "xray:GetTraceSummariesResult",
+    "TraceSummary": "xray:TraceSummary",
+    "ServiceId": "xray:ServiceId",
+    "GetServiceGraphResult": "xray:GetServiceGraphResult",
+    "Service": "xray:Service",
+    "EdgeStatistics": "xray:EdgeStatistics",
+    "ServiceStatistics": "xray:ServiceStatistics",
+    "HistogramEntry": "xray:HistogramEntry",
+    "TimeSeriesServiceStatistics": "xray:TimeSeriesServiceStatistics",
+    "Group": "xray:Group",
+    "GroupSummary": "xray:GroupSummary",
+    "SamplingRule": "xray:SamplingRule",
+    "SamplingRuleRecord": "xray:SamplingRuleRecord",
+    "EncryptionConfig": "xray:EncryptionConfig",
+    "InsightSummary": "xray:InsightSummary",
+    "Insight": "xray:Insight",
+    "Tag": "xray:Tag"
+  }
+}

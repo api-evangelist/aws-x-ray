@@ -1,0 +1,192 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Service",
+  "type": "object",
+  "properties": {
+    "ReferenceId": {
+      "type": "integer"
+    },
+    "Name": {
+      "type": "string"
+    },
+    "Names": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "Root": {
+      "type": "boolean"
+    },
+    "AccountId": {
+      "type": "string"
+    },
+    "Type": {
+      "type": "string"
+    },
+    "State": {
+      "type": "string"
+    },
+    "StartTime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "EndTime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "Edges": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "ReferenceId": {
+            "type": "integer"
+          },
+          "StartTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "EndTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "SummaryStatistics": {
+            "type": "object",
+            "properties": {
+              "OkCount": {
+                "type": "integer",
+                "format": "int64"
+              },
+              "ErrorStatistics": {
+                "type": "object",
+                "properties": {
+                  "ThrottleCount": {
+                    "type": "integer",
+                    "format": "int64"
+                  },
+                  "OtherCount": {
+                    "type": "integer",
+                    "format": "int64"
+                  },
+                  "TotalCount": {
+                    "type": "integer",
+                    "format": "int64"
+                  }
+                }
+              },
+              "FaultStatistics": {
+                "type": "object",
+                "properties": {
+                  "OtherCount": {
+                    "type": "integer",
+                    "format": "int64"
+                  },
+                  "TotalCount": {
+                    "type": "integer",
+                    "format": "int64"
+                  }
+                }
+              },
+              "TotalCount": {
+                "type": "integer",
+                "format": "int64"
+              },
+              "TotalResponseTime": {
+                "type": "number"
+              }
+            }
+          },
+          "ResponseTimeHistogram": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "Value": {
+                  "type": "number"
+                },
+                "Count": {
+                  "type": "integer"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "SummaryStatistics": {
+      "type": "object",
+      "properties": {
+        "OkCount": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "ErrorStatistics": {
+          "type": "object",
+          "properties": {
+            "ThrottleCount": {
+              "type": "integer",
+              "format": "int64"
+            },
+            "OtherCount": {
+              "type": "integer",
+              "format": "int64"
+            },
+            "TotalCount": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        },
+        "FaultStatistics": {
+          "type": "object",
+          "properties": {
+            "OtherCount": {
+              "type": "integer",
+              "format": "int64"
+            },
+            "TotalCount": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        },
+        "TotalCount": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "TotalResponseTime": {
+          "type": "number"
+        }
+      }
+    },
+    "ResponseTimeHistogram": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "Value": {
+            "type": "number"
+          },
+          "Count": {
+            "type": "integer"
+          }
+        }
+      }
+    },
+    "DurationHistogram": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "Value": {
+            "type": "number"
+          },
+          "Count": {
+            "type": "integer"
+          }
+        }
+      }
+    }
+  }
+}

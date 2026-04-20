@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "title": "BatchGetTracesResult",
+  "type": "object",
+  "fields": [
+    {
+      "name": "Traces",
+      "type": "array"
+    },
+    {
+      "name": "UnprocessedTraceIds",
+      "type": "array"
+    },
+    {
+      "name": "NextToken",
+      "type": "string"
+    }
+  ]
+}

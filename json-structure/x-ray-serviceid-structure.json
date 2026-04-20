@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "title": "ServiceId",
+  "type": "object",
+  "fields": [
+    {
+      "name": "Name",
+      "type": "string"
+    },
+    {
+      "name": "Names",
+      "type": "array"
+    },
+    {
+      "name": "AccountId",
+      "type": "string"
+    },
+    {
+      "name": "Type",
+      "type": "string"
+    }
+  ]
+}

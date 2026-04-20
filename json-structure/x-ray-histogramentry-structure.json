@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "title": "HistogramEntry",
+  "type": "object",
+  "fields": [
+    {
+      "name": "Value",
+      "type": "double"
+    },
+    {
+      "name": "Count",
+      "type": "int64"
+    }
+  ]
+}

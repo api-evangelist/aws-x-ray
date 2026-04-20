@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "EncryptionConfig",
+  "type": "object",
+  "properties": {
+    "KeyId": {
+      "type": "string"
+    },
+    "Status": {
+      "type": "string",
+      "enum": [
+        "UPDATING",
+        "ACTIVE"
+      ]
+    },
+    "Type": {
+      "type": "string",
+      "enum": [
+        "NONE",
+        "KMS"
+      ]
+    }
+  }
+}

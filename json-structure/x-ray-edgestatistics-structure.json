@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "title": "EdgeStatistics",
+  "type": "object",
+  "fields": [
+    {
+      "name": "OkCount",
+      "type": "int64"
+    },
+    {
+      "name": "ErrorStatistics",
+      "type": "object"
+    },
+    {
+      "name": "FaultStatistics",
+      "type": "object"
+    },
+    {
+      "name": "TotalCount",
+      "type": "int64"
+    },
+    {
+      "name": "TotalResponseTime",
+      "type": "double"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "HistogramEntry",
+  "example": {
+    "Value": 60.43,
+    "Count": 54
+  }
+}

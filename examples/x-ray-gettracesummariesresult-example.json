@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "GetTraceSummariesResult",
+  "example": {
+    "TraceSummaries": [
+      {
+        "Id": "example-x-ray-gettraces",
+        "Duration": 85.39,
+        "ResponseTime": 64.7,
+        "HasFault": true,
+        "HasError": true,
+        "HasThrottle": true
+      }
+    ],
+    "ApproximateTime": "example-x-ray-gettraces",
+    "TracesProcessedCount": 78,
+    "NextToken": "example-x-ray-gettraces"
+  }
+}

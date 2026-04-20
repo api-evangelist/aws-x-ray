@@ -1,0 +1,109 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "TraceSummary",
+  "type": "object",
+  "properties": {
+    "Id": {
+      "type": "string"
+    },
+    "Duration": {
+      "type": "number"
+    },
+    "ResponseTime": {
+      "type": "number"
+    },
+    "HasFault": {
+      "type": "boolean"
+    },
+    "HasError": {
+      "type": "boolean"
+    },
+    "HasThrottle": {
+      "type": "boolean"
+    },
+    "IsPartial": {
+      "type": "boolean"
+    },
+    "Http": {
+      "type": "object",
+      "properties": {
+        "HttpURL": {
+          "type": "string"
+        },
+        "HttpStatus": {
+          "type": "integer"
+        },
+        "HttpMethod": {
+          "type": "string"
+        },
+        "UserAgent": {
+          "type": "string"
+        },
+        "ClientIp": {
+          "type": "string"
+        }
+      }
+    },
+    "Annotations": {
+      "type": "object"
+    },
+    "Users": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "UserName": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "ServiceIds": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "Name": {
+            "type": "string"
+          },
+          "Names": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "AccountId": {
+            "type": "string"
+          },
+          "Type": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "EntryPoint": {
+      "type": "object",
+      "properties": {
+        "Name": {
+          "type": "string"
+        },
+        "Names": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "AccountId": {
+          "type": "string"
+        },
+        "Type": {
+          "type": "string"
+        }
+      }
+    },
+    "MatchedEventTime": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

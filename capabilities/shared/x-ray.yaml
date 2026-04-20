@@ -1,0 +1,40 @@
+naftiko: "1.0.0-alpha1"
+info:
+  label: AWS X-Ray
+  description: Shared capability definitions for AWS X-Ray distributed tracing operations.
+  tags:
+    - Observability
+    - Distributed Tracing
+    - Debugging
+  created: "2026-04-19"
+  modified: "2026-04-19"
+capability:
+  exposes:
+    - type: rest
+      port: 8100
+      namespace: x-ray-api
+      resources:
+        - label: Put Trace Segments
+          method: POST
+          path: /TraceSegments
+          operationId: PutTraceSegments
+        - label: Get Trace Summaries
+          method: POST
+          path: /TraceSummaries
+          operationId: GetTraceSummaries
+        - label: Batch Get Traces
+          method: POST
+          path: /Traces
+          operationId: BatchGetTraces
+        - label: Get Service Graph
+          method: POST
+          path: /ServiceGraph
+          operationId: GetServiceGraph
+        - label: Get Groups
+          method: POST
+          path: /Groups
+          operationId: GetGroups
+        - label: Create Group
+          method: POST
+          path: /CreateGroup
+          operationId: CreateGroup

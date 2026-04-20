@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "title": "GroupSummary",
+  "type": "object",
+  "fields": [
+    {
+      "name": "GroupName",
+      "type": "string"
+    },
+    {
+      "name": "GroupARN",
+      "type": "string"
+    },
+    {
+      "name": "FilterExpression",
+      "type": "string"
+    },
+    {
+      "name": "InsightsConfiguration",
+      "type": "object"
+    }
+  ]
+}

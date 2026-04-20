@@ -1,0 +1,9 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "EncryptionConfig",
+  "example": {
+    "KeyId": "example-x-ray-encryptio",
+    "Status": "UPDATING",
+    "Type": "NONE"
+  }
+}

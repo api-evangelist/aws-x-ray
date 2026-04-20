@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "title": "TraceSummary",
+  "type": "object",
+  "fields": [
+    {
+      "name": "Id",
+      "type": "string"
+    },
+    {
+      "name": "Duration",
+      "type": "double"
+    },
+    {
+      "name": "ResponseTime",
+      "type": "double"
+    },
+    {
+      "name": "HasFault",
+      "type": "boolean"
+    },
+    {
+      "name": "HasError",
+      "type": "boolean"
+    },
+    {
+      "name": "HasThrottle",
+      "type": "boolean"
+    },
+    {
+      "name": "IsPartial",
+      "type": "boolean"
+    },
+    {
+      "name": "Http",
+      "type": "object"
+    },
+    {
+      "name": "Annotations",
+      "type": "object"
+    },
+    {
+      "name": "Users",
+      "type": "array"
+    },
+    {
+      "name": "ServiceIds",
+      "type": "array"
+    },
+    {
+      "name": "EntryPoint",
+      "type": "object"
+    },
+    {
+      "name": "MatchedEventTime",
+      "type": "datetime"
+    }
+  ]
+}

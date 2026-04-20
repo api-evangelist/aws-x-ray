@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "TimeSeriesServiceStatistics",
+  "example": {
+    "Timestamp": "example-x-ray-timeserie",
+    "EdgeSummaryStatistics": {
+      "OkCount": 71,
+      "ErrorStatistics": {
+        "ThrottleCount": 7,
+        "OtherCount": 4,
+        "TotalCount": 37
+      },
+      "FaultStatistics": {
+        "OtherCount": 11,
+        "TotalCount": 39
+      },
+      "TotalCount": 13,
+      "TotalResponseTime": 63.84
+    },
+    "ServiceSummaryStatistics": {
+      "OkCount": 88,
+      "ErrorStatistics": {
+        "ThrottleCount": 37,
+        "OtherCount": 4,
+        "TotalCount": 37
+      },
+      "FaultStatistics": {
+        "OtherCount": 31,
+        "TotalCount": 88
+      },
+      "TotalCount": 64,
+      "TotalResponseTime": 66.26
+    },
+    "ServiceForecastStatistics": {
+      "FaultCountHigh": 83,
+      "FaultCountLow": 55
+    },
+    "ResponseTimeHistogram": [
+      {
+        "Value": 72.2,
+        "Count": 8
+      }
+    ]
+  }
+}

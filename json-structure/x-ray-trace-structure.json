@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "title": "Trace",
+  "type": "object",
+  "fields": [
+    {
+      "name": "Id",
+      "type": "string",
+      "description": "The unique identifier for the request that generated the trace."
+    },
+    {
+      "name": "Duration",
+      "type": "double",
+      "description": "The length of time in seconds between the start and end times."
+    },
+    {
+      "name": "LimitExceeded",
+      "type": "boolean"
+    },
+    {
+      "name": "Segments",
+      "type": "array"
+    }
+  ]
+}

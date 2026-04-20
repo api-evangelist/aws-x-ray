@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "EdgeStatistics",
+  "example": {
+    "OkCount": 100,
+    "ErrorStatistics": {
+      "ThrottleCount": 56,
+      "OtherCount": 73,
+      "TotalCount": 81
+    },
+    "FaultStatistics": {
+      "OtherCount": 96,
+      "TotalCount": 48
+    },
+    "TotalCount": 1,
+    "TotalResponseTime": 62.11
+  }
+}

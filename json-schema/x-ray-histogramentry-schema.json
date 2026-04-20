@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "HistogramEntry",
+  "type": "object",
+  "properties": {
+    "Value": {
+      "type": "number"
+    },
+    "Count": {
+      "type": "integer"
+    }
+  }
+}

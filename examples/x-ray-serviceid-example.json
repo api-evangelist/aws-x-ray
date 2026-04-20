@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ServiceId",
+  "example": {
+    "Name": "example-x-ray-serviceid",
+    "Names": [
+      "example-x-ray-serviceid"
+    ],
+    "AccountId": "example-x-ray-serviceid",
+    "Type": "example-x-ray-serviceid"
+  }
+}

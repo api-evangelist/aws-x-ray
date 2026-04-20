@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SamplingRule",
+  "type": "object",
+  "properties": {
+    "RuleName": {
+      "type": "string"
+    },
+    "RuleARN": {
+      "type": "string"
+    },
+    "ResourceARN": {
+      "type": "string"
+    },
+    "Priority": {
+      "type": "integer"
+    },
+    "FixedRate": {
+      "type": "number"
+    },
+    "ReservoirSize": {
+      "type": "integer"
+    },
+    "ServiceName": {
+      "type": "string"
+    },
+    "ServiceType": {
+      "type": "string"
+    },
+    "Host": {
+      "type": "string"
+    },
+    "HTTPMethod": {
+      "type": "string"
+    },
+    "URLPath": {
+      "type": "string"
+    },
+    "Version": {
+      "type": "integer"
+    },
+    "Attributes": {
+      "type": "object"
+    }
+  },
+  "required": [
+    "ResourceARN",
+    "Priority",
+    "FixedRate",
+    "ReservoirSize",
+    "ServiceName",
+    "ServiceType",
+    "Host",
+    "HTTPMethod",
+    "URLPath",
+    "Version"
+  ]
+}

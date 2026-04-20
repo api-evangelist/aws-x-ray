@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "title": "Service",
+  "type": "object",
+  "fields": [
+    {
+      "name": "ReferenceId",
+      "type": "int64"
+    },
+    {
+      "name": "Name",
+      "type": "string"
+    },
+    {
+      "name": "Names",
+      "type": "array"
+    },
+    {
+      "name": "Root",
+      "type": "boolean"
+    },
+    {
+      "name": "AccountId",
+      "type": "string"
+    },
+    {
+      "name": "Type",
+      "type": "string"
+    },
+    {
+      "name": "State",
+      "type": "string"
+    },
+    {
+      "name": "StartTime",
+      "type": "datetime"
+    },
+    {
+      "name": "EndTime",
+      "type": "datetime"
+    },
+    {
+      "name": "Edges",
+      "type": "array"
+    },
+    {
+      "name": "SummaryStatistics",
+      "type": "object"
+    },
+    {
+      "name": "ResponseTimeHistogram",
+      "type": "array"
+    },
+    {
+      "name": "DurationHistogram",
+      "type": "array"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "title": "GetTraceSummariesResult",
+  "type": "object",
+  "fields": [
+    {
+      "name": "TraceSummaries",
+      "type": "array"
+    },
+    {
+      "name": "ApproximateTime",
+      "type": "datetime"
+    },
+    {
+      "name": "TracesProcessedCount",
+      "type": "int64"
+    },
+    {
+      "name": "NextToken",
+      "type": "string"
+    }
+  ]
+}

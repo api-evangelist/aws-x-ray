@@ -1,0 +1,58 @@
+vocabulary:
+  title: AWS X-Ray Vocabulary
+  description: Controlled vocabulary for AWS X-Ray distributed tracing concepts
+  created: "2026-04-19"
+  modified: "2026-04-19"
+  terms:
+    - term: Trace
+      definition: An end-to-end record of a request as it travels through your application, made up of one or more segments.
+      tags:
+        - Core
+    - term: Segment
+      definition: A record of work done by a single service for a single request, including timing, metadata, and subsegments.
+      tags:
+        - Core
+    - term: Subsegment
+      definition: A segment within a larger segment representing a downstream call or component work.
+      tags:
+        - Core
+    - term: Sampling
+      definition: The process of deciding which requests to trace, controlled by sampling rules to manage cost.
+      tags:
+        - Configuration
+        - Performance
+    - term: Service Map
+      definition: A visual representation of your application's services and their dependencies with health indicators.
+      tags:
+        - Visualization
+        - Observability
+    - term: Group
+      definition: A filter expression that organizes traces into logical groups for analysis and alerting.
+      tags:
+        - Organization
+    - term: Annotation
+      definition: Key-value pairs indexed for use in filter expressions to find specific traces.
+      tags:
+        - Metadata
+    - term: Metadata
+      definition: Non-indexed key-value pairs attached to segments for storing additional context.
+      tags:
+        - Metadata
+    - term: Error
+      definition: A 4xx client error captured in a trace segment.
+      tags:
+        - Error Handling
+    - term: Fault
+      definition: A 5xx server error captured in a trace segment indicating a service failure.
+      tags:
+        - Error Handling
+    - term: Throttle
+      definition: A 429 throttling error captured in a trace segment.
+      tags:
+        - Error Handling
+        - Performance
+    - term: Trace ID
+      definition: A unique identifier for a complete trace, used to correlate all segments of a single request.
+      tags:
+        - Core
+        - Identification

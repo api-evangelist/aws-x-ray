@@ -1,0 +1,61 @@
+naftiko: "1.0.0-alpha1"
+info:
+  label: AWS X-Ray Distributed Tracing Workflow
+  description: Workflow capability for collecting, analyzing, and visualizing distributed traces with AWS X-Ray.
+  tags:
+    - Observability
+    - Distributed Tracing
+    - Debugging
+    - Performance
+  created: "2026-04-19"
+  modified: "2026-04-19"
+binds:
+  - namespace: env
+    keys:
+      AWS_ACCESS_KEY_ID: AWS_ACCESS_KEY_ID
+      AWS_SECRET_ACCESS_KEY: AWS_SECRET_ACCESS_KEY
+      AWS_REGION: AWS_REGION
+capability:
+  consumes:
+    - import: x-ray
+      location: ./shared/x-ray.yaml
+  exposes:
+    - type: rest
+      port: 8080
+      namespace: workflow-api
+      resources:
+        - label: Submit Trace Segments
+          method: POST
+          path: /traces
+        - label: Get Trace Summaries
+          method: GET
+          path: /traces
+        - label: Get Service Graph
+          method: GET
+          path: /service-graph
+        - label: Get Groups
+          method: GET
+          path: /groups
+        - label: Create Group
+          method: POST
+          path: /groups
+        - label: Get Sampling Rules
+          method: GET
+          path: /sampling-rules
+    - type: mcp
+      port: 9090
+      namespace: workflow-mcp
+      transport: http
+      tools:
+        - name: get_trace_summaries
+          description: Get summaries of X-Ray traces for a time period
+        - name: get_service_graph
+          description: Get a service graph showing service dependencies and health
+        - name: batch_get_traces
+          description: Retrieve full trace details by trace IDs
+        - name: get_groups
+          description: List X-Ray groups for filtering traces
+        - name: create_group
+          description: Create a new X-Ray group with a filter expression
+        - name: get_sampling_rules
+          description: Get active sampling rules controlling trace collection

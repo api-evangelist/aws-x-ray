@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "GroupSummary",
+  "type": "object",
+  "properties": {
+    "GroupName": {
+      "type": "string"
+    },
+    "GroupARN": {
+      "type": "string"
+    },
+    "FilterExpression": {
+      "type": "string"
+    },
+    "InsightsConfiguration": {
+      "type": "object",
+      "properties": {
+        "InsightsEnabled": {
+          "type": "boolean"
+        },
+        "NotificationsEnabled": {
+          "type": "boolean"
+        }
+      }
+    }
+  }
+}

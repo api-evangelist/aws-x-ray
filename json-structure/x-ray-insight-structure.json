@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "title": "Insight",
+  "type": "object",
+  "fields": [
+    {
+      "name": "InsightId",
+      "type": "string"
+    },
+    {
+      "name": "GroupARN",
+      "type": "string"
+    },
+    {
+      "name": "GroupName",
+      "type": "string"
+    },
+    {
+      "name": "RootCauseServiceId",
+      "type": "object"
+    },
+    {
+      "name": "Categories",
+      "type": "array"
+    },
+    {
+      "name": "State",
+      "type": "string"
+    },
+    {
+      "name": "StartTime",
+      "type": "datetime"
+    },
+    {
+      "name": "EndTime",
+      "type": "datetime"
+    },
+    {
+      "name": "Summary",
+      "type": "string"
+    },
+    {
+      "name": "ClientRequestImpactStatistics",
+      "type": "object"
+    },
+    {
+      "name": "RootCauseServiceRequestImpactStatistics",
+      "type": "object"
+    },
+    {
+      "name": "TopAnomalousServices",
+      "type": "array"
+    }
+  ]
+}

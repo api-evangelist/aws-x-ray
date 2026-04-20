@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "TraceSummary",
+  "example": {
+    "Id": "example-x-ray-tracesumm",
+    "Duration": 64.59,
+    "ResponseTime": 18.81,
+    "HasFault": true,
+    "HasError": true,
+    "HasThrottle": true
+  }
+}

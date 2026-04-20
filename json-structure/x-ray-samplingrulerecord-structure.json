@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "title": "SamplingRuleRecord",
+  "type": "object",
+  "fields": [
+    {
+      "name": "SamplingRule",
+      "type": "object"
+    },
+    {
+      "name": "CreatedAt",
+      "type": "datetime"
+    },
+    {
+      "name": "ModifiedAt",
+      "type": "datetime"
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "title": "SamplingRule",
+  "type": "object",
+  "fields": [
+    {
+      "name": "RuleName",
+      "type": "string"
+    },
+    {
+      "name": "RuleARN",
+      "type": "string"
+    },
+    {
+      "name": "ResourceARN",
+      "type": "string"
+    },
+    {
+      "name": "Priority",
+      "type": "int64"
+    },
+    {
+      "name": "FixedRate",
+      "type": "double"
+    },
+    {
+      "name": "ReservoirSize",
+      "type": "int64"
+    },
+    {
+      "name": "ServiceName",
+      "type": "string"
+    },
+    {
+      "name": "ServiceType",
+      "type": "string"
+    },
+    {
+      "name": "Host",
+      "type": "string"
+    },
+    {
+      "name": "HTTPMethod",
+      "type": "string"
+    },
+    {
+      "name": "URLPath",
+      "type": "string"
+    },
+    {
+      "name": "Version",
+      "type": "int64"
+    },
+    {
+      "name": "Attributes",
+      "type": "object"
+    }
+  ]
+}

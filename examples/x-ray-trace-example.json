@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Trace",
+  "example": {
+    "Id": "example-x-ray-trace",
+    "Duration": 20.9,
+    "LimitExceeded": true,
+    "Segments": [
+      {
+        "Id": "example-x-ray-trace",
+        "Document": "example-x-ray-trace"
+      }
+    ]
+  }
+}

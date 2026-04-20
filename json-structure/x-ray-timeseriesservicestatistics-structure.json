@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "title": "TimeSeriesServiceStatistics",
+  "type": "object",
+  "fields": [
+    {
+      "name": "Timestamp",
+      "type": "datetime"
+    },
+    {
+      "name": "EdgeSummaryStatistics",
+      "type": "object"
+    },
+    {
+      "name": "ServiceSummaryStatistics",
+      "type": "object"
+    },
+    {
+      "name": "ServiceForecastStatistics",
+      "type": "object"
+    },
+    {
+      "name": "ResponseTimeHistogram",
+      "type": "array"
+    }
+  ]
+}

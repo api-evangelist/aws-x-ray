@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "title": "GetServiceGraphResult",
+  "type": "object",
+  "fields": [
+    {
+      "name": "StartTime",
+      "type": "datetime"
+    },
+    {
+      "name": "EndTime",
+      "type": "datetime"
+    },
+    {
+      "name": "Services",
+      "type": "array"
+    },
+    {
+      "name": "ContainsOldGroupVersions",
+      "type": "boolean"
+    },
+    {
+      "name": "NextToken",
+      "type": "string"
+    }
+  ]
+}

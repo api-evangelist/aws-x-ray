@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SamplingRule",
+  "example": {
+    "RuleName": "example-x-ray-samplingr",
+    "RuleARN": "example-x-ray-samplingr",
+    "ResourceARN": "example-x-ray-samplingr",
+    "Priority": 95,
+    "FixedRate": 47.21,
+    "ReservoirSize": 97
+  }
+}

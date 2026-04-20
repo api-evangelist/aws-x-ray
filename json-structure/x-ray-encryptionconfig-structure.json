@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "title": "EncryptionConfig",
+  "type": "object",
+  "fields": [
+    {
+      "name": "KeyId",
+      "type": "string"
+    },
+    {
+      "name": "Status",
+      "type": "string"
+    },
+    {
+      "name": "Type",
+      "type": "string"
+    }
+  ]
+}

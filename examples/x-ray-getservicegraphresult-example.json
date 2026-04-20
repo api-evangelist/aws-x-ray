@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "GetServiceGraphResult",
+  "example": {
+    "StartTime": "example-x-ray-getservic",
+    "EndTime": "example-x-ray-getservic",
+    "Services": [
+      {
+        "ReferenceId": 29,
+        "Name": "example-x-ray-getservic",
+        "Names": [
+          null
+        ],
+        "Root": true,
+        "AccountId": "example-x-ray-getservic",
+        "Type": "example-x-ray-getservic"
+      }
+    ],
+    "ContainsOldGroupVersions": true,
+    "NextToken": "example-x-ray-getservic"
+  }
+}

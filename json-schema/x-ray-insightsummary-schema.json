@@ -1,0 +1,129 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "InsightSummary",
+  "type": "object",
+  "properties": {
+    "InsightId": {
+      "type": "string"
+    },
+    "GroupARN": {
+      "type": "string"
+    },
+    "GroupName": {
+      "type": "string"
+    },
+    "RootCauseServiceId": {
+      "type": "object",
+      "properties": {
+        "Name": {
+          "type": "string"
+        },
+        "Names": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "AccountId": {
+          "type": "string"
+        },
+        "Type": {
+          "type": "string"
+        }
+      }
+    },
+    "Categories": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "FAULT"
+        ]
+      }
+    },
+    "State": {
+      "type": "string",
+      "enum": [
+        "ACTIVE",
+        "CLOSED"
+      ]
+    },
+    "StartTime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "EndTime": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "Summary": {
+      "type": "string"
+    },
+    "ClientRequestImpactStatistics": {
+      "type": "object",
+      "properties": {
+        "FaultCount": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "OkCount": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "TotalCount": {
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    },
+    "RootCauseServiceRequestImpactStatistics": {
+      "type": "object",
+      "properties": {
+        "FaultCount": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "OkCount": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "TotalCount": {
+          "type": "integer",
+          "format": "int64"
+        }
+      }
+    },
+    "TopAnomalousServices": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "ServiceId": {
+            "type": "object",
+            "properties": {
+              "Name": {
+                "type": "string"
+              },
+              "Names": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "AccountId": {
+                "type": "string"
+              },
+              "Type": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "LastUpdateTime": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

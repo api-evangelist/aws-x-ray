@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Trace",
+  "type": "object",
+  "properties": {
+    "Id": {
+      "type": "string",
+      "description": "The unique identifier for the request that generated the trace."
+    },
+    "Duration": {
+      "type": "number",
+      "description": "The length of time in seconds between the start and end times."
+    },
+    "LimitExceeded": {
+      "type": "boolean"
+    },
+    "Segments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "Id": {
+            "type": "string"
+          },
+          "Document": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "InsightSummary",
+  "example": {
+    "InsightId": "example-x-ray-insightsu",
+    "GroupARN": "example-x-ray-insightsu",
+    "GroupName": "example-x-ray-insightsu",
+    "RootCauseServiceId": {
+      "Name": "example-x-ray-insightsu",
+      "Names": [
+        "example-x-ray-insightsu"
+      ],
+      "AccountId": "example-x-ray-insightsu",
+      "Type": "example-x-ray-insightsu"
+    },
+    "Categories": [
+      "FAULT"
+    ],
+    "State": "ACTIVE"
+  }
+}
