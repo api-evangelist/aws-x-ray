@@ -1,0 +1,723 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: AWS X-Ray API
+  description: AWS X-Ray provides APIs for managing trace data, sampling rules, groups, and encryption configuration. X-Ray
+    helps developers analyze and debug distributed applications by collecting trace data as requests travel through application
+    components.
+  tags:
+  - Aws
+  - X
+  - Ray
+  - API
+  created: '2026-05-06'
+  modified: '2026-05-06'
+capability:
+  consumes:
+  - type: http
+    namespace: aws-x-ray
+    baseUri: https://xray.us-east-1.amazonaws.com
+    description: AWS X-Ray API HTTP API.
+    authentication:
+      type: apikey
+      in: header
+      name: Authorization
+      value: '{{AWS_X_RAY_TOKEN}}'
+    resources:
+    - name: traces
+      path: /Traces
+      operations:
+      - name: puttracesegments
+        method: POST
+        description: AWS X-Ray Upload Trace Segments
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: tracegraph
+      path: /TraceGraph
+      operations:
+      - name: batchgettraces
+        method: POST
+        description: AWS X-Ray Get a List of Traces by ID
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: tracesummaries
+      path: /TraceSummaries
+      operations:
+      - name: gettracesummaries
+        method: POST
+        description: AWS X-Ray Get Trace Summaries
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: servicegraph
+      path: /ServiceGraph
+      operations:
+      - name: getservicegraph
+        method: POST
+        description: AWS X-Ray Get the Service Graph
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: timeseriesservicestatistics
+      path: /TimeSeriesServiceStatistics
+      operations:
+      - name: gettimeseriesservicestatistics
+        method: POST
+        description: AWS X-Ray Get Time Series Service Statistics
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: groups
+      path: /Groups
+      operations:
+      - name: creategroup
+        method: POST
+        description: AWS X-Ray Create a Group
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: getgroups
+      path: /GetGroups
+      operations:
+      - name: getgroups
+        method: POST
+        description: AWS X-Ray Get All Active Groups
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: group
+      path: /Group
+      operations:
+      - name: getgroup
+        method: POST
+        description: AWS X-Ray Get a Group
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: updategroup
+      path: /UpdateGroup
+      operations:
+      - name: updategroup
+        method: POST
+        description: AWS X-Ray Update a Group
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: deletegroup
+      path: /DeleteGroup
+      operations:
+      - name: deletegroup
+        method: POST
+        description: AWS X-Ray Delete a Group
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: samplingrules
+      path: /SamplingRules
+      operations:
+      - name: getsamplingrules
+        method: POST
+        description: AWS X-Ray Get All Sampling Rules
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: createsamplingrule
+      path: /CreateSamplingRule
+      operations:
+      - name: createsamplingrule
+        method: POST
+        description: AWS X-Ray Create a Sampling Rule
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: updatesamplingrule
+      path: /UpdateSamplingRule
+      operations:
+      - name: updatesamplingrule
+        method: POST
+        description: AWS X-Ray Update a Sampling Rule
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: deletesamplingrule
+      path: /DeleteSamplingRule
+      operations:
+      - name: deletesamplingrule
+        method: POST
+        description: AWS X-Ray Delete a Sampling Rule
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: samplingtargets
+      path: /SamplingTargets
+      operations:
+      - name: getsamplingtargets
+        method: POST
+        description: AWS X-Ray Get Sampling Targets
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: encryptionconfig
+      path: /EncryptionConfig
+      operations:
+      - name: getencryptionconfig
+        method: POST
+        description: AWS X-Ray Get Encryption Configuration
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: putencryptionconfig
+      path: /PutEncryptionConfig
+      operations:
+      - name: putencryptionconfig
+        method: POST
+        description: AWS X-Ray Update Encryption Configuration
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: tags
+      path: /Tags
+      operations:
+      - name: listtagsforresource
+        method: POST
+        description: AWS X-Ray List Tags for a Resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: tagresource
+      path: /TagResource
+      operations:
+      - name: tagresource
+        method: POST
+        description: AWS X-Ray Tag a Resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: untagresource
+      path: /UntagResource
+      operations:
+      - name: untagresource
+        method: POST
+        description: AWS X-Ray Untag a Resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: insights
+      path: /Insights
+      operations:
+      - name: getinsightsummaries
+        method: POST
+        description: AWS X-Ray Get Insight Summaries
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: insight
+      path: /Insight
+      operations:
+      - name: getinsight
+        method: POST
+        description: AWS X-Ray Get Insight Details
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    port: 8080
+    namespace: aws-x-ray-rest
+    description: REST adapter for AWS X-Ray API.
+    resources:
+    - path: /Traces
+      name: puttracesegments
+      operations:
+      - method: POST
+        name: puttracesegments
+        description: AWS X-Ray Upload Trace Segments
+        call: aws-x-ray.puttracesegments
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /TraceGraph
+      name: batchgettraces
+      operations:
+      - method: POST
+        name: batchgettraces
+        description: AWS X-Ray Get a List of Traces by ID
+        call: aws-x-ray.batchgettraces
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /TraceSummaries
+      name: gettracesummaries
+      operations:
+      - method: POST
+        name: gettracesummaries
+        description: AWS X-Ray Get Trace Summaries
+        call: aws-x-ray.gettracesummaries
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /ServiceGraph
+      name: getservicegraph
+      operations:
+      - method: POST
+        name: getservicegraph
+        description: AWS X-Ray Get the Service Graph
+        call: aws-x-ray.getservicegraph
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /TimeSeriesServiceStatistics
+      name: gettimeseriesservicestatistics
+      operations:
+      - method: POST
+        name: gettimeseriesservicestatistics
+        description: AWS X-Ray Get Time Series Service Statistics
+        call: aws-x-ray.gettimeseriesservicestatistics
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /Groups
+      name: creategroup
+      operations:
+      - method: POST
+        name: creategroup
+        description: AWS X-Ray Create a Group
+        call: aws-x-ray.creategroup
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /GetGroups
+      name: getgroups
+      operations:
+      - method: POST
+        name: getgroups
+        description: AWS X-Ray Get All Active Groups
+        call: aws-x-ray.getgroups
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /Group
+      name: getgroup
+      operations:
+      - method: POST
+        name: getgroup
+        description: AWS X-Ray Get a Group
+        call: aws-x-ray.getgroup
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /UpdateGroup
+      name: updategroup
+      operations:
+      - method: POST
+        name: updategroup
+        description: AWS X-Ray Update a Group
+        call: aws-x-ray.updategroup
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /DeleteGroup
+      name: deletegroup
+      operations:
+      - method: POST
+        name: deletegroup
+        description: AWS X-Ray Delete a Group
+        call: aws-x-ray.deletegroup
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /SamplingRules
+      name: getsamplingrules
+      operations:
+      - method: POST
+        name: getsamplingrules
+        description: AWS X-Ray Get All Sampling Rules
+        call: aws-x-ray.getsamplingrules
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /CreateSamplingRule
+      name: createsamplingrule
+      operations:
+      - method: POST
+        name: createsamplingrule
+        description: AWS X-Ray Create a Sampling Rule
+        call: aws-x-ray.createsamplingrule
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /UpdateSamplingRule
+      name: updatesamplingrule
+      operations:
+      - method: POST
+        name: updatesamplingrule
+        description: AWS X-Ray Update a Sampling Rule
+        call: aws-x-ray.updatesamplingrule
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /DeleteSamplingRule
+      name: deletesamplingrule
+      operations:
+      - method: POST
+        name: deletesamplingrule
+        description: AWS X-Ray Delete a Sampling Rule
+        call: aws-x-ray.deletesamplingrule
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /SamplingTargets
+      name: getsamplingtargets
+      operations:
+      - method: POST
+        name: getsamplingtargets
+        description: AWS X-Ray Get Sampling Targets
+        call: aws-x-ray.getsamplingtargets
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /EncryptionConfig
+      name: getencryptionconfig
+      operations:
+      - method: POST
+        name: getencryptionconfig
+        description: AWS X-Ray Get Encryption Configuration
+        call: aws-x-ray.getencryptionconfig
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /PutEncryptionConfig
+      name: putencryptionconfig
+      operations:
+      - method: POST
+        name: putencryptionconfig
+        description: AWS X-Ray Update Encryption Configuration
+        call: aws-x-ray.putencryptionconfig
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /Tags
+      name: listtagsforresource
+      operations:
+      - method: POST
+        name: listtagsforresource
+        description: AWS X-Ray List Tags for a Resource
+        call: aws-x-ray.listtagsforresource
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /TagResource
+      name: tagresource
+      operations:
+      - method: POST
+        name: tagresource
+        description: AWS X-Ray Tag a Resource
+        call: aws-x-ray.tagresource
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /UntagResource
+      name: untagresource
+      operations:
+      - method: POST
+        name: untagresource
+        description: AWS X-Ray Untag a Resource
+        call: aws-x-ray.untagresource
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /Insights
+      name: getinsightsummaries
+      operations:
+      - method: POST
+        name: getinsightsummaries
+        description: AWS X-Ray Get Insight Summaries
+        call: aws-x-ray.getinsightsummaries
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /Insight
+      name: getinsight
+      operations:
+      - method: POST
+        name: getinsight
+        description: AWS X-Ray Get Insight Details
+        call: aws-x-ray.getinsight
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    port: 9090
+    namespace: aws-x-ray-mcp
+    transport: http
+    description: MCP adapter for AWS X-Ray API for AI agent use.
+    tools:
+    - name: puttracesegments
+      description: AWS X-Ray Upload Trace Segments
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: aws-x-ray.puttracesegments
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: batchgettraces
+      description: AWS X-Ray Get a List of Traces by ID
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: aws-x-ray.batchgettraces
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: gettracesummaries
+      description: AWS X-Ray Get Trace Summaries
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: aws-x-ray.gettracesummaries
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getservicegraph
+      description: AWS X-Ray Get the Service Graph
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: aws-x-ray.getservicegraph
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: gettimeseriesservicestatistics
+      description: AWS X-Ray Get Time Series Service Statistics
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: aws-x-ray.gettimeseriesservicestatistics
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: creategroup
+      description: AWS X-Ray Create a Group
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: aws-x-ray.creategroup
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getgroups
+      description: AWS X-Ray Get All Active Groups
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: aws-x-ray.getgroups
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getgroup
+      description: AWS X-Ray Get a Group
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: aws-x-ray.getgroup
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: updategroup
+      description: AWS X-Ray Update a Group
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: aws-x-ray.updategroup
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deletegroup
+      description: AWS X-Ray Delete a Group
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: aws-x-ray.deletegroup
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getsamplingrules
+      description: AWS X-Ray Get All Sampling Rules
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: aws-x-ray.getsamplingrules
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: createsamplingrule
+      description: AWS X-Ray Create a Sampling Rule
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: aws-x-ray.createsamplingrule
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: updatesamplingrule
+      description: AWS X-Ray Update a Sampling Rule
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: aws-x-ray.updatesamplingrule
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: deletesamplingrule
+      description: AWS X-Ray Delete a Sampling Rule
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: aws-x-ray.deletesamplingrule
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getsamplingtargets
+      description: AWS X-Ray Get Sampling Targets
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: aws-x-ray.getsamplingtargets
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getencryptionconfig
+      description: AWS X-Ray Get Encryption Configuration
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: aws-x-ray.getencryptionconfig
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: putencryptionconfig
+      description: AWS X-Ray Update Encryption Configuration
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: aws-x-ray.putencryptionconfig
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: listtagsforresource
+      description: AWS X-Ray List Tags for a Resource
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: aws-x-ray.listtagsforresource
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: tagresource
+      description: AWS X-Ray Tag a Resource
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: aws-x-ray.tagresource
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: untagresource
+      description: AWS X-Ray Untag a Resource
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: aws-x-ray.untagresource
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getinsightsummaries
+      description: AWS X-Ray Get Insight Summaries
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: aws-x-ray.getinsightsummaries
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: getinsight
+      description: AWS X-Ray Get Insight Details
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: aws-x-ray.getinsight
+      outputParameters:
+      - type: object
+        mapping: $.
+binds:
+- namespace: env
+  keys:
+    AWS_X_RAY_TOKEN: AWS_X_RAY_TOKEN
