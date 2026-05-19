@@ -1,0 +1,164 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: AWS X-Ray API
+  description: 'AWS X-Ray API. 3 operations. Lead operation: AWS X-Ray Tag a Resource. Self-contained Naftiko capability covering
+    one Aws X Ray business surface.'
+  tags:
+  - Aws X Ray
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AWS_X_RAY_API_KEY: AWS_X_RAY_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: aws-x-ray-general
+    baseUri: https://xray.{region}.amazonaws.com
+    description: AWS X-Ray API business capability. Self-contained, no shared references.
+    resources:
+    - name: TagResource
+      path: /TagResource
+      operations:
+      - name: tagresource
+        method: POST
+        description: AWS X-Ray Tag a Resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: Tags
+      path: /Tags
+      operations:
+      - name: listtagsforresource
+        method: POST
+        description: AWS X-Ray List Tags for a Resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: UntagResource
+      path: /UntagResource
+      operations:
+      - name: untagresource
+        method: POST
+        description: AWS X-Ray Untag a Resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: apikey
+      key: Authorization
+      value: '{{env.AWS_X_RAY_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: aws-x-ray-general-rest
+    port: 8080
+    description: REST adapter for AWS X-Ray API. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/tagresource
+      name: tagresource
+      description: REST surface for TagResource.
+      operations:
+      - method: POST
+        name: tagresource
+        description: AWS X-Ray Tag a Resource
+        call: aws-x-ray-general.tagresource
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/tags
+      name: tags
+      description: REST surface for Tags.
+      operations:
+      - method: POST
+        name: listtagsforresource
+        description: AWS X-Ray List Tags for a Resource
+        call: aws-x-ray-general.listtagsforresource
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/untagresource
+      name: untagresource
+      description: REST surface for UntagResource.
+      operations:
+      - method: POST
+        name: untagresource
+        description: AWS X-Ray Untag a Resource
+        call: aws-x-ray-general.untagresource
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: aws-x-ray-general-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for AWS X-Ray API. One tool per consumed operation, routed inline through this capability's consumes
+      block.
+    tools:
+    - name: aws-x-ray-tag-resource
+      description: AWS X-Ray Tag a Resource
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: aws-x-ray-general.tagresource
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: aws-x-ray-list-tags
+      description: AWS X-Ray List Tags for a Resource
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: aws-x-ray-general.listtagsforresource
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: aws-x-ray-untag-resource
+      description: AWS X-Ray Untag a Resource
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: aws-x-ray-general.untagresource
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

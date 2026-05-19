@@ -1,0 +1,250 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: AWS X-Ray API — Groups
+  description: 'AWS X-Ray API — Groups. 5 operations. Lead operation: AWS X-Ray Delete a Group. Self-contained Naftiko capability
+    covering one Aws X Ray business surface.'
+  tags:
+  - Aws X Ray
+  - Groups
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AWS_X_RAY_API_KEY: AWS_X_RAY_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: aws-x-ray-groups
+    baseUri: https://xray.{region}.amazonaws.com
+    description: AWS X-Ray API — Groups business capability. Self-contained, no shared references.
+    resources:
+    - name: DeleteGroup
+      path: /DeleteGroup
+      operations:
+      - name: deletegroup
+        method: POST
+        description: AWS X-Ray Delete a Group
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: GetGroups
+      path: /GetGroups
+      operations:
+      - name: getgroups
+        method: POST
+        description: AWS X-Ray Get All Active Groups
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: Group
+      path: /Group
+      operations:
+      - name: getgroup
+        method: POST
+        description: AWS X-Ray Get a Group
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: Groups
+      path: /Groups
+      operations:
+      - name: creategroup
+        method: POST
+        description: AWS X-Ray Create a Group
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: UpdateGroup
+      path: /UpdateGroup
+      operations:
+      - name: updategroup
+        method: POST
+        description: AWS X-Ray Update a Group
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: apikey
+      key: Authorization
+      value: '{{env.AWS_X_RAY_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: aws-x-ray-groups-rest
+    port: 8080
+    description: REST adapter for AWS X-Ray API — Groups. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/deletegroup
+      name: deletegroup
+      description: REST surface for DeleteGroup.
+      operations:
+      - method: POST
+        name: deletegroup
+        description: AWS X-Ray Delete a Group
+        call: aws-x-ray-groups.deletegroup
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/getgroups
+      name: getgroups
+      description: REST surface for GetGroups.
+      operations:
+      - method: POST
+        name: getgroups
+        description: AWS X-Ray Get All Active Groups
+        call: aws-x-ray-groups.getgroups
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/group
+      name: group
+      description: REST surface for Group.
+      operations:
+      - method: POST
+        name: getgroup
+        description: AWS X-Ray Get a Group
+        call: aws-x-ray-groups.getgroup
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/groups
+      name: groups
+      description: REST surface for Groups.
+      operations:
+      - method: POST
+        name: creategroup
+        description: AWS X-Ray Create a Group
+        call: aws-x-ray-groups.creategroup
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/updategroup
+      name: updategroup
+      description: REST surface for UpdateGroup.
+      operations:
+      - method: POST
+        name: updategroup
+        description: AWS X-Ray Update a Group
+        call: aws-x-ray-groups.updategroup
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: aws-x-ray-groups-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for AWS X-Ray API — Groups. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: aws-x-ray-delete-group
+      description: AWS X-Ray Delete a Group
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: aws-x-ray-groups.deletegroup
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: aws-x-ray-get-all
+      description: AWS X-Ray Get All Active Groups
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: aws-x-ray-groups.getgroups
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: aws-x-ray-get-group
+      description: AWS X-Ray Get a Group
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: aws-x-ray-groups.getgroup
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: aws-x-ray-create-group
+      description: AWS X-Ray Create a Group
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: aws-x-ray-groups.creategroup
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: aws-x-ray-update-group
+      description: AWS X-Ray Update a Group
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: aws-x-ray-groups.updategroup
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

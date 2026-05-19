@@ -1,0 +1,250 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: AWS X-Ray API — Sampling
+  description: 'AWS X-Ray API — Sampling. 5 operations. Lead operation: AWS X-Ray Create a Sampling Rule. Self-contained Naftiko
+    capability covering one Aws X Ray business surface.'
+  tags:
+  - Aws X Ray
+  - Sampling
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AWS_X_RAY_API_KEY: AWS_X_RAY_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: aws-x-ray-sampling
+    baseUri: https://xray.{region}.amazonaws.com
+    description: AWS X-Ray API — Sampling business capability. Self-contained, no shared references.
+    resources:
+    - name: CreateSamplingRule
+      path: /CreateSamplingRule
+      operations:
+      - name: createsamplingrule
+        method: POST
+        description: AWS X-Ray Create a Sampling Rule
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: DeleteSamplingRule
+      path: /DeleteSamplingRule
+      operations:
+      - name: deletesamplingrule
+        method: POST
+        description: AWS X-Ray Delete a Sampling Rule
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: SamplingRules
+      path: /SamplingRules
+      operations:
+      - name: getsamplingrules
+        method: POST
+        description: AWS X-Ray Get All Sampling Rules
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: false
+    - name: SamplingTargets
+      path: /SamplingTargets
+      operations:
+      - name: getsamplingtargets
+        method: POST
+        description: AWS X-Ray Get Sampling Targets
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: UpdateSamplingRule
+      path: /UpdateSamplingRule
+      operations:
+      - name: updatesamplingrule
+        method: POST
+        description: AWS X-Ray Update a Sampling Rule
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: apikey
+      key: Authorization
+      value: '{{env.AWS_X_RAY_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: aws-x-ray-sampling-rest
+    port: 8080
+    description: REST adapter for AWS X-Ray API — Sampling. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/createsamplingrule
+      name: createsamplingrule
+      description: REST surface for CreateSamplingRule.
+      operations:
+      - method: POST
+        name: createsamplingrule
+        description: AWS X-Ray Create a Sampling Rule
+        call: aws-x-ray-sampling.createsamplingrule
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/deletesamplingrule
+      name: deletesamplingrule
+      description: REST surface for DeleteSamplingRule.
+      operations:
+      - method: POST
+        name: deletesamplingrule
+        description: AWS X-Ray Delete a Sampling Rule
+        call: aws-x-ray-sampling.deletesamplingrule
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/samplingrules
+      name: samplingrules
+      description: REST surface for SamplingRules.
+      operations:
+      - method: POST
+        name: getsamplingrules
+        description: AWS X-Ray Get All Sampling Rules
+        call: aws-x-ray-sampling.getsamplingrules
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/samplingtargets
+      name: samplingtargets
+      description: REST surface for SamplingTargets.
+      operations:
+      - method: POST
+        name: getsamplingtargets
+        description: AWS X-Ray Get Sampling Targets
+        call: aws-x-ray-sampling.getsamplingtargets
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/updatesamplingrule
+      name: updatesamplingrule
+      description: REST surface for UpdateSamplingRule.
+      operations:
+      - method: POST
+        name: updatesamplingrule
+        description: AWS X-Ray Update a Sampling Rule
+        call: aws-x-ray-sampling.updatesamplingrule
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: aws-x-ray-sampling-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for AWS X-Ray API — Sampling. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: aws-x-ray-create-sampling
+      description: AWS X-Ray Create a Sampling Rule
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: aws-x-ray-sampling.createsamplingrule
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: aws-x-ray-delete-sampling
+      description: AWS X-Ray Delete a Sampling Rule
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: aws-x-ray-sampling.deletesamplingrule
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: aws-x-ray-get-all
+      description: AWS X-Ray Get All Sampling Rules
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: aws-x-ray-sampling.getsamplingrules
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: aws-x-ray-get-sampling
+      description: AWS X-Ray Get Sampling Targets
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: aws-x-ray-sampling.getsamplingtargets
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: aws-x-ray-update-sampling
+      description: AWS X-Ray Update a Sampling Rule
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: aws-x-ray-sampling.updatesamplingrule
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
