@@ -1,56 +1,72 @@
-# AWS X-Ray
+# AWS X-Ray (aws-x-ray)
 
 AWS X-Ray is a service that helps developers analyze and debug distributed applications by providing end-to-end tracing of requests as they travel through the application, identifying performance bottlenecks and errors. It is now part of Amazon CloudWatch Application Signals for unified observability.
 
+**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/aws-x-ray/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/aws-x-ray/refs/heads/main/apis.yml)
+
+## Scope
+
+- **Type:** Index
+
+## Tags
+
+- AWS
+- Debugging
+- Distributed Tracing
+- Microservices
+- Observability
+
+## Timestamps
+
+- **Created:** 2026-03-26
+- **Modified:** 2026-05-19
+
 ## APIs
 
-### AWS X-Ray API
-Distributed tracing API for collecting, analyzing, and visualizing traces from your application.
-- **Documentation**: https://docs.aws.amazon.com/xray/latest/devguide/aws-xray.html
-- **OpenAPI**: [openapi/aws-x-ray-openapi.yml](openapi/aws-x-ray-openapi.yml) (22 operations)
-- **API Reference**: https://docs.aws.amazon.com/xray/latest/api/Welcome.html
+### AWS X-Ray
 
-## Artifacts
+AWS X-Ray is a service that helps developers analyze and debug distributed applications by providing end-to-end tracing of requests as they travel through the application, identifying performance bottlenecks and errors. It is now part of Amazon CloudWatch Application Signals for unified observability.
 
-| Directory | Contents |
-|---|---|
-| [openapi/](openapi/) | 1 OpenAPI specification (22 operations) |
-| [json-schema/](json-schema/) | 19+ JSON Schema files |
-| [json-structure/](json-structure/) | 19 JSON Structure files |
-| [json-ld/](json-ld/) | 1 JSON-LD context file |
-| [examples/](examples/) | 19 example files |
-| [rules/](rules/) | Spectral ruleset |
-| [capabilities/](capabilities/) | Naftiko capability definitions |
-| [vocabulary/](vocabulary/) | Domain vocabulary |
+- **Human URL:** [https://aws.amazon.com/xray/](https://aws.amazon.com/xray/)
+- **Base URL:** `https://xray.{region}.amazonaws.com`
 
-## Features
+#### Tags
 
-- **End-to-End Tracing** — Trace requests from client to backend across all services.
-- **Service Map** — Visualize service dependencies and real-time health indicators.
-- **Trace Analytics** — Filter, search, and analyze traces using filter expressions and groups.
-- **Sampling Rules** — Control trace collection rates with dynamic sampling rules.
-- **Annotations and Metadata** — Add indexed annotations and non-indexed metadata to traces.
-- **Error Analysis** — Identify errors, faults, and throttling across distributed services.
-- **Latency Analysis** — Identify performance bottlenecks with latency histograms.
-- **CloudWatch Integration** — Integrated with CloudWatch Application Signals.
-- **SDK Support** — Instrument applications with SDKs for Java, Python, Go, Node.js, Ruby, and .NET.
+- AWS
+- Debugging
+- Distributed Tracing
+- Microservices
+- Observability
 
-## Use Cases
+#### Properties
 
-- **Performance Optimization** — Identify and resolve latency bottlenecks in distributed applications.
-- **Error Debugging** — Trace errors to their root cause across service boundaries.
-- **Dependency Analysis** — Understand service dependencies and impact of downstream failures.
-- **SLA Monitoring** — Monitor request latency and error rates against service level objectives.
-- **Microservices Visibility** — Gain observability into complex microservices architectures.
+- [OpenAPI](openapi/aws-x-ray-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
+- [Postman Collection](collections/aws-x-ray.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
+- [Open Collection](collections/aws-x-ray.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [JSON Schema](json-schema/aws-x-ray-trace-segment.yml) — [JSON Schema](https://json-schema.org/specification)
+- [Documentation](https://docs.aws.amazon.com/xray/latest/devguide/aws-xray.html)
+- [API Reference](https://docs.aws.amazon.com/xray/latest/api/Welcome.html)
 
-## Links
+## Common Properties
 
-- **Website**: https://aws.amazon.com/xray/
-- **Getting Started**: https://aws.amazon.com/xray/getting-started/
-- **Pricing**: https://aws.amazon.com/xray/pricing/
-- **FAQ**: https://aws.amazon.com/xray/faqs/
-- **Status**: https://health.aws.amazon.com/health/status
+- [Website](https://aws.amazon.com/xray/)
+- [Documentation](https://docs.aws.amazon.com/xray/latest/devguide/aws-xray.html)
+- [Getting Started](https://aws.amazon.com/xray/getting-started/)
+- [Pricing](https://aws.amazon.com/xray/pricing/)
+- [F A Q](https://aws.amazon.com/xray/faqs/)
+- [Terms of Service](https://aws.amazon.com/service-terms/)
+- [Privacy Policy](https://aws.amazon.com/privacy/)
+- [Support](https://aws.amazon.com/premiumsupport/)
+- [Blog](https://aws.amazon.com/blogs/devops/category/management-tools/aws-x-ray/)
+- [Status Page](https://health.aws.amazon.com/health/status)
+- [Spectral Rules](rules/aws-x-ray-spectral-rules.yml)
+- [Vocabulary](vocabulary/aws-x-ray-vocabulary.yaml)
+- [Features](undefined)
+- [Use Cases](undefined)
+- [Integrations](undefined)
+- [Integrations](https://aws.amazon.com/marketplace)
 
 ## Maintainers
 
-- **Kin Lane** — kin@apievangelist.com
+**FN:** Kin Lane
+**Email:** kin@apievangelist.com
