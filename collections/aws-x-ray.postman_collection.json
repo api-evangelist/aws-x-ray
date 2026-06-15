@@ -1,0 +1,2554 @@
+{
+  "item": [
+    {
+      "id": "8c644bed-a96e-4bd0-b55d-153c40245e6d",
+      "name": "Encryption",
+      "description": {
+        "content": "Manage encryption configuration",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "10cd8422-6f49-48fe-b306-d545f0a97964",
+          "name": "AWS X-Ray Get Encryption Configuration",
+          "request": {
+            "name": "AWS X-Ray Get Encryption Configuration",
+            "description": {
+              "content": "Retrieves the current encryption configuration for X-Ray data.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "EncryptionConfig"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "AWS region",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "03d653bf-f1ae-4ea1-92c8-efa3b94003dc",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "EncryptionConfig"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "AWS region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"EncryptionConfig\": {\n    \"KeyId\": \"string\",\n    \"Status\": \"ACTIVE\",\n    \"Type\": \"NONE\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0905f68f-ecbf-4c0a-ae7e-65a6b291b9b2",
+          "name": "AWS X-Ray Update Encryption Configuration",
+          "request": {
+            "name": "AWS X-Ray Update Encryption Configuration",
+            "description": {
+              "content": "Updates the encryption configuration for X-Ray data.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "PutEncryptionConfig"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "AWS region",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Type\": \"<string>\",\n  \"KeyId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "274b2bae-f3d8-4f81-b54b-f25c8e0ecb20",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "PutEncryptionConfig"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "AWS region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Type\": \"<string>\",\n  \"KeyId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"EncryptionConfig\": {\n    \"KeyId\": \"string\",\n    \"Status\": \"ACTIVE\",\n    \"Type\": \"NONE\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "0fea9c9a-c75b-4fa8-8e1f-527fc23ec3c9",
+      "name": "Groups",
+      "description": {
+        "content": "Manage trace groups",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "81cac2e0-05bd-499f-9414-913fa4b9489b",
+          "name": "AWS X-Ray Create a Group",
+          "request": {
+            "name": "AWS X-Ray Create a Group",
+            "description": {
+              "content": "Creates a group resource with a name and a filter expression.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Groups"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "AWS region",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"GroupName\": \"<string>\",\n  \"FilterExpression\": \"<string>\",\n  \"InsightsConfiguration\": {\n    \"InsightsEnabled\": \"<boolean>\",\n    \"NotificationsEnabled\": \"<boolean>\"\n  },\n  \"Tags\": [\n    {\n      \"Key\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    {\n      \"Key\": \"<string>\",\n      \"Value\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8364c24c-406c-4dd7-82cf-c58f5f9e93e6",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Groups"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "AWS region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"GroupName\": \"<string>\",\n  \"FilterExpression\": \"<string>\",\n  \"InsightsConfiguration\": {\n    \"InsightsEnabled\": \"<boolean>\",\n    \"NotificationsEnabled\": \"<boolean>\"\n  },\n  \"Tags\": [\n    {\n      \"Key\": \"string\",\n      \"Value\": \"string\"\n    },\n    {\n      \"Key\": \"string\",\n      \"Value\": \"string\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Group\": {\n    \"GroupName\": \"string\",\n    \"GroupARN\": \"string\",\n    \"FilterExpression\": \"string\",\n    \"InsightsConfiguration\": {\n      \"InsightsEnabled\": false,\n      \"NotificationsEnabled\": false\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "df72cd41-04df-4d4c-90dd-db7f7cc827fc",
+          "name": "AWS X-Ray Get All Active Groups",
+          "request": {
+            "name": "AWS X-Ray Get All Active Groups",
+            "description": {
+              "content": "Retrieves all active group details.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "GetGroups"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "AWS region",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"NextToken\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "53a4e7b8-ef3d-4db5-9da1-6248597ddaaf",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "GetGroups"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "AWS region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"NextToken\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Groups\": [\n    {\n      \"GroupName\": \"string\",\n      \"GroupARN\": \"string\",\n      \"FilterExpression\": \"string\",\n      \"InsightsConfiguration\": {\n        \"InsightsEnabled\": true,\n        \"NotificationsEnabled\": true\n      }\n    },\n    {\n      \"GroupName\": \"string\",\n      \"GroupARN\": \"string\",\n      \"FilterExpression\": \"string\",\n      \"InsightsConfiguration\": {\n        \"InsightsEnabled\": true,\n        \"NotificationsEnabled\": true\n      }\n    }\n  ],\n  \"NextToken\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2c33a26f-8d88-43ba-b6d0-8dafa69c94c2",
+          "name": "AWS X-Ray Get a Group",
+          "request": {
+            "name": "AWS X-Ray Get a Group",
+            "description": {
+              "content": "Retrieves group resource details.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Group"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "AWS region",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"GroupName\": \"<string>\",\n  \"GroupARN\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8881b84b-693f-4689-ac42-6727dff06d5e",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Group"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "AWS region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"GroupName\": \"<string>\",\n  \"GroupARN\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Group\": {\n    \"GroupName\": \"string\",\n    \"GroupARN\": \"string\",\n    \"FilterExpression\": \"string\",\n    \"InsightsConfiguration\": {\n      \"InsightsEnabled\": false,\n      \"NotificationsEnabled\": false\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4586ffc9-eda6-4d75-af88-8e200b9841c9",
+          "name": "AWS X-Ray Update a Group",
+          "request": {
+            "name": "AWS X-Ray Update a Group",
+            "description": {
+              "content": "Updates a group resource.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "UpdateGroup"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "AWS region",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"GroupName\": \"<string>\",\n  \"GroupARN\": \"<string>\",\n  \"FilterExpression\": \"<string>\",\n  \"InsightsConfiguration\": {\n    \"InsightsEnabled\": \"<boolean>\",\n    \"NotificationsEnabled\": \"<boolean>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7d07bc1a-eebe-4a5c-9e44-960fd8bcba17",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "UpdateGroup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "AWS region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"GroupName\": \"<string>\",\n  \"GroupARN\": \"<string>\",\n  \"FilterExpression\": \"<string>\",\n  \"InsightsConfiguration\": {\n    \"InsightsEnabled\": \"<boolean>\",\n    \"NotificationsEnabled\": \"<boolean>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Group\": {\n    \"GroupName\": \"string\",\n    \"GroupARN\": \"string\",\n    \"FilterExpression\": \"string\",\n    \"InsightsConfiguration\": {\n      \"InsightsEnabled\": false,\n      \"NotificationsEnabled\": false\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d791c9cb-cd5c-4d4d-a8cd-7c0d489a4602",
+          "name": "AWS X-Ray Delete a Group",
+          "request": {
+            "name": "AWS X-Ray Delete a Group",
+            "description": {
+              "content": "Deletes a group resource.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "DeleteGroup"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "AWS region",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"GroupName\": \"<string>\",\n  \"GroupARN\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c50aaa1b-2d5e-465c-ba97-cd662b8a1b43",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "DeleteGroup"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "AWS region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"GroupName\": \"<string>\",\n  \"GroupARN\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "cb9f1202-8f4f-4a75-9962-cd0a8ed9ac35",
+      "name": "Insights",
+      "description": {
+        "content": "Automated anomaly detection insights",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b6010519-32f4-4e39-9993-6e4bf1f1e117",
+          "name": "AWS X-Ray Get Insight Summaries",
+          "request": {
+            "name": "AWS X-Ray Get Insight Summaries",
+            "description": {
+              "content": "Retrieves the summaries of all insights for the specified group.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Insights"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "AWS region",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"StartTime\": \"<dateTime>\",\n  \"EndTime\": \"<dateTime>\",\n  \"States\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"GroupARN\": \"<string>\",\n  \"GroupName\": \"<string>\",\n  \"MaxResults\": \"<integer>\",\n  \"NextToken\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7b962970-43cc-4f27-a2e5-9dcc8bf839cb",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Insights"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "AWS region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"StartTime\": \"<dateTime>\",\n  \"EndTime\": \"<dateTime>\",\n  \"States\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"GroupARN\": \"<string>\",\n  \"GroupName\": \"<string>\",\n  \"MaxResults\": \"<integer>\",\n  \"NextToken\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"InsightSummaries\": [\n    {\n      \"InsightId\": \"string\",\n      \"GroupARN\": \"string\",\n      \"GroupName\": \"string\",\n      \"RootCauseServiceId\": {\n        \"Name\": \"string\",\n        \"Names\": [\n          \"string\",\n          \"string\"\n        ],\n        \"AccountId\": \"string\",\n        \"Type\": \"string\"\n      },\n      \"Categories\": [\n        \"FAULT\",\n        \"FAULT\"\n      ],\n      \"State\": \"CLOSED\",\n      \"StartTime\": \"1989-01-23T21:41:00.293Z\",\n      \"EndTime\": \"1949-01-16T12:58:56.668Z\",\n      \"Summary\": \"string\",\n      \"ClientRequestImpactStatistics\": {\n        \"FaultCount\": 464,\n        \"OkCount\": 7598,\n        \"TotalCount\": 85\n      },\n      \"RootCauseServiceRequestImpactStatistics\": {\n        \"FaultCount\": 752,\n        \"OkCount\": 526,\n        \"TotalCount\": 4099\n      },\n      \"TopAnomalousServices\": [\n        {\n          \"ServiceId\": {\n            \"Name\": \"string\",\n            \"Names\": [\n              \"string\",\n              \"string\"\n            ],\n            \"AccountId\": \"string\",\n            \"Type\": \"string\"\n          }\n        },\n        {\n          \"ServiceId\": {\n            \"Name\": \"string\",\n            \"Names\": [\n              \"string\",\n              \"string\"\n            ],\n            \"AccountId\": \"string\",\n            \"Type\": \"string\"\n          }\n        }\n      ],\n      \"LastUpdateTime\": \"1965-10-02T18:32:38.135Z\"\n    },\n    {\n      \"InsightId\": \"string\",\n      \"GroupARN\": \"string\",\n      \"GroupName\": \"string\",\n      \"RootCauseServiceId\": {\n        \"Name\": \"string\",\n        \"Names\": [\n          \"string\",\n          \"string\"\n        ],\n        \"AccountId\": \"string\",\n        \"Type\": \"string\"\n      },\n      \"Categories\": [\n        \"FAULT\",\n        \"FAULT\"\n      ],\n      \"State\": \"CLOSED\",\n      \"StartTime\": \"1953-03-15T10:26:08.788Z\",\n      \"EndTime\": \"1966-07-02T19:27:35.442Z\",\n      \"Summary\": \"string\",\n      \"ClientRequestImpactStatistics\": {\n        \"FaultCount\": 9342,\n        \"OkCount\": 4892,\n        \"TotalCount\": 8726\n      },\n      \"RootCauseServiceRequestImpactStatistics\": {\n        \"FaultCount\": 7851,\n        \"OkCount\": 2489,\n        \"TotalCount\": 6881\n      },\n      \"TopAnomalousServices\": [\n        {\n          \"ServiceId\": {\n            \"Name\": \"string\",\n            \"Names\": [\n              \"string\",\n              \"string\"\n            ],\n            \"AccountId\": \"string\",\n            \"Type\": \"string\"\n          }\n        },\n        {\n          \"ServiceId\": {\n            \"Name\": \"string\",\n            \"Names\": [\n              \"string\",\n              \"string\"\n            ],\n            \"AccountId\": \"string\",\n            \"Type\": \"string\"\n          }\n        }\n      ],\n      \"LastUpdateTime\": \"2025-06-18T03:25:00.644Z\"\n    }\n  ],\n  \"NextToken\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bdc012a9-c762-4f1a-b357-4066cdca3852",
+          "name": "AWS X-Ray Get Insight Details",
+          "request": {
+            "name": "AWS X-Ray Get Insight Details",
+            "description": {
+              "content": "Retrieves the summary information of an insight.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Insight"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "AWS region",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"InsightId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "00be71f8-8a9e-4219-9d4d-0d2a064a8f11",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Insight"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "AWS region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"InsightId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Insight\": {\n    \"InsightId\": \"string\",\n    \"GroupARN\": \"string\",\n    \"GroupName\": \"string\",\n    \"RootCauseServiceId\": {\n      \"Name\": \"string\",\n      \"Names\": [\n        \"string\",\n        \"string\"\n      ],\n      \"AccountId\": \"string\",\n      \"Type\": \"string\"\n    },\n    \"Categories\": [\n      \"string\",\n      \"string\"\n    ],\n    \"State\": \"CLOSED\",\n    \"StartTime\": \"2021-05-24T14:59:38.179Z\",\n    \"EndTime\": \"1986-09-29T11:54:27.871Z\",\n    \"Summary\": \"string\",\n    \"ClientRequestImpactStatistics\": {\n      \"FaultCount\": 9193,\n      \"OkCount\": 3134,\n      \"TotalCount\": 2870\n    },\n    \"RootCauseServiceRequestImpactStatistics\": {\n      \"FaultCount\": 8220,\n      \"OkCount\": 9548,\n      \"TotalCount\": 8238\n    },\n    \"TopAnomalousServices\": [\n      {\n        \"ServiceId\": {\n          \"Name\": \"string\",\n          \"Names\": [\n            \"string\",\n            \"string\"\n          ],\n          \"AccountId\": \"string\",\n          \"Type\": \"string\"\n        }\n      },\n      {\n        \"ServiceId\": {\n          \"Name\": \"string\",\n          \"Names\": [\n            \"string\",\n            \"string\"\n          ],\n          \"AccountId\": \"string\",\n          \"Type\": \"string\"\n        }\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "bfb40414-5443-4bfa-8be5-ce080329aa7e",
+      "name": "Sampling",
+      "description": {
+        "content": "Manage sampling rules",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "79f3acd7-4ac5-4576-9184-78cd6e8e7fd6",
+          "name": "AWS X-Ray Get All Sampling Rules",
+          "request": {
+            "name": "AWS X-Ray Get All Sampling Rules",
+            "description": {
+              "content": "Retrieves all sampling rules.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "SamplingRules"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "AWS region",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"NextToken\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "64e9e103-23fe-4e82-8e42-2256b618f5c9",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "SamplingRules"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "AWS region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"NextToken\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"SamplingRuleRecords\": [\n    {\n      \"SamplingRule\": {\n        \"ResourceARN\": \"string\",\n        \"Priority\": 8292,\n        \"FixedRate\": 5392.208362134126,\n        \"ReservoirSize\": 4716,\n        \"ServiceName\": \"string\",\n        \"ServiceType\": \"string\",\n        \"Host\": \"string\",\n        \"HTTPMethod\": \"string\",\n        \"URLPath\": \"string\",\n        \"Version\": 3296,\n        \"RuleName\": \"string\",\n        \"RuleARN\": \"string\",\n        \"Attributes\": {\n          \"key_0\": \"string\"\n        }\n      },\n      \"CreatedAt\": \"1949-01-03T22:05:26.351Z\",\n      \"ModifiedAt\": \"1992-06-16T01:45:24.448Z\"\n    },\n    {\n      \"SamplingRule\": {\n        \"ResourceARN\": \"string\",\n        \"Priority\": 3948,\n        \"FixedRate\": 8266.210422989845,\n        \"ReservoirSize\": 5150,\n        \"ServiceName\": \"string\",\n        \"ServiceType\": \"string\",\n        \"Host\": \"string\",\n        \"HTTPMethod\": \"string\",\n        \"URLPath\": \"string\",\n        \"Version\": 8947,\n        \"RuleName\": \"string\",\n        \"RuleARN\": \"string\",\n        \"Attributes\": {\n          \"key_0\": \"string\",\n          \"key_1\": \"string\",\n          \"key_2\": \"string\"\n        }\n      },\n      \"CreatedAt\": \"1954-09-20T14:46:59.527Z\",\n      \"ModifiedAt\": \"1959-03-02T22:29:26.976Z\"\n    }\n  ],\n  \"NextToken\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "48dfcc32-2962-4a28-82a5-f2f25d437d90",
+          "name": "AWS X-Ray Create a Sampling Rule",
+          "request": {
+            "name": "AWS X-Ray Create a Sampling Rule",
+            "description": {
+              "content": "Creates a rule to control sampling behavior for instrumented applications.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "CreateSamplingRule"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "AWS region",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"SamplingRule\": {\n    \"ResourceARN\": \"<string>\",\n    \"Priority\": \"<integer>\",\n    \"FixedRate\": \"<number>\",\n    \"ReservoirSize\": \"<integer>\",\n    \"ServiceName\": \"<string>\",\n    \"ServiceType\": \"<string>\",\n    \"Host\": \"<string>\",\n    \"HTTPMethod\": \"<string>\",\n    \"URLPath\": \"<string>\",\n    \"Version\": \"<integer>\",\n    \"RuleName\": \"<string>\",\n    \"RuleARN\": \"<string>\",\n    \"Attributes\": {\n      \"key_0\": \"<string>\"\n    }\n  },\n  \"Tags\": [\n    {\n      \"Key\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    {\n      \"Key\": \"<string>\",\n      \"Value\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b0ca567d-ae22-4d1d-82d8-8e15e14bd059",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "CreateSamplingRule"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "AWS region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"SamplingRule\": {\n    \"ResourceARN\": \"string\",\n    \"Priority\": 649,\n    \"FixedRate\": 7672.366488451486,\n    \"ReservoirSize\": 2390,\n    \"ServiceName\": \"string\",\n    \"ServiceType\": \"string\",\n    \"Host\": \"string\",\n    \"HTTPMethod\": \"string\",\n    \"URLPath\": \"string\",\n    \"Version\": 1730,\n    \"RuleName\": \"string\",\n    \"RuleARN\": \"string\",\n    \"Attributes\": {\n      \"key_0\": \"string\"\n    }\n  },\n  \"Tags\": [\n    {\n      \"Key\": \"string\",\n      \"Value\": \"string\"\n    },\n    {\n      \"Key\": \"string\",\n      \"Value\": \"string\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"SamplingRuleRecord\": {\n    \"SamplingRule\": {\n      \"ResourceARN\": \"string\",\n      \"Priority\": 811,\n      \"FixedRate\": 5294.266889639963,\n      \"ReservoirSize\": 4438,\n      \"ServiceName\": \"string\",\n      \"ServiceType\": \"string\",\n      \"Host\": \"string\",\n      \"HTTPMethod\": \"string\",\n      \"URLPath\": \"string\",\n      \"Version\": 899,\n      \"RuleName\": \"string\",\n      \"RuleARN\": \"string\",\n      \"Attributes\": {\n        \"key_0\": \"string\"\n      }\n    },\n    \"CreatedAt\": \"1957-10-06T05:41:35.118Z\",\n    \"ModifiedAt\": \"2005-08-20T16:18:02.999Z\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "00ab9bb7-a3fe-40f5-967a-47d1c93c2dbf",
+          "name": "AWS X-Ray Update a Sampling Rule",
+          "request": {
+            "name": "AWS X-Ray Update a Sampling Rule",
+            "description": {
+              "content": "Modifies a sampling rule's configuration.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "UpdateSamplingRule"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "AWS region",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"SamplingRuleUpdate\": {\n    \"RuleName\": \"<string>\",\n    \"RuleARN\": \"<string>\",\n    \"ResourceARN\": \"<string>\",\n    \"Priority\": \"<integer>\",\n    \"FixedRate\": \"<number>\",\n    \"ReservoirSize\": \"<integer>\",\n    \"Host\": \"<string>\",\n    \"ServiceName\": \"<string>\",\n    \"ServiceType\": \"<string>\",\n    \"HTTPMethod\": \"<string>\",\n    \"URLPath\": \"<string>\",\n    \"Attributes\": {\n      \"key_0\": \"<string>\"\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7c79bc24-361b-461e-a6a5-357731178db8",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "UpdateSamplingRule"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "AWS region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"SamplingRuleUpdate\": {\n    \"RuleName\": \"<string>\",\n    \"RuleARN\": \"<string>\",\n    \"ResourceARN\": \"<string>\",\n    \"Priority\": \"<integer>\",\n    \"FixedRate\": \"<number>\",\n    \"ReservoirSize\": \"<integer>\",\n    \"Host\": \"<string>\",\n    \"ServiceName\": \"<string>\",\n    \"ServiceType\": \"<string>\",\n    \"HTTPMethod\": \"<string>\",\n    \"URLPath\": \"<string>\",\n    \"Attributes\": {\n      \"key_0\": \"<string>\",\n      \"key_1\": \"<string>\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"SamplingRuleRecord\": {\n    \"SamplingRule\": {\n      \"ResourceARN\": \"string\",\n      \"Priority\": 811,\n      \"FixedRate\": 5294.266889639963,\n      \"ReservoirSize\": 4438,\n      \"ServiceName\": \"string\",\n      \"ServiceType\": \"string\",\n      \"Host\": \"string\",\n      \"HTTPMethod\": \"string\",\n      \"URLPath\": \"string\",\n      \"Version\": 899,\n      \"RuleName\": \"string\",\n      \"RuleARN\": \"string\",\n      \"Attributes\": {\n        \"key_0\": \"string\"\n      }\n    },\n    \"CreatedAt\": \"1957-10-06T05:41:35.118Z\",\n    \"ModifiedAt\": \"2005-08-20T16:18:02.999Z\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9f4e934f-e052-4ec1-9da9-5dfb82864549",
+          "name": "AWS X-Ray Delete a Sampling Rule",
+          "request": {
+            "name": "AWS X-Ray Delete a Sampling Rule",
+            "description": {
+              "content": "Deletes a sampling rule.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "DeleteSamplingRule"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "AWS region",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"RuleName\": \"<string>\",\n  \"RuleARN\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a0464e45-8b6c-4eef-a835-872a6954acd4",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "DeleteSamplingRule"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "AWS region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"RuleName\": \"<string>\",\n  \"RuleARN\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"SamplingRuleRecord\": {\n    \"SamplingRule\": {\n      \"ResourceARN\": \"string\",\n      \"Priority\": 811,\n      \"FixedRate\": 5294.266889639963,\n      \"ReservoirSize\": 4438,\n      \"ServiceName\": \"string\",\n      \"ServiceType\": \"string\",\n      \"Host\": \"string\",\n      \"HTTPMethod\": \"string\",\n      \"URLPath\": \"string\",\n      \"Version\": 899,\n      \"RuleName\": \"string\",\n      \"RuleARN\": \"string\",\n      \"Attributes\": {\n        \"key_0\": \"string\"\n      }\n    },\n    \"CreatedAt\": \"1957-10-06T05:41:35.118Z\",\n    \"ModifiedAt\": \"2005-08-20T16:18:02.999Z\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "efa6b346-ce78-46c3-81b5-d88dfdd24708",
+          "name": "AWS X-Ray Get Sampling Targets",
+          "request": {
+            "name": "AWS X-Ray Get Sampling Targets",
+            "description": {
+              "content": "Requests a sampling quota for rules that the service is using to sample requests.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "SamplingTargets"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "AWS region",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"SamplingStatisticsDocuments\": [\n    {\n      \"RuleName\": \"<string>\",\n      \"ClientID\": \"<string>\",\n      \"Timestamp\": \"<dateTime>\",\n      \"RequestCount\": \"<integer>\",\n      \"SampledCount\": \"<integer>\",\n      \"BorrowCount\": \"<integer>\"\n    },\n    {\n      \"RuleName\": \"<string>\",\n      \"ClientID\": \"<string>\",\n      \"Timestamp\": \"<dateTime>\",\n      \"RequestCount\": \"<integer>\",\n      \"SampledCount\": \"<integer>\",\n      \"BorrowCount\": \"<integer>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9118c0f2-33a5-4231-b0fa-b6ca43bf35b0",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "SamplingTargets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "AWS region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"SamplingStatisticsDocuments\": [\n    {\n      \"RuleName\": \"<string>\",\n      \"ClientID\": \"<string>\",\n      \"Timestamp\": \"<dateTime>\",\n      \"RequestCount\": \"<integer>\",\n      \"SampledCount\": \"<integer>\",\n      \"BorrowCount\": \"<integer>\"\n    },\n    {\n      \"RuleName\": \"<string>\",\n      \"ClientID\": \"<string>\",\n      \"Timestamp\": \"<dateTime>\",\n      \"RequestCount\": \"<integer>\",\n      \"SampledCount\": \"<integer>\",\n      \"BorrowCount\": \"<integer>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"SamplingTargetDocuments\": [\n    {\n      \"RuleName\": \"string\",\n      \"FixedRate\": 3558.6306312537286,\n      \"ReservoirQuota\": 6737,\n      \"ReservoirQuotaTTL\": \"2007-06-11T16:51:13.116Z\",\n      \"Interval\": 5741\n    },\n    {\n      \"RuleName\": \"string\",\n      \"FixedRate\": 2950.734675840797,\n      \"ReservoirQuota\": 6786,\n      \"ReservoirQuotaTTL\": \"1959-02-19T11:01:52.653Z\",\n      \"Interval\": 3649\n    }\n  ],\n  \"LastRuleModification\": \"1989-05-05T23:03:13.035Z\",\n  \"UnprocessedStatistics\": [\n    {\n      \"RuleName\": \"string\",\n      \"ErrorCode\": \"string\",\n      \"Message\": \"string\"\n    },\n    {\n      \"RuleName\": \"string\",\n      \"ErrorCode\": \"string\",\n      \"Message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "9e5af1d6-a857-417b-96e9-d0aa0eb6b89d",
+      "name": "Service Graph",
+      "description": {
+        "content": "Service map and statistics",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3f2efbbe-78dc-46ea-a3ff-5ca8b4bc2b27",
+          "name": "AWS X-Ray Get the Service Graph",
+          "request": {
+            "name": "AWS X-Ray Get the Service Graph",
+            "description": {
+              "content": "Retrieves a document that describes services that process incoming requests, and downstream services that they call as a result.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ServiceGraph"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "AWS region",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"StartTime\": \"<dateTime>\",\n  \"EndTime\": \"<dateTime>\",\n  \"GroupName\": \"<string>\",\n  \"GroupARN\": \"<string>\",\n  \"NextToken\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "152f4d4a-4713-4a0a-8f1a-441fdb1b2b74",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ServiceGraph"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "AWS region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"StartTime\": \"<dateTime>\",\n  \"EndTime\": \"<dateTime>\",\n  \"GroupName\": \"<string>\",\n  \"GroupARN\": \"<string>\",\n  \"NextToken\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"StartTime\": \"1976-02-28T23:25:39.933Z\",\n  \"EndTime\": \"2007-10-08T01:41:14.523Z\",\n  \"Services\": [\n    {\n      \"ReferenceId\": 8815,\n      \"Name\": \"string\",\n      \"Names\": [\n        \"string\",\n        \"string\"\n      ],\n      \"Root\": true,\n      \"AccountId\": \"string\",\n      \"Type\": \"string\",\n      \"State\": \"string\",\n      \"StartTime\": \"1961-12-16T10:51:19.514Z\",\n      \"EndTime\": \"2023-10-15T19:11:31.728Z\",\n      \"Edges\": [\n        {\n          \"ReferenceId\": 6050,\n          \"StartTime\": \"2021-12-10T03:29:35.482Z\",\n          \"EndTime\": \"1971-11-15T03:51:26.199Z\",\n          \"SummaryStatistics\": {\n            \"OkCount\": 9204,\n            \"ErrorStatistics\": {\n              \"ThrottleCount\": 6500,\n              \"OtherCount\": 5741,\n              \"TotalCount\": 8832\n            },\n            \"FaultStatistics\": {\n              \"OtherCount\": 8123,\n              \"TotalCount\": 9396\n            },\n            \"TotalCount\": 973,\n            \"TotalResponseTime\": 618.9772181318665\n          },\n          \"ResponseTimeHistogram\": [\n            {\n              \"Value\": 6170.019238256904,\n              \"Count\": 6266\n            },\n            {\n              \"Value\": 4849.989940918938,\n              \"Count\": 6582\n            }\n          ]\n        },\n        {\n          \"ReferenceId\": 8533,\n          \"StartTime\": \"2015-04-27T18:40:31.507Z\",\n          \"EndTime\": \"2025-01-04T12:04:12.781Z\",\n          \"SummaryStatistics\": {\n            \"OkCount\": 5488,\n            \"ErrorStatistics\": {\n              \"ThrottleCount\": 9012,\n              \"OtherCount\": 7702,\n              \"TotalCount\": 668\n            },\n            \"FaultStatistics\": {\n              \"OtherCount\": 9909,\n              \"TotalCount\": 39\n            },\n            \"TotalCount\": 6920,\n            \"TotalResponseTime\": 9782.59816895087\n          },\n          \"ResponseTimeHistogram\": [\n            {\n              \"Value\": 2135.9943245361014,\n              \"Count\": 6403\n            },\n            {\n              \"Value\": 4823.5869466852555,\n              \"Count\": 6561\n            }\n          ]\n        }\n      ],\n      \"SummaryStatistics\": {\n        \"OkCount\": 4344,\n        \"ErrorStatistics\": {\n          \"ThrottleCount\": 8531,\n          \"OtherCount\": 3696,\n          \"TotalCount\": 5886\n        },\n        \"FaultStatistics\": {\n          \"OtherCount\": 3297,\n          \"TotalCount\": 2373\n        },\n        \"TotalCount\": 4974,\n        \"TotalResponseTime\": 723.5044345929231\n      },\n      \"ResponseTimeHistogram\": [\n        {\n          \"Value\": 4908.475106205941,\n          \"Count\": 8794\n        },\n        {\n          \"Value\": 7464.324767595975,\n          \"Count\": 5466\n        }\n      ],\n      \"DurationHistogram\": [\n        {\n          \"Value\": 8512.79495240607,\n          \"Count\": 3239\n        },\n        {\n          \"Value\": 5907.720221192431,\n          \"Count\": 1713\n        }\n      ]\n    },\n    {\n      \"ReferenceId\": 5501,\n      \"Name\": \"string\",\n      \"Names\": [\n        \"string\",\n        \"string\"\n      ],\n      \"Root\": true,\n      \"AccountId\": \"string\",\n      \"Type\": \"string\",\n      \"State\": \"string\",\n      \"StartTime\": \"1970-01-16T14:25:42.141Z\",\n      \"EndTime\": \"1979-04-23T18:17:19.513Z\",\n      \"Edges\": [\n        {\n          \"ReferenceId\": 3535,\n          \"StartTime\": \"1983-01-28T10:48:35.390Z\",\n          \"EndTime\": \"2009-10-03T14:11:37.671Z\",\n          \"SummaryStatistics\": {\n            \"OkCount\": 7888,\n            \"ErrorStatistics\": {\n              \"ThrottleCount\": 5347,\n              \"OtherCount\": 76,\n              \"TotalCount\": 6050\n            },\n            \"FaultStatistics\": {\n              \"OtherCount\": 8593,\n              \"TotalCount\": 3346\n            },\n            \"TotalCount\": 7578,\n            \"TotalResponseTime\": 6230.434507926281\n          },\n          \"ResponseTimeHistogram\": [\n            {\n              \"Value\": 8075.077141366331,\n              \"Count\": 7631\n            },\n            {\n              \"Value\": 4533.162487076342,\n              \"Count\": 278\n            }\n          ]\n        },\n        {\n          \"ReferenceId\": 9092,\n          \"StartTime\": \"1963-02-09T21:05:26.958Z\",\n          \"EndTime\": \"1961-11-01T22:25:25.283Z\",\n          \"SummaryStatistics\": {\n            \"OkCount\": 9326,\n            \"ErrorStatistics\": {\n              \"ThrottleCount\": 8775,\n              \"OtherCount\": 3250,\n              \"TotalCount\": 5208\n            },\n            \"FaultStatistics\": {\n              \"OtherCount\": 3,\n              \"TotalCount\": 3435\n            },\n            \"TotalCount\": 8732,\n            \"TotalResponseTime\": 1286.8940039222332\n          },\n          \"ResponseTimeHistogram\": [\n            {\n              \"Value\": 9725.559211167056,\n              \"Count\": 6451\n            },\n            {\n              \"Value\": 4188.21172172001,\n              \"Count\": 4481\n            }\n          ]\n        }\n      ],\n      \"SummaryStatistics\": {\n        \"OkCount\": 8585,\n        \"ErrorStatistics\": {\n          \"ThrottleCount\": 3652,\n          \"OtherCount\": 6657,\n          \"TotalCount\": 3538\n        },\n        \"FaultStatistics\": {\n          \"OtherCount\": 8316,\n          \"TotalCount\": 9902\n        },\n        \"TotalCount\": 5937,\n        \"TotalResponseTime\": 9100.753059232551\n      },\n      \"ResponseTimeHistogram\": [\n        {\n          \"Value\": 6466.35575962823,\n          \"Count\": 5547\n        },\n        {\n          \"Value\": 7924.059151752295,\n          \"Count\": 150\n        }\n      ],\n      \"DurationHistogram\": [\n        {\n          \"Value\": 8160.477761128677,\n          \"Count\": 9203\n        },\n        {\n          \"Value\": 4101.811139659022,\n          \"Count\": 2176\n        }\n      ]\n    }\n  ],\n  \"ContainsOldGroupVersions\": true,\n  \"NextToken\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "16515048-8ed2-43f3-8d76-e5ac196b298b",
+          "name": "AWS X-Ray Get Time Series Service Statistics",
+          "request": {
+            "name": "AWS X-Ray Get Time Series Service Statistics",
+            "description": {
+              "content": "Get an aggregation of service statistics over a time period.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "TimeSeriesServiceStatistics"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "AWS region",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"StartTime\": \"<dateTime>\",\n  \"EndTime\": \"<dateTime>\",\n  \"GroupName\": \"<string>\",\n  \"GroupARN\": \"<string>\",\n  \"EntitySelectorExpression\": \"<string>\",\n  \"Period\": \"<integer>\",\n  \"ForecastStatistics\": \"<boolean>\",\n  \"NextToken\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b122448c-6bf5-49f3-81c6-485c8b863d6d",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "TimeSeriesServiceStatistics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "AWS region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"StartTime\": \"<dateTime>\",\n  \"EndTime\": \"<dateTime>\",\n  \"GroupName\": \"<string>\",\n  \"GroupARN\": \"<string>\",\n  \"EntitySelectorExpression\": \"<string>\",\n  \"Period\": \"<integer>\",\n  \"ForecastStatistics\": \"<boolean>\",\n  \"NextToken\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"TimeSeriesServiceStatistics\": [\n    {\n      \"Timestamp\": \"1958-10-21T13:25:35.933Z\",\n      \"EdgeSummaryStatistics\": {\n        \"OkCount\": 5212,\n        \"ErrorStatistics\": {\n          \"ThrottleCount\": 4341,\n          \"OtherCount\": 993,\n          \"TotalCount\": 7509\n        },\n        \"FaultStatistics\": {\n          \"OtherCount\": 2261,\n          \"TotalCount\": 4743\n        },\n        \"TotalCount\": 6668,\n        \"TotalResponseTime\": 7930.381908041749\n      },\n      \"ServiceSummaryStatistics\": {\n        \"OkCount\": 8005,\n        \"ErrorStatistics\": {\n          \"ThrottleCount\": 6279,\n          \"OtherCount\": 4046,\n          \"TotalCount\": 9097\n        },\n        \"FaultStatistics\": {\n          \"OtherCount\": 535,\n          \"TotalCount\": 4792\n        },\n        \"TotalCount\": 5345,\n        \"TotalResponseTime\": 2905.005702245398\n      },\n      \"ServiceForecastStatistics\": {\n        \"FaultCountHigh\": 4758,\n        \"FaultCountLow\": 268\n      },\n      \"ResponseTimeHistogram\": [\n        {\n          \"Value\": 678.0523352845757,\n          \"Count\": 7263\n        },\n        {\n          \"Value\": 778.1308140756082,\n          \"Count\": 5011\n        }\n      ]\n    },\n    {\n      \"Timestamp\": \"1983-02-07T22:10:22.520Z\",\n      \"EdgeSummaryStatistics\": {\n        \"OkCount\": 9201,\n        \"ErrorStatistics\": {\n          \"ThrottleCount\": 9158,\n          \"OtherCount\": 727,\n          \"TotalCount\": 3268\n        },\n        \"FaultStatistics\": {\n          \"OtherCount\": 4249,\n          \"TotalCount\": 5545\n        },\n        \"TotalCount\": 5847,\n        \"TotalResponseTime\": 2188.9583069057726\n      },\n      \"ServiceSummaryStatistics\": {\n        \"OkCount\": 9857,\n        \"ErrorStatistics\": {\n          \"ThrottleCount\": 7063,\n          \"OtherCount\": 187,\n          \"TotalCount\": 3936\n        },\n        \"FaultStatistics\": {\n          \"OtherCount\": 1960,\n          \"TotalCount\": 1539\n        },\n        \"TotalCount\": 7174,\n        \"TotalResponseTime\": 2564.6150831160917\n      },\n      \"ServiceForecastStatistics\": {\n        \"FaultCountHigh\": 5850,\n        \"FaultCountLow\": 6869\n      },\n      \"ResponseTimeHistogram\": [\n        {\n          \"Value\": 8020.158404698036,\n          \"Count\": 475\n        },\n        {\n          \"Value\": 9259.864897519634,\n          \"Count\": 7474\n        }\n      ]\n    }\n  ],\n  \"ContainsOldGroupVersions\": true,\n  \"NextToken\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "4d736d0c-ae5d-476c-a5e8-650cbb6804b3",
+      "name": "Traces",
+      "description": {
+        "content": "Upload and retrieve trace data",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b9371623-9d37-41a9-baf9-d4135ae63bc2",
+          "name": "AWS X-Ray Upload Trace Segments",
+          "request": {
+            "name": "AWS X-Ray Upload Trace Segments",
+            "description": {
+              "content": "Uploads segment documents to AWS X-Ray. A segment document can be a completed segment, an in-progress segment, or a subsegment.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Traces"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "AWS region",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"TraceSegmentDocuments\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "152d4c52-5dc5-4c66-81f4-5e8653ca858e",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Traces"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "AWS region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"TraceSegmentDocuments\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"UnprocessedTraceSegments\": [\n    {\n      \"Id\": \"string\",\n      \"ErrorCode\": \"string\",\n      \"Message\": \"string\"\n    },\n    {\n      \"Id\": \"string\",\n      \"ErrorCode\": \"string\",\n      \"Message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "760b5950-52e3-475c-a23f-b098d80ee0a8",
+          "name": "AWS X-Ray Get a List of Traces by ID",
+          "request": {
+            "name": "AWS X-Ray Get a List of Traces by ID",
+            "description": {
+              "content": "Retrieves a list of traces specified by ID. Each trace is a collection of segment documents that originates from a single request.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "TraceGraph"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "AWS region",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"TraceIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"NextToken\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b00efb47-7307-4911-866d-917864095e93",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "TraceGraph"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "AWS region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"TraceIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"NextToken\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Traces\": [\n    {\n      \"Id\": \"string\",\n      \"Duration\": 9300.450207985697,\n      \"LimitExceeded\": false,\n      \"Segments\": [\n        {\n          \"Id\": \"string\",\n          \"Document\": \"string\"\n        },\n        {\n          \"Id\": \"string\",\n          \"Document\": \"string\"\n        }\n      ]\n    },\n    {\n      \"Id\": \"string\",\n      \"Duration\": 834.4726366232669,\n      \"LimitExceeded\": true,\n      \"Segments\": [\n        {\n          \"Id\": \"string\",\n          \"Document\": \"string\"\n        },\n        {\n          \"Id\": \"string\",\n          \"Document\": \"string\"\n        }\n      ]\n    }\n  ],\n  \"UnprocessedTraceIds\": [\n    \"string\",\n    \"string\"\n  ],\n  \"NextToken\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4a23ae07-e406-4f58-8bd7-fd195752ee48",
+          "name": "AWS X-Ray Get Trace Summaries",
+          "request": {
+            "name": "AWS X-Ray Get Trace Summaries",
+            "description": {
+              "content": "Retrieves IDs and annotations for traces available for a specified time frame using an optional filter. To get the full traces, pass the trace IDs to BatchGetTraces.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "TraceSummaries"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "AWS region",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"StartTime\": \"<dateTime>\",\n  \"EndTime\": \"<dateTime>\",\n  \"TimeRangeType\": \"<string>\",\n  \"Sampling\": \"<boolean>\",\n  \"SamplingStrategy\": {\n    \"Name\": \"<string>\",\n    \"Value\": \"<number>\"\n  },\n  \"FilterExpression\": \"<string>\",\n  \"NextToken\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "fa9858bf-5209-4482-80ed-5f0aab411d0d",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "TraceSummaries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "AWS region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"StartTime\": \"<dateTime>\",\n  \"EndTime\": \"<dateTime>\",\n  \"TimeRangeType\": \"<string>\",\n  \"Sampling\": \"<boolean>\",\n  \"SamplingStrategy\": {\n    \"Name\": \"<string>\",\n    \"Value\": \"<number>\"\n  },\n  \"FilterExpression\": \"<string>\",\n  \"NextToken\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"TraceSummaries\": [\n    {\n      \"Id\": \"string\",\n      \"Duration\": 1751.1664324108033,\n      \"ResponseTime\": 4467.733888479226,\n      \"HasFault\": false,\n      \"HasError\": false,\n      \"HasThrottle\": false,\n      \"IsPartial\": false,\n      \"Http\": {\n        \"HttpURL\": \"string\",\n        \"HttpStatus\": 3428,\n        \"HttpMethod\": \"string\",\n        \"UserAgent\": \"string\",\n        \"ClientIp\": \"string\"\n      },\n      \"Annotations\": {},\n      \"Users\": [\n        {\n          \"UserName\": \"string\"\n        },\n        {\n          \"UserName\": \"string\"\n        }\n      ],\n      \"ServiceIds\": [\n        {\n          \"Name\": \"string\",\n          \"Names\": [\n            \"string\",\n            \"string\"\n          ],\n          \"AccountId\": \"string\",\n          \"Type\": \"string\"\n        },\n        {\n          \"Name\": \"string\",\n          \"Names\": [\n            \"string\",\n            \"string\"\n          ],\n          \"AccountId\": \"string\",\n          \"Type\": \"string\"\n        }\n      ],\n      \"EntryPoint\": {\n        \"Name\": \"string\",\n        \"Names\": [\n          \"string\",\n          \"string\"\n        ],\n        \"AccountId\": \"string\",\n        \"Type\": \"string\"\n      },\n      \"MatchedEventTime\": \"1972-08-16T00:59:31.736Z\"\n    },\n    {\n      \"Id\": \"string\",\n      \"Duration\": 9134.572021118445,\n      \"ResponseTime\": 4377.957831310706,\n      \"HasFault\": true,\n      \"HasError\": true,\n      \"HasThrottle\": false,\n      \"IsPartial\": false,\n      \"Http\": {\n        \"HttpURL\": \"string\",\n        \"HttpStatus\": 7693,\n        \"HttpMethod\": \"string\",\n        \"UserAgent\": \"string\",\n        \"ClientIp\": \"string\"\n      },\n      \"Annotations\": {},\n      \"Users\": [\n        {\n          \"UserName\": \"string\"\n        },\n        {\n          \"UserName\": \"string\"\n        }\n      ],\n      \"ServiceIds\": [\n        {\n          \"Name\": \"string\",\n          \"Names\": [\n            \"string\",\n            \"string\"\n          ],\n          \"AccountId\": \"string\",\n          \"Type\": \"string\"\n        },\n        {\n          \"Name\": \"string\",\n          \"Names\": [\n            \"string\",\n            \"string\"\n          ],\n          \"AccountId\": \"string\",\n          \"Type\": \"string\"\n        }\n      ],\n      \"EntryPoint\": {\n        \"Name\": \"string\",\n        \"Names\": [\n          \"string\",\n          \"string\"\n        ],\n        \"AccountId\": \"string\",\n        \"Type\": \"string\"\n      },\n      \"MatchedEventTime\": \"1991-01-24T05:01:45.806Z\"\n    }\n  ],\n  \"ApproximateTime\": \"1956-12-04T17:15:08.034Z\",\n  \"TracesProcessedCount\": 7463,\n  \"NextToken\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "afb3b685-26f2-4cc3-91a3-77170a8baae9",
+      "name": "AWS X-Ray List Tags for a Resource",
+      "request": {
+        "name": "AWS X-Ray List Tags for a Resource",
+        "description": {
+          "content": "Returns a list of tags applied to the specified X-Ray resource.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "Tags"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "description": "AWS region",
+              "type": "any",
+              "value": "{{region}}",
+              "key": "region"
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"ResourceARN\": \"<string>\",\n  \"NextToken\": \"<string>\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "id": "a907bc5d-d0f1-47b0-a7d3-8bcc192daa4f",
+          "name": "Successful response",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "Tags"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "AWS region",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<API Key>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ResourceARN\": \"<string>\",\n  \"NextToken\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"Tags\": [\n    {\n      \"Key\": \"string\",\n      \"Value\": \"string\"\n    },\n    {\n      \"Key\": \"string\",\n      \"Value\": \"string\"\n    }\n  ],\n  \"NextToken\": \"string\"\n}",
+          "cookie": [],
+          "_postman_previewlanguage": "json"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "6b422f4d-9e54-44e4-8570-3d73f24fd1b5",
+      "name": "AWS X-Ray Tag a Resource",
+      "request": {
+        "name": "AWS X-Ray Tag a Resource",
+        "description": {
+          "content": "Applies tags to an existing X-Ray resource.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "TagResource"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "description": "AWS region",
+              "type": "any",
+              "value": "{{region}}",
+              "key": "region"
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"ResourceARN\": \"<string>\",\n  \"Tags\": [\n    {\n      \"Key\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    {\n      \"Key\": \"<string>\",\n      \"Value\": \"<string>\"\n    }\n  ]\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "id": "5d8c135c-9855-4dcf-a4d0-632aeadea929",
+          "name": "Successful response",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "TagResource"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "AWS region",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<API Key>"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ResourceARN\": \"<string>\",\n  \"Tags\": [\n    {\n      \"Key\": \"string\",\n      \"Value\": \"string\"\n    },\n    {\n      \"Key\": \"string\",\n      \"Value\": \"string\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    },
+    {
+      "id": "4b29d377-5491-453d-9048-c48915793132",
+      "name": "AWS X-Ray Untag a Resource",
+      "request": {
+        "name": "AWS X-Ray Untag a Resource",
+        "description": {
+          "content": "Removes tags from an X-Ray resource.",
+          "type": "text/plain"
+        },
+        "url": {
+          "path": [
+            "UntagResource"
+          ],
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "query": [],
+          "variable": [
+            {
+              "description": "AWS region",
+              "type": "any",
+              "value": "{{region}}",
+              "key": "region"
+            }
+          ]
+        },
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "method": "POST",
+        "auth": null,
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"ResourceARN\": \"<string>\",\n  \"TagKeys\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": [
+        {
+          "id": "5a213d56-611b-4817-8014-7519bc929daf",
+          "name": "Successful response",
+          "originalRequest": {
+            "url": {
+              "path": [
+                "UntagResource"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "AWS region",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "description": {
+                  "content": "Added as a part of security scheme: apikey",
+                  "type": "text/plain"
+                },
+                "key": "Authorization",
+                "value": "<API Key>"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ResourceARN\": \"<string>\",\n  \"TagKeys\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain"
+            }
+          ],
+          "body": "",
+          "cookie": [],
+          "_postman_previewlanguage": "text"
+        }
+      ],
+      "event": [],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      }
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "AWS region",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "us-east-1",
+      "key": "region"
+    },
+    {
+      "type": "string",
+      "value": "https://xray.{{region}}.amazonaws.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "a4a488fa-a6b0-46c8-9105-a344606bf5a2",
+    "name": "AWS X-Ray API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "AWS X-Ray provides APIs for managing trace data, sampling rules, groups, and encryption configuration. X-Ray helps developers analyze and debug distributed applications by collecting trace data as requests travel through application components.\n\nContact Support:\n Name: Amazon Web Services",
+      "type": "text/plain"
+    }
+  }
+}

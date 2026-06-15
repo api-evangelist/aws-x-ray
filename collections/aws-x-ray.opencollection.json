@@ -1,0 +1,400 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "AWS X-Ray API",
+    "version": "2016-04-12"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Traces",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "AWS X-Ray Upload Trace Segments",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://xray.{region}.amazonaws.com/Traces",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Uploads segment documents to AWS X-Ray. A segment document can be a completed segment, an in-progress segment, or a subsegment."
+        },
+        {
+          "info": {
+            "name": "AWS X-Ray Get a List of Traces by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://xray.{region}.amazonaws.com/TraceGraph",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Retrieves a list of traces specified by ID. Each trace is a collection of segment documents that originates from a single request."
+        },
+        {
+          "info": {
+            "name": "AWS X-Ray Get Trace Summaries",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://xray.{region}.amazonaws.com/TraceSummaries",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Retrieves IDs and annotations for traces available for a specified time frame using an optional filter. To get the full traces, pass the trace IDs to BatchGetTraces."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Service Graph",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "AWS X-Ray Get the Service Graph",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://xray.{region}.amazonaws.com/ServiceGraph",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Retrieves a document that describes services that process incoming requests, and downstream services that they call as a result."
+        },
+        {
+          "info": {
+            "name": "AWS X-Ray Get Time Series Service Statistics",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://xray.{region}.amazonaws.com/TimeSeriesServiceStatistics",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Get an aggregation of service statistics over a time period."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Groups",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "AWS X-Ray Create a Group",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://xray.{region}.amazonaws.com/Groups",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a group resource with a name and a filter expression."
+        },
+        {
+          "info": {
+            "name": "AWS X-Ray Get All Active Groups",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://xray.{region}.amazonaws.com/GetGroups",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Retrieves all active group details."
+        },
+        {
+          "info": {
+            "name": "AWS X-Ray Get a Group",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://xray.{region}.amazonaws.com/Group",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Retrieves group resource details."
+        },
+        {
+          "info": {
+            "name": "AWS X-Ray Update a Group",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://xray.{region}.amazonaws.com/UpdateGroup",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates a group resource."
+        },
+        {
+          "info": {
+            "name": "AWS X-Ray Delete a Group",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://xray.{region}.amazonaws.com/DeleteGroup",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Deletes a group resource."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Sampling",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "AWS X-Ray Get All Sampling Rules",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://xray.{region}.amazonaws.com/SamplingRules",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Retrieves all sampling rules."
+        },
+        {
+          "info": {
+            "name": "AWS X-Ray Create a Sampling Rule",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://xray.{region}.amazonaws.com/CreateSamplingRule",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a rule to control sampling behavior for instrumented applications."
+        },
+        {
+          "info": {
+            "name": "AWS X-Ray Update a Sampling Rule",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://xray.{region}.amazonaws.com/UpdateSamplingRule",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Modifies a sampling rule's configuration."
+        },
+        {
+          "info": {
+            "name": "AWS X-Ray Delete a Sampling Rule",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://xray.{region}.amazonaws.com/DeleteSamplingRule",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Deletes a sampling rule."
+        },
+        {
+          "info": {
+            "name": "AWS X-Ray Get Sampling Targets",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://xray.{region}.amazonaws.com/SamplingTargets",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Requests a sampling quota for rules that the service is using to sample requests."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Encryption",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "AWS X-Ray Get Encryption Configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://xray.{region}.amazonaws.com/EncryptionConfig"
+          },
+          "docs": "Retrieves the current encryption configuration for X-Ray data."
+        },
+        {
+          "info": {
+            "name": "AWS X-Ray Update Encryption Configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://xray.{region}.amazonaws.com/PutEncryptionConfig",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates the encryption configuration for X-Ray data."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Default",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "AWS X-Ray List Tags for a Resource",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://xray.{region}.amazonaws.com/Tags",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Returns a list of tags applied to the specified X-Ray resource."
+        },
+        {
+          "info": {
+            "name": "AWS X-Ray Tag a Resource",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://xray.{region}.amazonaws.com/TagResource",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Applies tags to an existing X-Ray resource."
+        },
+        {
+          "info": {
+            "name": "AWS X-Ray Untag a Resource",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://xray.{region}.amazonaws.com/UntagResource",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Removes tags from an X-Ray resource."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Insights",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "AWS X-Ray Get Insight Summaries",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://xray.{region}.amazonaws.com/Insights",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Retrieves the summaries of all insights for the specified group."
+        },
+        {
+          "info": {
+            "name": "AWS X-Ray Get Insight Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://xray.{region}.amazonaws.com/Insight",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Retrieves the summary information of an insight."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
