@@ -5,7 +5,7 @@ description: >-
   tracing of requests as they travel through the application, identifying performance bottlenecks and errors. It is now
   part of Amazon CloudWatch Application Signals for unified observability.
 type: Index
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
   - AWS
   - Debugging
