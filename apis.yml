@@ -41,6 +41,14 @@ apis:
       - type: APIReference
         url: https://docs.aws.amazon.com/xray/latest/api/Welcome.html
 common:
+  - type: TrustCenter
+    url: security/aws-x-ray-trust-center.yml
+  - type: VulnerabilityDisclosure
+    url: security/aws-x-ray-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/aws-x-ray-domain-security.yml
+  - type: Authentication
+    url: authentication/aws-x-ray-authentication.yml
   - type: Website
     url: https://aws.amazon.com/xray/
   - type: Documentation
