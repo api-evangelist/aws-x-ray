@@ -41,6 +41,8 @@ apis:
       - type: APIReference
         url: https://docs.aws.amazon.com/xray/latest/api/Welcome.html
 common:
+  - type: AgenticAccess
+    url: agentic-access/aws-x-ray-agentic-access.yml
   - type: TrustCenter
     url: security/aws-x-ray-trust-center.yml
   - type: VulnerabilityDisclosure
