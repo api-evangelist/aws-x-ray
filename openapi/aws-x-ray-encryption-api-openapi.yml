@@ -1,0 +1,101 @@
+openapi: 3.1.0
+info:
+  title: AWS X-Ray Encryption API
+  description: AWS X-Ray provides APIs for managing trace data, sampling rules, groups, and encryption configuration. X-Ray helps developers analyze and debug distributed applications by collecting trace data as requests travel through application components.
+  version: '2016-04-12'
+  contact:
+    name: Amazon Web Services
+    url: https://aws.amazon.com/xray/
+servers:
+- url: https://xray.{region}.amazonaws.com
+  description: AWS X-Ray regional endpoint
+  variables:
+    region:
+      default: us-east-1
+      description: AWS region
+security:
+- aws_sig_v4: []
+tags:
+- name: Encryption
+  description: Manage encryption configuration
+paths:
+  /EncryptionConfig:
+    post:
+      operationId: GetEncryptionConfig
+      summary: AWS X-Ray Get Encryption Configuration
+      description: Retrieves the current encryption configuration for X-Ray data.
+      tags:
+      - Encryption
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  EncryptionConfig:
+                    $ref: '#/components/schemas/EncryptionConfig'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /PutEncryptionConfig:
+    post:
+      operationId: PutEncryptionConfig
+      summary: AWS X-Ray Update Encryption Configuration
+      description: Updates the encryption configuration for X-Ray data.
+      tags:
+      - Encryption
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - Type
+              properties:
+                KeyId:
+                  type: string
+                  description: 'An AWS KMS key in one of the following formats: Alias name, Key ID, or ARN.'
+                Type:
+                  type: string
+                  enum:
+                  - NONE
+                  - KMS
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  EncryptionConfig:
+                    $ref: '#/components/schemas/EncryptionConfig'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    EncryptionConfig:
+      type: object
+      properties:
+        KeyId:
+          type: string
+        Status:
+          type: string
+          enum:
+          - UPDATING
+          - ACTIVE
+        Type:
+          type: string
+          enum:
+          - NONE
+          - KMS
+  securitySchemes:
+    aws_sig_v4:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: AWS Signature Version 4

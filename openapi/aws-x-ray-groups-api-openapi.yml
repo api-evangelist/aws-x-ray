@@ -1,0 +1,241 @@
+openapi: 3.1.0
+info:
+  title: AWS X-Ray Encryption Groups API
+  description: AWS X-Ray provides APIs for managing trace data, sampling rules, groups, and encryption configuration. X-Ray helps developers analyze and debug distributed applications by collecting trace data as requests travel through application components.
+  version: '2016-04-12'
+  contact:
+    name: Amazon Web Services
+    url: https://aws.amazon.com/xray/
+servers:
+- url: https://xray.{region}.amazonaws.com
+  description: AWS X-Ray regional endpoint
+  variables:
+    region:
+      default: us-east-1
+      description: AWS region
+security:
+- aws_sig_v4: []
+tags:
+- name: Groups
+  description: Manage trace groups
+paths:
+  /Groups:
+    post:
+      operationId: CreateGroup
+      summary: AWS X-Ray Create a Group
+      description: Creates a group resource with a name and a filter expression.
+      tags:
+      - Groups
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - GroupName
+              properties:
+                GroupName:
+                  type: string
+                FilterExpression:
+                  type: string
+                InsightsConfiguration:
+                  type: object
+                  properties:
+                    InsightsEnabled:
+                      type: boolean
+                    NotificationsEnabled:
+                      type: boolean
+                Tags:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/Tag'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Group:
+                    $ref: '#/components/schemas/Group'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /GetGroups:
+    post:
+      operationId: GetGroups
+      summary: AWS X-Ray Get All Active Groups
+      description: Retrieves all active group details.
+      tags:
+      - Groups
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                NextToken:
+                  type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Groups:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/GroupSummary'
+                  NextToken:
+                    type: string
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /Group:
+    post:
+      operationId: GetGroup
+      summary: AWS X-Ray Get a Group
+      description: Retrieves group resource details.
+      tags:
+      - Groups
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                GroupName:
+                  type: string
+                GroupARN:
+                  type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Group:
+                    $ref: '#/components/schemas/Group'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /UpdateGroup:
+    post:
+      operationId: UpdateGroup
+      summary: AWS X-Ray Update a Group
+      description: Updates a group resource.
+      tags:
+      - Groups
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                GroupName:
+                  type: string
+                GroupARN:
+                  type: string
+                FilterExpression:
+                  type: string
+                InsightsConfiguration:
+                  type: object
+                  properties:
+                    InsightsEnabled:
+                      type: boolean
+                    NotificationsEnabled:
+                      type: boolean
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Group:
+                    $ref: '#/components/schemas/Group'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /DeleteGroup:
+    post:
+      operationId: DeleteGroup
+      summary: AWS X-Ray Delete a Group
+      description: Deletes a group resource.
+      tags:
+      - Groups
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                GroupName:
+                  type: string
+                GroupARN:
+                  type: string
+      responses:
+        '200':
+          description: Successful response
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    GroupSummary:
+      type: object
+      properties:
+        GroupName:
+          type: string
+        GroupARN:
+          type: string
+        FilterExpression:
+          type: string
+        InsightsConfiguration:
+          type: object
+          properties:
+            InsightsEnabled:
+              type: boolean
+            NotificationsEnabled:
+              type: boolean
+    Group:
+      type: object
+      properties:
+        GroupName:
+          type: string
+        GroupARN:
+          type: string
+        FilterExpression:
+          type: string
+        InsightsConfiguration:
+          type: object
+          properties:
+            InsightsEnabled:
+              type: boolean
+            NotificationsEnabled:
+              type: boolean
+    Tag:
+      type: object
+      required:
+      - Key
+      - Value
+      properties:
+        Key:
+          type: string
+        Value:
+          type: string
+  securitySchemes:
+    aws_sig_v4:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: AWS Signature Version 4

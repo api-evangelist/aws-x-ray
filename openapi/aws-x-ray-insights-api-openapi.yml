@@ -1,0 +1,251 @@
+openapi: 3.1.0
+info:
+  title: AWS X-Ray Encryption Insights API
+  description: AWS X-Ray provides APIs for managing trace data, sampling rules, groups, and encryption configuration. X-Ray helps developers analyze and debug distributed applications by collecting trace data as requests travel through application components.
+  version: '2016-04-12'
+  contact:
+    name: Amazon Web Services
+    url: https://aws.amazon.com/xray/
+servers:
+- url: https://xray.{region}.amazonaws.com
+  description: AWS X-Ray regional endpoint
+  variables:
+    region:
+      default: us-east-1
+      description: AWS region
+security:
+- aws_sig_v4: []
+tags:
+- name: Insights
+  description: Automated anomaly detection insights
+paths:
+  /Insights:
+    post:
+      operationId: GetInsightSummaries
+      summary: AWS X-Ray Get Insight Summaries
+      description: Retrieves the summaries of all insights for the specified group.
+      tags:
+      - Insights
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - StartTime
+              - EndTime
+              properties:
+                States:
+                  type: array
+                  items:
+                    type: string
+                    enum:
+                    - ACTIVE
+                    - CLOSED
+                GroupARN:
+                  type: string
+                GroupName:
+                  type: string
+                StartTime:
+                  type: string
+                  format: date-time
+                EndTime:
+                  type: string
+                  format: date-time
+                MaxResults:
+                  type: integer
+                NextToken:
+                  type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  InsightSummaries:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/InsightSummary'
+                  NextToken:
+                    type: string
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /Insight:
+    post:
+      operationId: GetInsight
+      summary: AWS X-Ray Get Insight Details
+      description: Retrieves the summary information of an insight.
+      tags:
+      - Insights
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - InsightId
+              properties:
+                InsightId:
+                  type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Insight:
+                    $ref: '#/components/schemas/Insight'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    Insight:
+      type: object
+      properties:
+        InsightId:
+          type: string
+        GroupARN:
+          type: string
+        GroupName:
+          type: string
+        RootCauseServiceId:
+          $ref: '#/components/schemas/ServiceId'
+        Categories:
+          type: array
+          items:
+            type: string
+        State:
+          type: string
+          enum:
+          - ACTIVE
+          - CLOSED
+        StartTime:
+          type: string
+          format: date-time
+        EndTime:
+          type: string
+          format: date-time
+        Summary:
+          type: string
+        ClientRequestImpactStatistics:
+          type: object
+          properties:
+            FaultCount:
+              type: integer
+              format: int64
+            OkCount:
+              type: integer
+              format: int64
+            TotalCount:
+              type: integer
+              format: int64
+        RootCauseServiceRequestImpactStatistics:
+          type: object
+          properties:
+            FaultCount:
+              type: integer
+              format: int64
+            OkCount:
+              type: integer
+              format: int64
+            TotalCount:
+              type: integer
+              format: int64
+        TopAnomalousServices:
+          type: array
+          items:
+            type: object
+            properties:
+              ServiceId:
+                $ref: '#/components/schemas/ServiceId'
+    InsightSummary:
+      type: object
+      properties:
+        InsightId:
+          type: string
+        GroupARN:
+          type: string
+        GroupName:
+          type: string
+        RootCauseServiceId:
+          $ref: '#/components/schemas/ServiceId'
+        Categories:
+          type: array
+          items:
+            type: string
+            enum:
+            - FAULT
+        State:
+          type: string
+          enum:
+          - ACTIVE
+          - CLOSED
+        StartTime:
+          type: string
+          format: date-time
+        EndTime:
+          type: string
+          format: date-time
+        Summary:
+          type: string
+        ClientRequestImpactStatistics:
+          type: object
+          properties:
+            FaultCount:
+              type: integer
+              format: int64
+            OkCount:
+              type: integer
+              format: int64
+            TotalCount:
+              type: integer
+              format: int64
+        RootCauseServiceRequestImpactStatistics:
+          type: object
+          properties:
+            FaultCount:
+              type: integer
+              format: int64
+            OkCount:
+              type: integer
+              format: int64
+            TotalCount:
+              type: integer
+              format: int64
+        TopAnomalousServices:
+          type: array
+          items:
+            type: object
+            properties:
+              ServiceId:
+                $ref: '#/components/schemas/ServiceId'
+        LastUpdateTime:
+          type: string
+          format: date-time
+    ServiceId:
+      type: object
+      properties:
+        Name:
+          type: string
+        Names:
+          type: array
+          items:
+            type: string
+        AccountId:
+          type: string
+        Type:
+          type: string
+  securitySchemes:
+    aws_sig_v4:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: AWS Signature Version 4

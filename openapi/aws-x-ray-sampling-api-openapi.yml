@@ -1,0 +1,323 @@
+openapi: 3.1.0
+info:
+  title: AWS X-Ray Encryption Sampling API
+  description: AWS X-Ray provides APIs for managing trace data, sampling rules, groups, and encryption configuration. X-Ray helps developers analyze and debug distributed applications by collecting trace data as requests travel through application components.
+  version: '2016-04-12'
+  contact:
+    name: Amazon Web Services
+    url: https://aws.amazon.com/xray/
+servers:
+- url: https://xray.{region}.amazonaws.com
+  description: AWS X-Ray regional endpoint
+  variables:
+    region:
+      default: us-east-1
+      description: AWS region
+security:
+- aws_sig_v4: []
+tags:
+- name: Sampling
+  description: Manage sampling rules
+paths:
+  /SamplingRules:
+    post:
+      operationId: GetSamplingRules
+      summary: AWS X-Ray Get All Sampling Rules
+      description: Retrieves all sampling rules.
+      tags:
+      - Sampling
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                NextToken:
+                  type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  SamplingRuleRecords:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/SamplingRuleRecord'
+                  NextToken:
+                    type: string
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /CreateSamplingRule:
+    post:
+      operationId: CreateSamplingRule
+      summary: AWS X-Ray Create a Sampling Rule
+      description: Creates a rule to control sampling behavior for instrumented applications.
+      tags:
+      - Sampling
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - SamplingRule
+              properties:
+                SamplingRule:
+                  $ref: '#/components/schemas/SamplingRule'
+                Tags:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/Tag'
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  SamplingRuleRecord:
+                    $ref: '#/components/schemas/SamplingRuleRecord'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /UpdateSamplingRule:
+    post:
+      operationId: UpdateSamplingRule
+      summary: AWS X-Ray Update a Sampling Rule
+      description: Modifies a sampling rule's configuration.
+      tags:
+      - Sampling
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - SamplingRuleUpdate
+              properties:
+                SamplingRuleUpdate:
+                  type: object
+                  properties:
+                    RuleName:
+                      type: string
+                    RuleARN:
+                      type: string
+                    ResourceARN:
+                      type: string
+                    Priority:
+                      type: integer
+                    FixedRate:
+                      type: number
+                    ReservoirSize:
+                      type: integer
+                    Host:
+                      type: string
+                    ServiceName:
+                      type: string
+                    ServiceType:
+                      type: string
+                    HTTPMethod:
+                      type: string
+                    URLPath:
+                      type: string
+                    Attributes:
+                      type: object
+                      additionalProperties:
+                        type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  SamplingRuleRecord:
+                    $ref: '#/components/schemas/SamplingRuleRecord'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /DeleteSamplingRule:
+    post:
+      operationId: DeleteSamplingRule
+      summary: AWS X-Ray Delete a Sampling Rule
+      description: Deletes a sampling rule.
+      tags:
+      - Sampling
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                RuleName:
+                  type: string
+                RuleARN:
+                  type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  SamplingRuleRecord:
+                    $ref: '#/components/schemas/SamplingRuleRecord'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /SamplingTargets:
+    post:
+      operationId: GetSamplingTargets
+      summary: AWS X-Ray Get Sampling Targets
+      description: Requests a sampling quota for rules that the service is using to sample requests.
+      tags:
+      - Sampling
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - SamplingStatisticsDocuments
+              properties:
+                SamplingStatisticsDocuments:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      RuleName:
+                        type: string
+                      ClientID:
+                        type: string
+                      Timestamp:
+                        type: string
+                        format: date-time
+                      RequestCount:
+                        type: integer
+                      SampledCount:
+                        type: integer
+                      BorrowCount:
+                        type: integer
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  SamplingTargetDocuments:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        RuleName:
+                          type: string
+                        FixedRate:
+                          type: number
+                        ReservoirQuota:
+                          type: integer
+                        ReservoirQuotaTTL:
+                          type: string
+                          format: date-time
+                        Interval:
+                          type: integer
+                  LastRuleModification:
+                    type: string
+                    format: date-time
+                  UnprocessedStatistics:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        RuleName:
+                          type: string
+                        ErrorCode:
+                          type: string
+                        Message:
+                          type: string
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    Tag:
+      type: object
+      required:
+      - Key
+      - Value
+      properties:
+        Key:
+          type: string
+        Value:
+          type: string
+    SamplingRuleRecord:
+      type: object
+      properties:
+        SamplingRule:
+          $ref: '#/components/schemas/SamplingRule'
+        CreatedAt:
+          type: string
+          format: date-time
+        ModifiedAt:
+          type: string
+          format: date-time
+    SamplingRule:
+      type: object
+      required:
+      - ResourceARN
+      - Priority
+      - FixedRate
+      - ReservoirSize
+      - ServiceName
+      - ServiceType
+      - Host
+      - HTTPMethod
+      - URLPath
+      - Version
+      properties:
+        RuleName:
+          type: string
+        RuleARN:
+          type: string
+        ResourceARN:
+          type: string
+        Priority:
+          type: integer
+        FixedRate:
+          type: number
+        ReservoirSize:
+          type: integer
+        ServiceName:
+          type: string
+        ServiceType:
+          type: string
+        Host:
+          type: string
+        HTTPMethod:
+          type: string
+        URLPath:
+          type: string
+        Version:
+          type: integer
+        Attributes:
+          type: object
+          additionalProperties:
+            type: string
+  securitySchemes:
+    aws_sig_v4:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: AWS Signature Version 4
