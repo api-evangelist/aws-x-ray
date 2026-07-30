@@ -5,7 +5,20 @@ description: >-
   tracing of requests as they travel through the application, identifying performance bottlenecks and errors. It is now
   part of Amazon CloudWatch Application Signals for unified observability.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/aws-x-ray.png
 tags:
   - AWS
   - Debugging
@@ -17,30 +30,153 @@ created: '2026-03-26'
 modified: '2026-05-19'
 specificationVersion: '0.19'
 apis:
-  - aid: aws-x-ray:aws-x-ray
-    name: AWS X-Ray
-    description: >-
-      AWS X-Ray is a service that helps developers analyze and debug distributed applications by providing end-to-end
-      tracing of requests as they travel through the application, identifying performance bottlenecks and errors. It is
-      now part of Amazon CloudWatch Application Signals for unified observability.
-    humanURL: https://aws.amazon.com/xray/
-    baseURL: https://xray.{region}.amazonaws.com
-    tags:
-      - AWS
-      - Debugging
-      - Distributed Tracing
-      - Microservices
-      - Observability
-    properties:
-      - type: OpenAPI
-        url: openapi/aws-x-ray-openapi.yml
-      - type: JSONSchema
-        url: json-schema/aws-x-ray-trace-segment.yml
-      - type: Documentation
-        url: https://docs.aws.amazon.com/xray/latest/devguide/aws-xray.html
-      - type: APIReference
-        url: https://docs.aws.amazon.com/xray/latest/api/Welcome.html
+- aid: aws-x-ray:aws-x-ray-encryption-api
+  name: AWS X-Ray Encryption API
+  description: Manage encryption configuration
+  humanURL: https://aws.amazon.com/xray/
+  baseURL: https://xray.{region}.amazonaws.com
+  tags:
+  - Encryption
+  properties:
+  - type: OpenAPI
+    url: openapi/aws-x-ray-encryption-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/aws-x-ray-trace-segment.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/xray/latest/devguide/aws-xray.html
+  - type: APIReference
+    url: https://docs.aws.amazon.com/xray/latest/api/Welcome.html
+- aid: aws-x-ray:aws-x-ray-groups-api
+  name: AWS X-Ray Groups API
+  description: Manage trace groups
+  humanURL: https://aws.amazon.com/xray/
+  baseURL: https://xray.{region}.amazonaws.com
+  tags:
+  - Groups
+  properties:
+  - type: OpenAPI
+    url: openapi/aws-x-ray-groups-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/aws-x-ray-trace-segment.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/xray/latest/devguide/aws-xray.html
+  - type: APIReference
+    url: https://docs.aws.amazon.com/xray/latest/api/Welcome.html
+- aid: aws-x-ray:aws-x-ray-insights-api
+  name: AWS X-Ray Insights API
+  description: Automated anomaly detection insights
+  humanURL: https://aws.amazon.com/xray/
+  baseURL: https://xray.{region}.amazonaws.com
+  tags:
+  - Insights
+  properties:
+  - type: OpenAPI
+    url: openapi/aws-x-ray-insights-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/aws-x-ray-trace-segment.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/xray/latest/devguide/aws-xray.html
+  - type: APIReference
+    url: https://docs.aws.amazon.com/xray/latest/api/Welcome.html
+- aid: aws-x-ray:aws-x-ray-sampling-api
+  name: AWS X-Ray Sampling API
+  description: Manage sampling rules
+  humanURL: https://aws.amazon.com/xray/
+  baseURL: https://xray.{region}.amazonaws.com
+  tags:
+  - Sampling
+  properties:
+  - type: OpenAPI
+    url: openapi/aws-x-ray-sampling-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/aws-x-ray-trace-segment.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/xray/latest/devguide/aws-xray.html
+  - type: APIReference
+    url: https://docs.aws.amazon.com/xray/latest/api/Welcome.html
+- aid: aws-x-ray:aws-x-ray-service-graph-api
+  name: AWS X-Ray Service Graph API
+  description: Service map and statistics
+  humanURL: https://aws.amazon.com/xray/
+  baseURL: https://xray.{region}.amazonaws.com
+  tags:
+  - Service Graph
+  properties:
+  - type: OpenAPI
+    url: openapi/aws-x-ray-service-graph-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/aws-x-ray-trace-segment.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/xray/latest/devguide/aws-xray.html
+  - type: APIReference
+    url: https://docs.aws.amazon.com/xray/latest/api/Welcome.html
+- aid: aws-x-ray:aws-x-ray-tagresource-api
+  name: AWS X-Ray TagResource API
+  description: The TagResource API from AWS X-Ray — 1 operation(s) for tagresource.
+  humanURL: https://aws.amazon.com/xray/
+  baseURL: https://xray.{region}.amazonaws.com
+  tags:
+  - TagResource
+  properties:
+  - type: OpenAPI
+    url: openapi/aws-x-ray-tagresource-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/aws-x-ray-trace-segment.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/xray/latest/devguide/aws-xray.html
+  - type: APIReference
+    url: https://docs.aws.amazon.com/xray/latest/api/Welcome.html
+- aid: aws-x-ray:aws-x-ray-tags-api
+  name: AWS X-Ray Tags API
+  description: The Tags API from AWS X-Ray — 1 operation(s) for tags.
+  humanURL: https://aws.amazon.com/xray/
+  baseURL: https://xray.{region}.amazonaws.com
+  tags:
+  - Tags
+  properties:
+  - type: OpenAPI
+    url: openapi/aws-x-ray-tags-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/aws-x-ray-trace-segment.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/xray/latest/devguide/aws-xray.html
+  - type: APIReference
+    url: https://docs.aws.amazon.com/xray/latest/api/Welcome.html
+- aid: aws-x-ray:aws-x-ray-traces-api
+  name: AWS X-Ray Traces API
+  description: Upload and retrieve trace data
+  humanURL: https://aws.amazon.com/xray/
+  baseURL: https://xray.{region}.amazonaws.com
+  tags:
+  - Traces
+  properties:
+  - type: OpenAPI
+    url: openapi/aws-x-ray-traces-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/aws-x-ray-trace-segment.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/xray/latest/devguide/aws-xray.html
+  - type: APIReference
+    url: https://docs.aws.amazon.com/xray/latest/api/Welcome.html
+- aid: aws-x-ray:aws-x-ray-untagresource-api
+  name: AWS X-Ray UntagResource API
+  description: The UntagResource API from AWS X-Ray — 1 operation(s) for untagresource.
+  humanURL: https://aws.amazon.com/xray/
+  baseURL: https://xray.{region}.amazonaws.com
+  tags:
+  - UntagResource
+  properties:
+  - type: OpenAPI
+    url: openapi/aws-x-ray-untagresource-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/aws-x-ray-trace-segment.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/xray/latest/devguide/aws-xray.html
+  - type: APIReference
+    url: https://docs.aws.amazon.com/xray/latest/api/Welcome.html
 common:
+  - type: PostmanWorkspace
+    url: https://www.postman.com/kinlaneapi/aws-x-ray/overview
   - type: AgenticAccess
     url: agentic-access/aws-x-ray-agentic-access.yml
   - type: TrustCenter
