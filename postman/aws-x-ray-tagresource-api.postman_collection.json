@@ -1,0 +1,141 @@
+{
+  "info": {
+    "_postman_id": "8428b3ce-27dc-400b-a7ac-73fb8ccbf50a",
+    "name": "AWS X-Ray Encryption TagResource API",
+    "description": "AWS X-Ray provides APIs for managing trace data, sampling rules, groups, and encryption configuration. X-Ray helps developers analyze and debug distributed applications by collecting trace data as requests travel through application components.\n\nContact Support:\n Name: Amazon Web Services",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:07:51.000Z",
+    "updatedAt": "2026-07-28T01:07:51.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-8428b3ce-27dc-400b-a7ac-73fb8ccbf50a"
+  },
+  "item": [
+    {
+      "name": "TagResource",
+      "item": [
+        {
+          "name": "AWS X-Ray Tag a Resource",
+          "id": "ca27e017-93c6-4678-893c-4b1e3c86efe7",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ResourceARN\": \"<string>\",\n  \"Tags\": [\n    {\n      \"Key\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    {\n      \"Key\": \"<string>\",\n      \"Value\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/TagResource",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "TagResource"
+              ]
+            },
+            "description": "Applies tags to an existing X-Ray resource."
+          },
+          "response": [
+            {
+              "id": "4aab3d0c-6ef1-4fe5-8b1b-099269613291",
+              "name": "Successful response",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ResourceARN\": \"<string>\",\n  \"Tags\": [\n    {\n      \"Key\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    {\n      \"Key\": \"<string>\",\n      \"Value\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/TagResource",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "TagResource"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T01:07:51.000Z",
+              "updatedAt": "2026-07-28T01:07:51.000Z",
+              "uid": "35240-4aab3d0c-6ef1-4fe5-8b1b-099269613291"
+            }
+          ],
+          "createdAt": "2026-07-28T01:07:51.000Z",
+          "updatedAt": "2026-07-28T01:07:51.000Z",
+          "uid": "35240-ca27e017-93c6-4678-893c-4b1e3c86efe7"
+        }
+      ],
+      "id": "2671f3cc-2e79-48a5-98da-1d37fb105dbb",
+      "createdAt": "2026-07-28T01:07:51.000Z",
+      "updatedAt": "2026-07-28T01:07:51.000Z",
+      "uid": "35240-2671f3cc-2e79-48a5-98da-1d37fb105dbb"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "us-east-1"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://xray.{{region}}.amazonaws.com"
+    }
+  ]
+}

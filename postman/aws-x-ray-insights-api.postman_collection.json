@@ -1,0 +1,264 @@
+{
+  "info": {
+    "_postman_id": "596e1e9e-2f4a-4c0e-8e0d-7de42428dc0c",
+    "name": "AWS X-Ray Encryption Insights API",
+    "description": "AWS X-Ray provides APIs for managing trace data, sampling rules, groups, and encryption configuration. X-Ray helps developers analyze and debug distributed applications by collecting trace data as requests travel through application components.\n\nContact Support:\n Name: Amazon Web Services",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:07:48.000Z",
+    "updatedAt": "2026-07-28T01:07:48.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-596e1e9e-2f4a-4c0e-8e0d-7de42428dc0c"
+  },
+  "item": [
+    {
+      "name": "Insights",
+      "item": [
+        {
+          "name": "AWS X-Ray Get Insight Summaries",
+          "id": "29df5f4f-2929-41fe-be08-dd03360427a2",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"StartTime\": \"<dateTime>\",\n  \"EndTime\": \"<dateTime>\",\n  \"States\": [\n    \"CLOSED\",\n    \"CLOSED\"\n  ],\n  \"GroupARN\": \"<string>\",\n  \"GroupName\": \"<string>\",\n  \"MaxResults\": \"<integer>\",\n  \"NextToken\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/Insights",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "Insights"
+              ]
+            },
+            "description": "Retrieves the summaries of all insights for the specified group."
+          },
+          "response": [
+            {
+              "id": "26fec0e8-3eac-4dc9-91e7-3c6fcacc12f5",
+              "name": "Successful response",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"StartTime\": \"<dateTime>\",\n  \"EndTime\": \"<dateTime>\",\n  \"States\": [\n    \"CLOSED\",\n    \"CLOSED\"\n  ],\n  \"GroupARN\": \"<string>\",\n  \"GroupName\": \"<string>\",\n  \"MaxResults\": \"<integer>\",\n  \"NextToken\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/Insights",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Insights"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"InsightSummaries\": [\n    {\n      \"InsightId\": \"<string>\",\n      \"GroupARN\": \"<string>\",\n      \"GroupName\": \"<string>\",\n      \"RootCauseServiceId\": {\n        \"Name\": \"<string>\",\n        \"Names\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"AccountId\": \"<string>\",\n        \"Type\": \"<string>\"\n      },\n      \"Categories\": [\n        \"FAULT\",\n        \"FAULT\"\n      ],\n      \"State\": \"ACTIVE\",\n      \"StartTime\": \"<dateTime>\",\n      \"EndTime\": \"<dateTime>\",\n      \"Summary\": \"<string>\",\n      \"ClientRequestImpactStatistics\": {\n        \"FaultCount\": \"<long>\",\n        \"OkCount\": \"<long>\",\n        \"TotalCount\": \"<long>\"\n      },\n      \"RootCauseServiceRequestImpactStatistics\": {\n        \"FaultCount\": \"<long>\",\n        \"OkCount\": \"<long>\",\n        \"TotalCount\": \"<long>\"\n      },\n      \"TopAnomalousServices\": [\n        {\n          \"ServiceId\": {\n            \"Name\": \"<string>\",\n            \"Names\": [\n              \"<string>\",\n              \"<string>\"\n            ],\n            \"AccountId\": \"<string>\",\n            \"Type\": \"<string>\"\n          }\n        },\n        {\n          \"ServiceId\": {\n            \"Name\": \"<string>\",\n            \"Names\": [\n              \"<string>\",\n              \"<string>\"\n            ],\n            \"AccountId\": \"<string>\",\n            \"Type\": \"<string>\"\n          }\n        }\n      ],\n      \"LastUpdateTime\": \"<dateTime>\"\n    },\n    {\n      \"InsightId\": \"<string>\",\n      \"GroupARN\": \"<string>\",\n      \"GroupName\": \"<string>\",\n      \"RootCauseServiceId\": {\n        \"Name\": \"<string>\",\n        \"Names\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"AccountId\": \"<string>\",\n        \"Type\": \"<string>\"\n      },\n      \"Categories\": [\n        \"FAULT\",\n        \"FAULT\"\n      ],\n      \"State\": \"CLOSED\",\n      \"StartTime\": \"<dateTime>\",\n      \"EndTime\": \"<dateTime>\",\n      \"Summary\": \"<string>\",\n      \"ClientRequestImpactStatistics\": {\n        \"FaultCount\": \"<long>\",\n        \"OkCount\": \"<long>\",\n        \"TotalCount\": \"<long>\"\n      },\n      \"RootCauseServiceRequestImpactStatistics\": {\n        \"FaultCount\": \"<long>\",\n        \"OkCount\": \"<long>\",\n        \"TotalCount\": \"<long>\"\n      },\n      \"TopAnomalousServices\": [\n        {\n          \"ServiceId\": {\n            \"Name\": \"<string>\",\n            \"Names\": [\n              \"<string>\",\n              \"<string>\"\n            ],\n            \"AccountId\": \"<string>\",\n            \"Type\": \"<string>\"\n          }\n        },\n        {\n          \"ServiceId\": {\n            \"Name\": \"<string>\",\n            \"Names\": [\n              \"<string>\",\n              \"<string>\"\n            ],\n            \"AccountId\": \"<string>\",\n            \"Type\": \"<string>\"\n          }\n        }\n      ],\n      \"LastUpdateTime\": \"<dateTime>\"\n    }\n  ],\n  \"NextToken\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T01:07:49.000Z",
+              "updatedAt": "2026-07-28T01:07:49.000Z",
+              "uid": "35240-26fec0e8-3eac-4dc9-91e7-3c6fcacc12f5"
+            }
+          ],
+          "createdAt": "2026-07-28T01:07:49.000Z",
+          "updatedAt": "2026-07-28T01:07:49.000Z",
+          "uid": "35240-29df5f4f-2929-41fe-be08-dd03360427a2"
+        }
+      ],
+      "id": "ec6f46ff-6393-483a-804f-25d0ef862f9b",
+      "createdAt": "2026-07-28T01:07:49.000Z",
+      "updatedAt": "2026-07-28T01:07:49.000Z",
+      "uid": "35240-ec6f46ff-6393-483a-804f-25d0ef862f9b"
+    },
+    {
+      "name": "Insight",
+      "item": [
+        {
+          "name": "AWS X-Ray Get Insight Details",
+          "id": "e766b47f-bf5b-407c-951a-fa234e6a9790",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"InsightId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/Insight",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "Insight"
+              ]
+            },
+            "description": "Retrieves the summary information of an insight."
+          },
+          "response": [
+            {
+              "id": "17e5975e-73fc-4d72-8d7d-44c503a247ba",
+              "name": "Successful response",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"InsightId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/Insight",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Insight"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"Insight\": {\n    \"InsightId\": \"<string>\",\n    \"GroupARN\": \"<string>\",\n    \"GroupName\": \"<string>\",\n    \"RootCauseServiceId\": {\n      \"Name\": \"<string>\",\n      \"Names\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"AccountId\": \"<string>\",\n      \"Type\": \"<string>\"\n    },\n    \"Categories\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"State\": \"CLOSED\",\n    \"StartTime\": \"<dateTime>\",\n    \"EndTime\": \"<dateTime>\",\n    \"Summary\": \"<string>\",\n    \"ClientRequestImpactStatistics\": {\n      \"FaultCount\": \"<long>\",\n      \"OkCount\": \"<long>\",\n      \"TotalCount\": \"<long>\"\n    },\n    \"RootCauseServiceRequestImpactStatistics\": {\n      \"FaultCount\": \"<long>\",\n      \"OkCount\": \"<long>\",\n      \"TotalCount\": \"<long>\"\n    },\n    \"TopAnomalousServices\": [\n      {\n        \"ServiceId\": {\n          \"Name\": \"<string>\",\n          \"Names\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"AccountId\": \"<string>\",\n          \"Type\": \"<string>\"\n        }\n      },\n      {\n        \"ServiceId\": {\n          \"Name\": \"<string>\",\n          \"Names\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"AccountId\": \"<string>\",\n          \"Type\": \"<string>\"\n        }\n      }\n    ]\n  }\n}",
+              "createdAt": "2026-07-28T01:07:49.000Z",
+              "updatedAt": "2026-07-28T01:07:49.000Z",
+              "uid": "35240-17e5975e-73fc-4d72-8d7d-44c503a247ba"
+            }
+          ],
+          "createdAt": "2026-07-28T01:07:49.000Z",
+          "updatedAt": "2026-07-28T01:07:49.000Z",
+          "uid": "35240-e766b47f-bf5b-407c-951a-fa234e6a9790"
+        }
+      ],
+      "id": "963dd048-9395-403f-ae9f-b779e70e5bef",
+      "createdAt": "2026-07-28T01:07:49.000Z",
+      "updatedAt": "2026-07-28T01:07:49.000Z",
+      "uid": "35240-963dd048-9395-403f-ae9f-b779e70e5bef"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "us-east-1"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://xray.{{region}}.amazonaws.com"
+    }
+  ]
+}

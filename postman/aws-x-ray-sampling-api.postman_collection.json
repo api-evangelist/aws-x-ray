@@ -1,0 +1,594 @@
+{
+  "info": {
+    "_postman_id": "14b27e50-b5e1-4b21-8bc0-549a9647474b",
+    "name": "AWS X-Ray Encryption Sampling API",
+    "description": "AWS X-Ray provides APIs for managing trace data, sampling rules, groups, and encryption configuration. X-Ray helps developers analyze and debug distributed applications by collecting trace data as requests travel through application components.\n\nContact Support:\n Name: Amazon Web Services",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:07:49.000Z",
+    "updatedAt": "2026-07-28T01:07:49.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-14b27e50-b5e1-4b21-8bc0-549a9647474b"
+  },
+  "item": [
+    {
+      "name": "SamplingRules",
+      "item": [
+        {
+          "name": "AWS X-Ray Get All Sampling Rules",
+          "id": "2e3d69af-8c50-431e-811a-8be0149822ce",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"NextToken\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/SamplingRules",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "SamplingRules"
+              ]
+            },
+            "description": "Retrieves all sampling rules."
+          },
+          "response": [
+            {
+              "id": "98cda3d3-394a-4966-9985-a73398b10d7b",
+              "name": "Successful response",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"NextToken\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/SamplingRules",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "SamplingRules"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"SamplingRuleRecords\": [\n    {\n      \"SamplingRule\": {\n        \"ResourceARN\": \"<string>\",\n        \"Priority\": \"<integer>\",\n        \"FixedRate\": \"<number>\",\n        \"ReservoirSize\": \"<integer>\",\n        \"ServiceName\": \"<string>\",\n        \"ServiceType\": \"<string>\",\n        \"Host\": \"<string>\",\n        \"HTTPMethod\": \"<string>\",\n        \"URLPath\": \"<string>\",\n        \"Version\": \"<integer>\",\n        \"RuleName\": \"<string>\",\n        \"RuleARN\": \"<string>\",\n        \"Attributes\": {\n          \"ad_cf\": \"<string>\",\n          \"ipsum_d6\": \"<string>\",\n          \"mollite\": \"<string>\",\n          \"aliquipb\": \"<string>\"\n        }\n      },\n      \"CreatedAt\": \"<dateTime>\",\n      \"ModifiedAt\": \"<dateTime>\"\n    },\n    {\n      \"SamplingRule\": {\n        \"ResourceARN\": \"<string>\",\n        \"Priority\": \"<integer>\",\n        \"FixedRate\": \"<number>\",\n        \"ReservoirSize\": \"<integer>\",\n        \"ServiceName\": \"<string>\",\n        \"ServiceType\": \"<string>\",\n        \"Host\": \"<string>\",\n        \"HTTPMethod\": \"<string>\",\n        \"URLPath\": \"<string>\",\n        \"Version\": \"<integer>\",\n        \"RuleName\": \"<string>\",\n        \"RuleARN\": \"<string>\",\n        \"Attributes\": {\n          \"aliquipf9\": \"<string>\"\n        }\n      },\n      \"CreatedAt\": \"<dateTime>\",\n      \"ModifiedAt\": \"<dateTime>\"\n    }\n  ],\n  \"NextToken\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T01:07:50.000Z",
+              "updatedAt": "2026-07-28T01:07:50.000Z",
+              "uid": "35240-98cda3d3-394a-4966-9985-a73398b10d7b"
+            }
+          ],
+          "createdAt": "2026-07-28T01:07:50.000Z",
+          "updatedAt": "2026-07-28T01:07:50.000Z",
+          "uid": "35240-2e3d69af-8c50-431e-811a-8be0149822ce"
+        }
+      ],
+      "id": "bffdc1b3-f92e-47f4-9859-df47a1519e89",
+      "createdAt": "2026-07-28T01:07:50.000Z",
+      "updatedAt": "2026-07-28T01:07:50.000Z",
+      "uid": "35240-bffdc1b3-f92e-47f4-9859-df47a1519e89"
+    },
+    {
+      "name": "CreateSamplingRule",
+      "item": [
+        {
+          "name": "AWS X-Ray Create a Sampling Rule",
+          "id": "6313998d-3d35-49cc-9467-8675e4f1164c",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"SamplingRule\": {\n    \"ResourceARN\": \"<string>\",\n    \"Priority\": \"<integer>\",\n    \"FixedRate\": \"<number>\",\n    \"ReservoirSize\": \"<integer>\",\n    \"ServiceName\": \"<string>\",\n    \"ServiceType\": \"<string>\",\n    \"Host\": \"<string>\",\n    \"HTTPMethod\": \"<string>\",\n    \"URLPath\": \"<string>\",\n    \"Version\": \"<integer>\",\n    \"RuleName\": \"<string>\",\n    \"RuleARN\": \"<string>\",\n    \"Attributes\": {\n      \"minim9e2\": \"<string>\",\n      \"sunt_2\": \"<string>\"\n    }\n  },\n  \"Tags\": [\n    {\n      \"Key\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    {\n      \"Key\": \"<string>\",\n      \"Value\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/CreateSamplingRule",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "CreateSamplingRule"
+              ]
+            },
+            "description": "Creates a rule to control sampling behavior for instrumented applications."
+          },
+          "response": [
+            {
+              "id": "78222d18-913c-425a-8116-1dd303ee2b29",
+              "name": "Successful response",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"SamplingRule\": {\n    \"ResourceARN\": \"<string>\",\n    \"Priority\": \"<integer>\",\n    \"FixedRate\": \"<number>\",\n    \"ReservoirSize\": \"<integer>\",\n    \"ServiceName\": \"<string>\",\n    \"ServiceType\": \"<string>\",\n    \"Host\": \"<string>\",\n    \"HTTPMethod\": \"<string>\",\n    \"URLPath\": \"<string>\",\n    \"Version\": \"<integer>\",\n    \"RuleName\": \"<string>\",\n    \"RuleARN\": \"<string>\",\n    \"Attributes\": {\n      \"minim9e2\": \"<string>\",\n      \"sunt_2\": \"<string>\"\n    }\n  },\n  \"Tags\": [\n    {\n      \"Key\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    {\n      \"Key\": \"<string>\",\n      \"Value\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/CreateSamplingRule",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "CreateSamplingRule"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"SamplingRuleRecord\": {\n    \"SamplingRule\": {\n      \"ResourceARN\": \"<string>\",\n      \"Priority\": \"<integer>\",\n      \"FixedRate\": \"<number>\",\n      \"ReservoirSize\": \"<integer>\",\n      \"ServiceName\": \"<string>\",\n      \"ServiceType\": \"<string>\",\n      \"Host\": \"<string>\",\n      \"HTTPMethod\": \"<string>\",\n      \"URLPath\": \"<string>\",\n      \"Version\": \"<integer>\",\n      \"RuleName\": \"<string>\",\n      \"RuleARN\": \"<string>\",\n      \"Attributes\": {\n        \"Loremaa\": \"<string>\",\n        \"sit52\": \"<string>\"\n      }\n    },\n    \"CreatedAt\": \"<dateTime>\",\n    \"ModifiedAt\": \"<dateTime>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:07:50.000Z",
+              "updatedAt": "2026-07-28T01:07:50.000Z",
+              "uid": "35240-78222d18-913c-425a-8116-1dd303ee2b29"
+            }
+          ],
+          "createdAt": "2026-07-28T01:07:50.000Z",
+          "updatedAt": "2026-07-28T01:07:50.000Z",
+          "uid": "35240-6313998d-3d35-49cc-9467-8675e4f1164c"
+        }
+      ],
+      "id": "64ad4b70-2321-407d-a44e-9e74cabe3348",
+      "createdAt": "2026-07-28T01:07:50.000Z",
+      "updatedAt": "2026-07-28T01:07:50.000Z",
+      "uid": "35240-64ad4b70-2321-407d-a44e-9e74cabe3348"
+    },
+    {
+      "name": "UpdateSamplingRule",
+      "item": [
+        {
+          "name": "AWS X-Ray Update a Sampling Rule",
+          "id": "94b0b93d-b3c8-46a8-b917-d4f3cf9ebd5c",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"SamplingRuleUpdate\": {\n    \"RuleName\": \"<string>\",\n    \"RuleARN\": \"<string>\",\n    \"ResourceARN\": \"<string>\",\n    \"Priority\": \"<integer>\",\n    \"FixedRate\": \"<number>\",\n    \"ReservoirSize\": \"<integer>\",\n    \"Host\": \"<string>\",\n    \"ServiceName\": \"<string>\",\n    \"ServiceType\": \"<string>\",\n    \"HTTPMethod\": \"<string>\",\n    \"URLPath\": \"<string>\",\n    \"Attributes\": {\n      \"ullamco87e\": \"<string>\",\n      \"dolor18\": \"<string>\"\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/UpdateSamplingRule",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "UpdateSamplingRule"
+              ]
+            },
+            "description": "Modifies a sampling rule's configuration."
+          },
+          "response": [
+            {
+              "id": "a4198484-b756-4a82-872e-977cd27442a2",
+              "name": "Successful response",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"SamplingRuleUpdate\": {\n    \"RuleName\": \"<string>\",\n    \"RuleARN\": \"<string>\",\n    \"ResourceARN\": \"<string>\",\n    \"Priority\": \"<integer>\",\n    \"FixedRate\": \"<number>\",\n    \"ReservoirSize\": \"<integer>\",\n    \"Host\": \"<string>\",\n    \"ServiceName\": \"<string>\",\n    \"ServiceType\": \"<string>\",\n    \"HTTPMethod\": \"<string>\",\n    \"URLPath\": \"<string>\",\n    \"Attributes\": {\n      \"ullamco87e\": \"<string>\",\n      \"dolor18\": \"<string>\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/UpdateSamplingRule",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "UpdateSamplingRule"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"SamplingRuleRecord\": {\n    \"SamplingRule\": {\n      \"ResourceARN\": \"<string>\",\n      \"Priority\": \"<integer>\",\n      \"FixedRate\": \"<number>\",\n      \"ReservoirSize\": \"<integer>\",\n      \"ServiceName\": \"<string>\",\n      \"ServiceType\": \"<string>\",\n      \"Host\": \"<string>\",\n      \"HTTPMethod\": \"<string>\",\n      \"URLPath\": \"<string>\",\n      \"Version\": \"<integer>\",\n      \"RuleName\": \"<string>\",\n      \"RuleARN\": \"<string>\",\n      \"Attributes\": {\n        \"Loremaa\": \"<string>\",\n        \"sit52\": \"<string>\"\n      }\n    },\n    \"CreatedAt\": \"<dateTime>\",\n    \"ModifiedAt\": \"<dateTime>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:07:50.000Z",
+              "updatedAt": "2026-07-28T01:07:50.000Z",
+              "uid": "35240-a4198484-b756-4a82-872e-977cd27442a2"
+            }
+          ],
+          "createdAt": "2026-07-28T01:07:50.000Z",
+          "updatedAt": "2026-07-28T01:07:50.000Z",
+          "uid": "35240-94b0b93d-b3c8-46a8-b917-d4f3cf9ebd5c"
+        }
+      ],
+      "id": "f5b4e9cd-a4f5-4236-a372-c3a7d2f95e11",
+      "createdAt": "2026-07-28T01:07:50.000Z",
+      "updatedAt": "2026-07-28T01:07:50.000Z",
+      "uid": "35240-f5b4e9cd-a4f5-4236-a372-c3a7d2f95e11"
+    },
+    {
+      "name": "DeleteSamplingRule",
+      "item": [
+        {
+          "name": "AWS X-Ray Delete a Sampling Rule",
+          "id": "dc22a101-da20-4f16-8ef9-6a9ce37d8e75",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"RuleName\": \"<string>\",\n  \"RuleARN\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/DeleteSamplingRule",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "DeleteSamplingRule"
+              ]
+            },
+            "description": "Deletes a sampling rule."
+          },
+          "response": [
+            {
+              "id": "feea7521-3e69-4ed8-a8a9-b321275e22a0",
+              "name": "Successful response",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"RuleName\": \"<string>\",\n  \"RuleARN\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/DeleteSamplingRule",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "DeleteSamplingRule"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"SamplingRuleRecord\": {\n    \"SamplingRule\": {\n      \"ResourceARN\": \"<string>\",\n      \"Priority\": \"<integer>\",\n      \"FixedRate\": \"<number>\",\n      \"ReservoirSize\": \"<integer>\",\n      \"ServiceName\": \"<string>\",\n      \"ServiceType\": \"<string>\",\n      \"Host\": \"<string>\",\n      \"HTTPMethod\": \"<string>\",\n      \"URLPath\": \"<string>\",\n      \"Version\": \"<integer>\",\n      \"RuleName\": \"<string>\",\n      \"RuleARN\": \"<string>\",\n      \"Attributes\": {\n        \"Loremaa\": \"<string>\",\n        \"sit52\": \"<string>\"\n      }\n    },\n    \"CreatedAt\": \"<dateTime>\",\n    \"ModifiedAt\": \"<dateTime>\"\n  }\n}",
+              "createdAt": "2026-07-28T01:07:50.000Z",
+              "updatedAt": "2026-07-28T01:07:50.000Z",
+              "uid": "35240-feea7521-3e69-4ed8-a8a9-b321275e22a0"
+            }
+          ],
+          "createdAt": "2026-07-28T01:07:50.000Z",
+          "updatedAt": "2026-07-28T01:07:50.000Z",
+          "uid": "35240-dc22a101-da20-4f16-8ef9-6a9ce37d8e75"
+        }
+      ],
+      "id": "8fe3c6c7-c20c-43a7-87ca-398cd4456bb6",
+      "createdAt": "2026-07-28T01:07:50.000Z",
+      "updatedAt": "2026-07-28T01:07:50.000Z",
+      "uid": "35240-8fe3c6c7-c20c-43a7-87ca-398cd4456bb6"
+    },
+    {
+      "name": "SamplingTargets",
+      "item": [
+        {
+          "name": "AWS X-Ray Get Sampling Targets",
+          "id": "f1424a69-50b7-499f-b697-6fc61499466d",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"SamplingStatisticsDocuments\": [\n    {\n      \"RuleName\": \"<string>\",\n      \"ClientID\": \"<string>\",\n      \"Timestamp\": \"<dateTime>\",\n      \"RequestCount\": \"<integer>\",\n      \"SampledCount\": \"<integer>\",\n      \"BorrowCount\": \"<integer>\"\n    },\n    {\n      \"RuleName\": \"<string>\",\n      \"ClientID\": \"<string>\",\n      \"Timestamp\": \"<dateTime>\",\n      \"RequestCount\": \"<integer>\",\n      \"SampledCount\": \"<integer>\",\n      \"BorrowCount\": \"<integer>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/SamplingTargets",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "SamplingTargets"
+              ]
+            },
+            "description": "Requests a sampling quota for rules that the service is using to sample requests."
+          },
+          "response": [
+            {
+              "id": "5d5ff4db-845f-4c71-8168-b50bb8b044e2",
+              "name": "Successful response",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"SamplingStatisticsDocuments\": [\n    {\n      \"RuleName\": \"<string>\",\n      \"ClientID\": \"<string>\",\n      \"Timestamp\": \"<dateTime>\",\n      \"RequestCount\": \"<integer>\",\n      \"SampledCount\": \"<integer>\",\n      \"BorrowCount\": \"<integer>\"\n    },\n    {\n      \"RuleName\": \"<string>\",\n      \"ClientID\": \"<string>\",\n      \"Timestamp\": \"<dateTime>\",\n      \"RequestCount\": \"<integer>\",\n      \"SampledCount\": \"<integer>\",\n      \"BorrowCount\": \"<integer>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/SamplingTargets",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "SamplingTargets"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"SamplingTargetDocuments\": [\n    {\n      \"RuleName\": \"<string>\",\n      \"FixedRate\": \"<number>\",\n      \"ReservoirQuota\": \"<integer>\",\n      \"ReservoirQuotaTTL\": \"<dateTime>\",\n      \"Interval\": \"<integer>\"\n    },\n    {\n      \"RuleName\": \"<string>\",\n      \"FixedRate\": \"<number>\",\n      \"ReservoirQuota\": \"<integer>\",\n      \"ReservoirQuotaTTL\": \"<dateTime>\",\n      \"Interval\": \"<integer>\"\n    }\n  ],\n  \"LastRuleModification\": \"<dateTime>\",\n  \"UnprocessedStatistics\": [\n    {\n      \"RuleName\": \"<string>\",\n      \"ErrorCode\": \"<string>\",\n      \"Message\": \"<string>\"\n    },\n    {\n      \"RuleName\": \"<string>\",\n      \"ErrorCode\": \"<string>\",\n      \"Message\": \"<string>\"\n    }\n  ]\n}",
+              "createdAt": "2026-07-28T01:07:50.000Z",
+              "updatedAt": "2026-07-28T01:07:50.000Z",
+              "uid": "35240-5d5ff4db-845f-4c71-8168-b50bb8b044e2"
+            }
+          ],
+          "createdAt": "2026-07-28T01:07:50.000Z",
+          "updatedAt": "2026-07-28T01:07:50.000Z",
+          "uid": "35240-f1424a69-50b7-499f-b697-6fc61499466d"
+        }
+      ],
+      "id": "8dff652e-f2a9-4bd6-a17b-2d53740261b4",
+      "createdAt": "2026-07-28T01:07:50.000Z",
+      "updatedAt": "2026-07-28T01:07:50.000Z",
+      "uid": "35240-8dff652e-f2a9-4bd6-a17b-2d53740261b4"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "us-east-1"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://xray.{{region}}.amazonaws.com"
+    }
+  ]
+}

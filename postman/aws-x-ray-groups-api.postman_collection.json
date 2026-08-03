@@ -1,0 +1,581 @@
+{
+  "info": {
+    "_postman_id": "55365d0b-a161-4aef-9531-5f178420a1fb",
+    "name": "AWS X-Ray Encryption Groups API",
+    "description": "AWS X-Ray provides APIs for managing trace data, sampling rules, groups, and encryption configuration. X-Ray helps developers analyze and debug distributed applications by collecting trace data as requests travel through application components.\n\nContact Support:\n Name: Amazon Web Services",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:07:47.000Z",
+    "updatedAt": "2026-07-28T01:07:47.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-55365d0b-a161-4aef-9531-5f178420a1fb"
+  },
+  "item": [
+    {
+      "name": "Groups",
+      "item": [
+        {
+          "name": "AWS X-Ray Create a Group",
+          "id": "058251ca-3987-4773-81ef-4fbd688c9dae",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"GroupName\": \"<string>\",\n  \"FilterExpression\": \"<string>\",\n  \"InsightsConfiguration\": {\n    \"InsightsEnabled\": \"<boolean>\",\n    \"NotificationsEnabled\": \"<boolean>\"\n  },\n  \"Tags\": [\n    {\n      \"Key\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    {\n      \"Key\": \"<string>\",\n      \"Value\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/Groups",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "Groups"
+              ]
+            },
+            "description": "Creates a group resource with a name and a filter expression."
+          },
+          "response": [
+            {
+              "id": "cdd5a85c-1516-4f06-a0cc-49a8bc760ce5",
+              "name": "Successful response",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"GroupName\": \"<string>\",\n  \"FilterExpression\": \"<string>\",\n  \"InsightsConfiguration\": {\n    \"InsightsEnabled\": \"<boolean>\",\n    \"NotificationsEnabled\": \"<boolean>\"\n  },\n  \"Tags\": [\n    {\n      \"Key\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    {\n      \"Key\": \"<string>\",\n      \"Value\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/Groups",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Groups"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"Group\": {\n    \"GroupName\": \"<string>\",\n    \"GroupARN\": \"<string>\",\n    \"FilterExpression\": \"<string>\",\n    \"InsightsConfiguration\": {\n      \"InsightsEnabled\": \"<boolean>\",\n      \"NotificationsEnabled\": \"<boolean>\"\n    }\n  }\n}",
+              "createdAt": "2026-07-28T01:07:48.000Z",
+              "updatedAt": "2026-07-28T01:07:48.000Z",
+              "uid": "35240-cdd5a85c-1516-4f06-a0cc-49a8bc760ce5"
+            }
+          ],
+          "createdAt": "2026-07-28T01:07:48.000Z",
+          "updatedAt": "2026-07-28T01:07:48.000Z",
+          "uid": "35240-058251ca-3987-4773-81ef-4fbd688c9dae"
+        }
+      ],
+      "id": "fe095427-cd4b-445e-9387-c17bbfa96c93",
+      "createdAt": "2026-07-28T01:07:48.000Z",
+      "updatedAt": "2026-07-28T01:07:48.000Z",
+      "uid": "35240-fe095427-cd4b-445e-9387-c17bbfa96c93"
+    },
+    {
+      "name": "GetGroups",
+      "item": [
+        {
+          "name": "AWS X-Ray Get All Active Groups",
+          "id": "403fd0a6-5828-4ba8-be4c-512e1a8d7f06",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"NextToken\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/GetGroups",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "GetGroups"
+              ]
+            },
+            "description": "Retrieves all active group details."
+          },
+          "response": [
+            {
+              "id": "b8b36e13-42b4-4640-9a47-2c441f1d9b21",
+              "name": "Successful response",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"NextToken\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/GetGroups",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "GetGroups"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"Groups\": [\n    {\n      \"GroupName\": \"<string>\",\n      \"GroupARN\": \"<string>\",\n      \"FilterExpression\": \"<string>\",\n      \"InsightsConfiguration\": {\n        \"InsightsEnabled\": \"<boolean>\",\n        \"NotificationsEnabled\": \"<boolean>\"\n      }\n    },\n    {\n      \"GroupName\": \"<string>\",\n      \"GroupARN\": \"<string>\",\n      \"FilterExpression\": \"<string>\",\n      \"InsightsConfiguration\": {\n        \"InsightsEnabled\": \"<boolean>\",\n        \"NotificationsEnabled\": \"<boolean>\"\n      }\n    }\n  ],\n  \"NextToken\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T01:07:48.000Z",
+              "updatedAt": "2026-07-28T01:07:48.000Z",
+              "uid": "35240-b8b36e13-42b4-4640-9a47-2c441f1d9b21"
+            }
+          ],
+          "createdAt": "2026-07-28T01:07:48.000Z",
+          "updatedAt": "2026-07-28T01:07:48.000Z",
+          "uid": "35240-403fd0a6-5828-4ba8-be4c-512e1a8d7f06"
+        }
+      ],
+      "id": "a6ebf156-9984-4bbe-9fc4-c6bb6e029bd8",
+      "createdAt": "2026-07-28T01:07:48.000Z",
+      "updatedAt": "2026-07-28T01:07:48.000Z",
+      "uid": "35240-a6ebf156-9984-4bbe-9fc4-c6bb6e029bd8"
+    },
+    {
+      "name": "Group",
+      "item": [
+        {
+          "name": "AWS X-Ray Get a Group",
+          "id": "98e08ac9-1ba8-4092-be58-2c97e2b45fa4",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"GroupName\": \"<string>\",\n  \"GroupARN\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/Group",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "Group"
+              ]
+            },
+            "description": "Retrieves group resource details."
+          },
+          "response": [
+            {
+              "id": "931de6d1-5b43-4f33-81d5-8c35309a1d2b",
+              "name": "Successful response",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"GroupName\": \"<string>\",\n  \"GroupARN\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/Group",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Group"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"Group\": {\n    \"GroupName\": \"<string>\",\n    \"GroupARN\": \"<string>\",\n    \"FilterExpression\": \"<string>\",\n    \"InsightsConfiguration\": {\n      \"InsightsEnabled\": \"<boolean>\",\n      \"NotificationsEnabled\": \"<boolean>\"\n    }\n  }\n}",
+              "createdAt": "2026-07-28T01:07:48.000Z",
+              "updatedAt": "2026-07-28T01:07:48.000Z",
+              "uid": "35240-931de6d1-5b43-4f33-81d5-8c35309a1d2b"
+            }
+          ],
+          "createdAt": "2026-07-28T01:07:48.000Z",
+          "updatedAt": "2026-07-28T01:07:48.000Z",
+          "uid": "35240-98e08ac9-1ba8-4092-be58-2c97e2b45fa4"
+        }
+      ],
+      "id": "8b23f9ff-1319-4d4d-8a65-a63c73463cfc",
+      "createdAt": "2026-07-28T01:07:48.000Z",
+      "updatedAt": "2026-07-28T01:07:48.000Z",
+      "uid": "35240-8b23f9ff-1319-4d4d-8a65-a63c73463cfc"
+    },
+    {
+      "name": "UpdateGroup",
+      "item": [
+        {
+          "name": "AWS X-Ray Update a Group",
+          "id": "8e976059-c599-46b7-9b2c-f86d97019a75",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"GroupName\": \"<string>\",\n  \"GroupARN\": \"<string>\",\n  \"FilterExpression\": \"<string>\",\n  \"InsightsConfiguration\": {\n    \"InsightsEnabled\": \"<boolean>\",\n    \"NotificationsEnabled\": \"<boolean>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/UpdateGroup",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "UpdateGroup"
+              ]
+            },
+            "description": "Updates a group resource."
+          },
+          "response": [
+            {
+              "id": "3eb9b247-60b7-4143-934f-357b2ddc31de",
+              "name": "Successful response",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"GroupName\": \"<string>\",\n  \"GroupARN\": \"<string>\",\n  \"FilterExpression\": \"<string>\",\n  \"InsightsConfiguration\": {\n    \"InsightsEnabled\": \"<boolean>\",\n    \"NotificationsEnabled\": \"<boolean>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/UpdateGroup",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "UpdateGroup"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"Group\": {\n    \"GroupName\": \"<string>\",\n    \"GroupARN\": \"<string>\",\n    \"FilterExpression\": \"<string>\",\n    \"InsightsConfiguration\": {\n      \"InsightsEnabled\": \"<boolean>\",\n      \"NotificationsEnabled\": \"<boolean>\"\n    }\n  }\n}",
+              "createdAt": "2026-07-28T01:07:48.000Z",
+              "updatedAt": "2026-07-28T01:07:48.000Z",
+              "uid": "35240-3eb9b247-60b7-4143-934f-357b2ddc31de"
+            }
+          ],
+          "createdAt": "2026-07-28T01:07:48.000Z",
+          "updatedAt": "2026-07-28T01:07:48.000Z",
+          "uid": "35240-8e976059-c599-46b7-9b2c-f86d97019a75"
+        }
+      ],
+      "id": "9356cd40-db3f-4b00-8f88-e621ade3256d",
+      "createdAt": "2026-07-28T01:07:48.000Z",
+      "updatedAt": "2026-07-28T01:07:48.000Z",
+      "uid": "35240-9356cd40-db3f-4b00-8f88-e621ade3256d"
+    },
+    {
+      "name": "DeleteGroup",
+      "item": [
+        {
+          "name": "AWS X-Ray Delete a Group",
+          "id": "b206528e-eb1d-43e0-bb38-d65e023df896",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"GroupName\": \"<string>\",\n  \"GroupARN\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/DeleteGroup",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "DeleteGroup"
+              ]
+            },
+            "description": "Deletes a group resource."
+          },
+          "response": [
+            {
+              "id": "17d329d0-d189-417e-ad1d-080f6b55ca09",
+              "name": "Successful response",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"GroupName\": \"<string>\",\n  \"GroupARN\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/DeleteGroup",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "DeleteGroup"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T01:07:48.000Z",
+              "updatedAt": "2026-07-28T01:07:48.000Z",
+              "uid": "35240-17d329d0-d189-417e-ad1d-080f6b55ca09"
+            }
+          ],
+          "createdAt": "2026-07-28T01:07:48.000Z",
+          "updatedAt": "2026-07-28T01:07:48.000Z",
+          "uid": "35240-b206528e-eb1d-43e0-bb38-d65e023df896"
+        }
+      ],
+      "id": "d28a9fb5-259b-4934-b75c-e0493c275ab3",
+      "createdAt": "2026-07-28T01:07:48.000Z",
+      "updatedAt": "2026-07-28T01:07:48.000Z",
+      "uid": "35240-d28a9fb5-259b-4934-b75c-e0493c275ab3"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "us-east-1"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://xray.{{region}}.amazonaws.com"
+    }
+  ]
+}

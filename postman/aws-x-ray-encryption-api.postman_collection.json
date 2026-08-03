@@ -1,0 +1,236 @@
+{
+  "info": {
+    "_postman_id": "5178774e-3087-42c1-beb8-90e0c993226d",
+    "name": "AWS X-Ray Encryption API",
+    "description": "AWS X-Ray provides APIs for managing trace data, sampling rules, groups, and encryption configuration. X-Ray helps developers analyze and debug distributed applications by collecting trace data as requests travel through application components.\n\nContact Support:\n Name: Amazon Web Services",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:07:46.000Z",
+    "updatedAt": "2026-07-28T01:07:47.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-5178774e-3087-42c1-beb8-90e0c993226d"
+  },
+  "item": [
+    {
+      "name": "EncryptionConfig",
+      "item": [
+        {
+          "name": "AWS X-Ray Get Encryption Configuration",
+          "id": "29a4e056-6d84-4d10-b6ea-8109dbe807f9",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/EncryptionConfig",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "EncryptionConfig"
+              ]
+            },
+            "description": "Retrieves the current encryption configuration for X-Ray data."
+          },
+          "response": [
+            {
+              "id": "ddd4b108-c141-4ee8-97b2-c1c71742a35e",
+              "name": "Successful response",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/EncryptionConfig",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "EncryptionConfig"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"EncryptionConfig\": {\n    \"KeyId\": \"<string>\",\n    \"Status\": \"UPDATING\",\n    \"Type\": \"KMS\"\n  }\n}",
+              "createdAt": "2026-07-28T01:07:47.000Z",
+              "updatedAt": "2026-07-28T01:07:47.000Z",
+              "uid": "35240-ddd4b108-c141-4ee8-97b2-c1c71742a35e"
+            }
+          ],
+          "createdAt": "2026-07-28T01:07:47.000Z",
+          "updatedAt": "2026-07-28T01:07:47.000Z",
+          "uid": "35240-29a4e056-6d84-4d10-b6ea-8109dbe807f9"
+        }
+      ],
+      "id": "571454e9-31cc-403c-bfa2-bf9278cf4e3a",
+      "createdAt": "2026-07-28T01:07:47.000Z",
+      "updatedAt": "2026-07-28T01:07:47.000Z",
+      "uid": "35240-571454e9-31cc-403c-bfa2-bf9278cf4e3a"
+    },
+    {
+      "name": "PutEncryptionConfig",
+      "item": [
+        {
+          "name": "AWS X-Ray Update Encryption Configuration",
+          "id": "8ae1b852-ec51-4776-aa54-fe3b4a940b9e",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Type\": \"KMS\",\n  \"KeyId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/PutEncryptionConfig",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "PutEncryptionConfig"
+              ]
+            },
+            "description": "Updates the encryption configuration for X-Ray data."
+          },
+          "response": [
+            {
+              "id": "6987913e-d890-47a8-be1c-c6deaae9d482",
+              "name": "Successful response",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Type\": \"KMS\",\n  \"KeyId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/PutEncryptionConfig",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "PutEncryptionConfig"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"EncryptionConfig\": {\n    \"KeyId\": \"<string>\",\n    \"Status\": \"UPDATING\",\n    \"Type\": \"KMS\"\n  }\n}",
+              "createdAt": "2026-07-28T01:07:47.000Z",
+              "updatedAt": "2026-07-28T01:07:47.000Z",
+              "uid": "35240-6987913e-d890-47a8-be1c-c6deaae9d482"
+            }
+          ],
+          "createdAt": "2026-07-28T01:07:47.000Z",
+          "updatedAt": "2026-07-28T01:07:47.000Z",
+          "uid": "35240-8ae1b852-ec51-4776-aa54-fe3b4a940b9e"
+        }
+      ],
+      "id": "ca96b896-789c-4a9a-9861-44870ce6f8f4",
+      "createdAt": "2026-07-28T01:07:47.000Z",
+      "updatedAt": "2026-07-28T01:07:47.000Z",
+      "uid": "35240-ca96b896-789c-4a9a-9861-44870ce6f8f4"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "us-east-1"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://xray.{{region}}.amazonaws.com"
+    }
+  ]
+}

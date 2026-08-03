@@ -1,0 +1,30 @@
+{
+  "provider": "aws-x-ray",
+  "sources": [
+    "aws-x-ray-encryption-api-openapi.yml",
+    "aws-x-ray-groups-api-openapi.yml",
+    "aws-x-ray-insights-api-openapi.yml",
+    "aws-x-ray-sampling-api-openapi.yml",
+    "aws-x-ray-service-graph-api-openapi.yml",
+    "aws-x-ray-tagresource-api-openapi.yml",
+    "aws-x-ray-tags-api-openapi.yml",
+    "aws-x-ray-traces-api-openapi.yml",
+    "aws-x-ray-untagresource-api-openapi.yml"
+  ],
+  "outputs": [
+    "aws-x-ray-encryption-api-openapi.yml",
+    "aws-x-ray-groups-api-openapi.yml",
+    "aws-x-ray-insights-api-openapi.yml",
+    "aws-x-ray-sampling-api-openapi.yml",
+    "aws-x-ray-service-graph-api-openapi.yml",
+    "aws-x-ray-tagresource-api-openapi.yml",
+    "aws-x-ray-tags-api-openapi.yml",
+    "aws-x-ray-traces-api-openapi.yml",
+    "aws-x-ray-untagresource-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
