@@ -1,0 +1,41 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "AWS X-Ray Encryption Tags API",
+    "version": "2016-04-12"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Tags",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "AWS X-Ray List Tags for a Resource",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://xray.{region}.amazonaws.com/Tags",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Returns a list of tags applied to the specified X-Ray resource."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

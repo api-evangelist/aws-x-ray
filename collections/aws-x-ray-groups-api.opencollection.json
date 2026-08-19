@@ -1,0 +1,101 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "AWS X-Ray Encryption Groups API",
+    "version": "2016-04-12"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Groups",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "AWS X-Ray Create a Group",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://xray.{region}.amazonaws.com/Groups",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a group resource with a name and a filter expression."
+        },
+        {
+          "info": {
+            "name": "AWS X-Ray Get All Active Groups",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://xray.{region}.amazonaws.com/GetGroups",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Retrieves all active group details."
+        },
+        {
+          "info": {
+            "name": "AWS X-Ray Get a Group",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://xray.{region}.amazonaws.com/Group",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Retrieves group resource details."
+        },
+        {
+          "info": {
+            "name": "AWS X-Ray Update a Group",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://xray.{region}.amazonaws.com/UpdateGroup",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates a group resource."
+        },
+        {
+          "info": {
+            "name": "AWS X-Ray Delete a Group",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://xray.{region}.amazonaws.com/DeleteGroup",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Deletes a group resource."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

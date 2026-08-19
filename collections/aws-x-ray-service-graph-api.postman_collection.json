@@ -1,0 +1,284 @@
+{
+  "item": [
+    {
+      "id": "b3e9c8e0-c325-45b7-86e6-8a63cf627485",
+      "name": "Service Graph",
+      "description": {
+        "content": "Service map and statistics",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "434593d8-6e87-465c-88e4-975db427d02c",
+          "name": "AWS X-Ray Get the Service Graph",
+          "request": {
+            "name": "AWS X-Ray Get the Service Graph",
+            "description": {
+              "content": "Retrieves a document that describes services that process incoming requests, and downstream services that they call as a result.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "ServiceGraph"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "AWS region",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"StartTime\": \"<dateTime>\",\n  \"EndTime\": \"<dateTime>\",\n  \"GroupName\": \"<string>\",\n  \"GroupARN\": \"<string>\",\n  \"NextToken\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9e5da9dd-77ce-45f1-9e6e-4fff74aecc18",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ServiceGraph"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "AWS region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"StartTime\": \"<dateTime>\",\n  \"EndTime\": \"<dateTime>\",\n  \"GroupName\": \"<string>\",\n  \"GroupARN\": \"<string>\",\n  \"NextToken\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"StartTime\": \"1986-01-23T21:44:56.299Z\",\n  \"EndTime\": \"1980-04-11T18:13:01.093Z\",\n  \"Services\": [\n    {\n      \"ReferenceId\": 8766,\n      \"Name\": \"string\",\n      \"Names\": [\n        \"string\",\n        \"string\"\n      ],\n      \"Root\": false,\n      \"AccountId\": \"string\",\n      \"Type\": \"string\",\n      \"State\": \"string\",\n      \"StartTime\": \"2021-08-25T01:26:50.751Z\",\n      \"EndTime\": \"1968-11-25T19:44:56.390Z\",\n      \"Edges\": [\n        {\n          \"ReferenceId\": 8941,\n          \"StartTime\": \"1977-01-31T00:40:34.256Z\",\n          \"EndTime\": \"2015-10-09T03:20:46.590Z\",\n          \"SummaryStatistics\": {\n            \"OkCount\": 837,\n            \"ErrorStatistics\": {\n              \"ThrottleCount\": 38,\n              \"OtherCount\": 4079,\n              \"TotalCount\": 2626\n            },\n            \"FaultStatistics\": {\n              \"OtherCount\": 5361,\n              \"TotalCount\": 9848\n            },\n            \"TotalCount\": 1803,\n            \"TotalResponseTime\": 8119.479849830896\n          },\n          \"ResponseTimeHistogram\": [\n            {\n              \"Value\": 7021.363541321923,\n              \"Count\": 5828\n            },\n            {\n              \"Value\": 4493.832821718539,\n              \"Count\": 6655\n            }\n          ]\n        },\n        {\n          \"ReferenceId\": 8500,\n          \"StartTime\": \"1984-03-02T14:09:31.326Z\",\n          \"EndTime\": \"2001-07-04T02:42:25.315Z\",\n          \"SummaryStatistics\": {\n            \"OkCount\": 6044,\n            \"ErrorStatistics\": {\n              \"ThrottleCount\": 7720,\n              \"OtherCount\": 696,\n              \"TotalCount\": 6387\n            },\n            \"FaultStatistics\": {\n              \"OtherCount\": 1440,\n              \"TotalCount\": 7122\n            },\n            \"TotalCount\": 7460,\n            \"TotalResponseTime\": 1308.6782110569873\n          },\n          \"ResponseTimeHistogram\": [\n            {\n              \"Value\": 122.97214000289381,\n              \"Count\": 2905\n            },\n            {\n              \"Value\": 6413.065719680923,\n              \"Count\": 5259\n            }\n          ]\n        }\n      ],\n      \"SummaryStatistics\": {\n        \"OkCount\": 2566,\n        \"ErrorStatistics\": {\n          \"ThrottleCount\": 8282,\n          \"OtherCount\": 3993,\n          \"TotalCount\": 5339\n        },\n        \"FaultStatistics\": {\n          \"OtherCount\": 8969,\n          \"TotalCount\": 5675\n        },\n        \"TotalCount\": 2802,\n        \"TotalResponseTime\": 3612.92731686913\n      },\n      \"ResponseTimeHistogram\": [\n        {\n          \"Value\": 7235.7745137670145,\n          \"Count\": 144\n        },\n        {\n          \"Value\": 8657.464154543244,\n          \"Count\": 5049\n        }\n      ],\n      \"DurationHistogram\": [\n        {\n          \"Value\": 8081.727184104583,\n          \"Count\": 261\n        },\n        {\n          \"Value\": 5449.130697591055,\n          \"Count\": 2725\n        }\n      ]\n    },\n    {\n      \"ReferenceId\": 2642,\n      \"Name\": \"string\",\n      \"Names\": [\n        \"string\",\n        \"string\"\n      ],\n      \"Root\": false,\n      \"AccountId\": \"string\",\n      \"Type\": \"string\",\n      \"State\": \"string\",\n      \"StartTime\": \"1949-01-22T19:50:59.831Z\",\n      \"EndTime\": \"2009-08-10T04:17:17.620Z\",\n      \"Edges\": [\n        {\n          \"ReferenceId\": 8047,\n          \"StartTime\": \"1964-06-28T05:05:16.547Z\",\n          \"EndTime\": \"1947-12-12T09:44:33.860Z\",\n          \"SummaryStatistics\": {\n            \"OkCount\": 5654,\n            \"ErrorStatistics\": {\n              \"ThrottleCount\": 2840,\n              \"OtherCount\": 7088,\n              \"TotalCount\": 1962\n            },\n            \"FaultStatistics\": {\n              \"OtherCount\": 9297,\n              \"TotalCount\": 4944\n            },\n            \"TotalCount\": 9057,\n            \"TotalResponseTime\": 5135.298403625285\n          },\n          \"ResponseTimeHistogram\": [\n            {\n              \"Value\": 7915.9255986760245,\n              \"Count\": 3196\n            },\n            {\n              \"Value\": 7123.670501264829,\n              \"Count\": 3056\n            }\n          ]\n        },\n        {\n          \"ReferenceId\": 1236,\n          \"StartTime\": \"1979-01-22T19:42:43.789Z\",\n          \"EndTime\": \"2010-01-28T17:10:20.246Z\",\n          \"SummaryStatistics\": {\n            \"OkCount\": 2320,\n            \"ErrorStatistics\": {\n              \"ThrottleCount\": 2638,\n              \"OtherCount\": 1863,\n              \"TotalCount\": 5582\n            },\n            \"FaultStatistics\": {\n              \"OtherCount\": 4784,\n              \"TotalCount\": 5937\n            },\n            \"TotalCount\": 9003,\n            \"TotalResponseTime\": 1464.300257448401\n          },\n          \"ResponseTimeHistogram\": [\n            {\n              \"Value\": 8810.027168699502,\n              \"Count\": 9367\n            },\n            {\n              \"Value\": 8328.952801765412,\n              \"Count\": 6934\n            }\n          ]\n        }\n      ],\n      \"SummaryStatistics\": {\n        \"OkCount\": 3263,\n        \"ErrorStatistics\": {\n          \"ThrottleCount\": 6314,\n          \"OtherCount\": 2666,\n          \"TotalCount\": 2517\n        },\n        \"FaultStatistics\": {\n          \"OtherCount\": 2571,\n          \"TotalCount\": 1864\n        },\n        \"TotalCount\": 9906,\n        \"TotalResponseTime\": 8158.488981179753\n      },\n      \"ResponseTimeHistogram\": [\n        {\n          \"Value\": 8554.774531931978,\n          \"Count\": 8331\n        },\n        {\n          \"Value\": 8177.961095621813,\n          \"Count\": 7906\n        }\n      ],\n      \"DurationHistogram\": [\n        {\n          \"Value\": 7570.120786909091,\n          \"Count\": 7680\n        },\n        {\n          \"Value\": 3620.1267070333442,\n          \"Count\": 3888\n        }\n      ]\n    }\n  ],\n  \"ContainsOldGroupVersions\": false,\n  \"NextToken\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b3c3f163-adf3-406d-a5b0-315444df6670",
+          "name": "AWS X-Ray Get Time Series Service Statistics",
+          "request": {
+            "name": "AWS X-Ray Get Time Series Service Statistics",
+            "description": {
+              "content": "Get an aggregation of service statistics over a time period.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "TimeSeriesServiceStatistics"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "AWS region",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"StartTime\": \"<dateTime>\",\n  \"EndTime\": \"<dateTime>\",\n  \"GroupName\": \"<string>\",\n  \"GroupARN\": \"<string>\",\n  \"EntitySelectorExpression\": \"<string>\",\n  \"Period\": \"<integer>\",\n  \"ForecastStatistics\": \"<boolean>\",\n  \"NextToken\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "b420c812-8f31-459d-a5d1-4f22285b4f8d",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "TimeSeriesServiceStatistics"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "AWS region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"StartTime\": \"<dateTime>\",\n  \"EndTime\": \"<dateTime>\",\n  \"GroupName\": \"<string>\",\n  \"GroupARN\": \"<string>\",\n  \"EntitySelectorExpression\": \"<string>\",\n  \"Period\": \"<integer>\",\n  \"ForecastStatistics\": \"<boolean>\",\n  \"NextToken\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"TimeSeriesServiceStatistics\": [\n    {\n      \"Timestamp\": \"1956-07-15T04:47:56.364Z\",\n      \"EdgeSummaryStatistics\": {\n        \"OkCount\": 8820,\n        \"ErrorStatistics\": {\n          \"ThrottleCount\": 8497,\n          \"OtherCount\": 1399,\n          \"TotalCount\": 2815\n        },\n        \"FaultStatistics\": {\n          \"OtherCount\": 3050,\n          \"TotalCount\": 7942\n        },\n        \"TotalCount\": 4510,\n        \"TotalResponseTime\": 3644.6504309091197\n      },\n      \"ServiceSummaryStatistics\": {\n        \"OkCount\": 4766,\n        \"ErrorStatistics\": {\n          \"ThrottleCount\": 6867,\n          \"OtherCount\": 1018,\n          \"TotalCount\": 8001\n        },\n        \"FaultStatistics\": {\n          \"OtherCount\": 7915,\n          \"TotalCount\": 1643\n        },\n        \"TotalCount\": 4140,\n        \"TotalResponseTime\": 9935.059913258125\n      },\n      \"ServiceForecastStatistics\": {\n        \"FaultCountHigh\": 9981,\n        \"FaultCountLow\": 8485\n      },\n      \"ResponseTimeHistogram\": [\n        {\n          \"Value\": 1469.8699392105452,\n          \"Count\": 1825\n        },\n        {\n          \"Value\": 4294.135662807196,\n          \"Count\": 8808\n        }\n      ]\n    },\n    {\n      \"Timestamp\": \"1970-03-14T10:58:41.504Z\",\n      \"EdgeSummaryStatistics\": {\n        \"OkCount\": 8032,\n        \"ErrorStatistics\": {\n          \"ThrottleCount\": 9251,\n          \"OtherCount\": 7518,\n          \"TotalCount\": 896\n        },\n        \"FaultStatistics\": {\n          \"OtherCount\": 862,\n          \"TotalCount\": 8185\n        },\n        \"TotalCount\": 945,\n        \"TotalResponseTime\": 373.90095087599275\n      },\n      \"ServiceSummaryStatistics\": {\n        \"OkCount\": 9934,\n        \"ErrorStatistics\": {\n          \"ThrottleCount\": 9868,\n          \"OtherCount\": 3970,\n          \"TotalCount\": 9128\n        },\n        \"FaultStatistics\": {\n          \"OtherCount\": 3277,\n          \"TotalCount\": 6957\n        },\n        \"TotalCount\": 7,\n        \"TotalResponseTime\": 1502.858481426349\n      },\n      \"ServiceForecastStatistics\": {\n        \"FaultCountHigh\": 6880,\n        \"FaultCountLow\": 4962\n      },\n      \"ResponseTimeHistogram\": [\n        {\n          \"Value\": 8805.5941054464,\n          \"Count\": 3791\n        },\n        {\n          \"Value\": 7209.639919583677,\n          \"Count\": 6573\n        }\n      ]\n    }\n  ],\n  \"ContainsOldGroupVersions\": true,\n  \"NextToken\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "AWS region",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "us-east-1",
+      "key": "region"
+    },
+    {
+      "type": "string",
+      "value": "https://xray.{{region}}.amazonaws.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "1553b2cc-0cb1-4503-b374-4a2907d80647",
+    "name": "AWS X-Ray Encryption Service Graph API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "AWS X-Ray provides APIs for managing trace data, sampling rules, groups, and encryption configuration. X-Ray helps developers analyze and debug distributed applications by collecting trace data as requests travel through application components.\n\nContact Support:\n Name: Amazon Web Services",
+      "type": "text/plain"
+    }
+  }
+}

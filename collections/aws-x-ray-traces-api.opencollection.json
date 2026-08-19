@@ -1,0 +1,71 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "AWS X-Ray Encryption Traces API",
+    "version": "2016-04-12"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Traces",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "AWS X-Ray Upload Trace Segments",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://xray.{region}.amazonaws.com/Traces",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Uploads segment documents to AWS X-Ray. A segment document can be a completed segment, an in-progress segment, or a subsegment."
+        },
+        {
+          "info": {
+            "name": "AWS X-Ray Get a List of Traces by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://xray.{region}.amazonaws.com/TraceGraph",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Retrieves a list of traces specified by ID. Each trace is a collection of segment documents that originates from a single request."
+        },
+        {
+          "info": {
+            "name": "AWS X-Ray Get Trace Summaries",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://xray.{region}.amazonaws.com/TraceSummaries",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Retrieves IDs and annotations for traces available for a specified time frame using an optional filter. To get the full traces, pass the trace IDs to BatchGetTraces."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

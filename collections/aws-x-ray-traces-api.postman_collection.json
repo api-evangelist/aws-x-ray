@@ -1,0 +1,397 @@
+{
+  "item": [
+    {
+      "id": "273980ab-4aa5-4f04-803b-2fd9f5271de3",
+      "name": "Traces",
+      "description": {
+        "content": "Upload and retrieve trace data",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "328a9282-502e-4979-9112-d885b8c86250",
+          "name": "AWS X-Ray Upload Trace Segments",
+          "request": {
+            "name": "AWS X-Ray Upload Trace Segments",
+            "description": {
+              "content": "Uploads segment documents to AWS X-Ray. A segment document can be a completed segment, an in-progress segment, or a subsegment.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Traces"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "AWS region",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"TraceSegmentDocuments\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e712155e-8bbf-424d-95e2-13047db91b31",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Traces"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "AWS region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"TraceSegmentDocuments\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"UnprocessedTraceSegments\": [\n    {\n      \"Id\": \"string\",\n      \"ErrorCode\": \"string\",\n      \"Message\": \"string\"\n    },\n    {\n      \"Id\": \"string\",\n      \"ErrorCode\": \"string\",\n      \"Message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "50a00d8f-87e9-4bdd-8365-94028bd4fbb9",
+          "name": "AWS X-Ray Get a List of Traces by ID",
+          "request": {
+            "name": "AWS X-Ray Get a List of Traces by ID",
+            "description": {
+              "content": "Retrieves a list of traces specified by ID. Each trace is a collection of segment documents that originates from a single request.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "TraceGraph"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "AWS region",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"TraceIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"NextToken\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e562005c-f59f-407e-b132-12be311581c9",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "TraceGraph"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "AWS region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"TraceIds\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"NextToken\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Traces\": [\n    {\n      \"Id\": \"string\",\n      \"Duration\": 7879.000617928352,\n      \"LimitExceeded\": false,\n      \"Segments\": [\n        {\n          \"Id\": \"string\",\n          \"Document\": \"string\"\n        },\n        {\n          \"Id\": \"string\",\n          \"Document\": \"string\"\n        }\n      ]\n    },\n    {\n      \"Id\": \"string\",\n      \"Duration\": 6737.751497216396,\n      \"LimitExceeded\": true,\n      \"Segments\": [\n        {\n          \"Id\": \"string\",\n          \"Document\": \"string\"\n        },\n        {\n          \"Id\": \"string\",\n          \"Document\": \"string\"\n        }\n      ]\n    }\n  ],\n  \"UnprocessedTraceIds\": [\n    \"string\",\n    \"string\"\n  ],\n  \"NextToken\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6635792b-b259-4833-8a4c-ec5f584821b7",
+          "name": "AWS X-Ray Get Trace Summaries",
+          "request": {
+            "name": "AWS X-Ray Get Trace Summaries",
+            "description": {
+              "content": "Retrieves IDs and annotations for traces available for a specified time frame using an optional filter. To get the full traces, pass the trace IDs to BatchGetTraces.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "TraceSummaries"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "AWS region",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"StartTime\": \"<dateTime>\",\n  \"EndTime\": \"<dateTime>\",\n  \"TimeRangeType\": \"<string>\",\n  \"Sampling\": \"<boolean>\",\n  \"SamplingStrategy\": {\n    \"Name\": \"<string>\",\n    \"Value\": \"<number>\"\n  },\n  \"FilterExpression\": \"<string>\",\n  \"NextToken\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d9366c53-2f20-4d52-a641-b0287d8389e9",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "TraceSummaries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "AWS region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"StartTime\": \"<dateTime>\",\n  \"EndTime\": \"<dateTime>\",\n  \"TimeRangeType\": \"<string>\",\n  \"Sampling\": \"<boolean>\",\n  \"SamplingStrategy\": {\n    \"Name\": \"<string>\",\n    \"Value\": \"<number>\"\n  },\n  \"FilterExpression\": \"<string>\",\n  \"NextToken\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"TraceSummaries\": [\n    {\n      \"Id\": \"string\",\n      \"Duration\": 8104.345766898245,\n      \"ResponseTime\": 5455.3936404717415,\n      \"HasFault\": false,\n      \"HasError\": true,\n      \"HasThrottle\": true,\n      \"IsPartial\": false,\n      \"Http\": {\n        \"HttpURL\": \"string\",\n        \"HttpStatus\": 4631,\n        \"HttpMethod\": \"string\",\n        \"UserAgent\": \"string\",\n        \"ClientIp\": \"string\"\n      },\n      \"Annotations\": {},\n      \"Users\": [\n        {\n          \"UserName\": \"string\"\n        },\n        {\n          \"UserName\": \"string\"\n        }\n      ],\n      \"ServiceIds\": [\n        {\n          \"Name\": \"string\",\n          \"Names\": [\n            \"string\",\n            \"string\"\n          ],\n          \"AccountId\": \"string\",\n          \"Type\": \"string\"\n        },\n        {\n          \"Name\": \"string\",\n          \"Names\": [\n            \"string\",\n            \"string\"\n          ],\n          \"AccountId\": \"string\",\n          \"Type\": \"string\"\n        }\n      ],\n      \"EntryPoint\": {\n        \"Name\": \"string\",\n        \"Names\": [\n          \"string\",\n          \"string\"\n        ],\n        \"AccountId\": \"string\",\n        \"Type\": \"string\"\n      },\n      \"MatchedEventTime\": \"1957-06-13T04:02:29.856Z\"\n    },\n    {\n      \"Id\": \"string\",\n      \"Duration\": 1163.0306496456633,\n      \"ResponseTime\": 3689.952713514928,\n      \"HasFault\": false,\n      \"HasError\": false,\n      \"HasThrottle\": false,\n      \"IsPartial\": false,\n      \"Http\": {\n        \"HttpURL\": \"string\",\n        \"HttpStatus\": 1691,\n        \"HttpMethod\": \"string\",\n        \"UserAgent\": \"string\",\n        \"ClientIp\": \"string\"\n      },\n      \"Annotations\": {},\n      \"Users\": [\n        {\n          \"UserName\": \"string\"\n        },\n        {\n          \"UserName\": \"string\"\n        }\n      ],\n      \"ServiceIds\": [\n        {\n          \"Name\": \"string\",\n          \"Names\": [\n            \"string\",\n            \"string\"\n          ],\n          \"AccountId\": \"string\",\n          \"Type\": \"string\"\n        },\n        {\n          \"Name\": \"string\",\n          \"Names\": [\n            \"string\",\n            \"string\"\n          ],\n          \"AccountId\": \"string\",\n          \"Type\": \"string\"\n        }\n      ],\n      \"EntryPoint\": {\n        \"Name\": \"string\",\n        \"Names\": [\n          \"string\",\n          \"string\"\n        ],\n        \"AccountId\": \"string\",\n        \"Type\": \"string\"\n      },\n      \"MatchedEventTime\": \"2012-09-28T17:47:20.507Z\"\n    }\n  ],\n  \"ApproximateTime\": \"1973-12-30T15:17:58.786Z\",\n  \"TracesProcessedCount\": 1662,\n  \"NextToken\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "AWS region",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "us-east-1",
+      "key": "region"
+    },
+    {
+      "type": "string",
+      "value": "https://xray.{{region}}.amazonaws.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "b711e460-68af-483c-8c9a-0f495b89aa84",
+    "name": "AWS X-Ray Encryption Traces API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "AWS X-Ray provides APIs for managing trace data, sampling rules, groups, and encryption configuration. X-Ray helps developers analyze and debug distributed applications by collecting trace data as requests travel through application components.\n\nContact Support:\n Name: Amazon Web Services",
+      "type": "text/plain"
+    }
+  }
+}

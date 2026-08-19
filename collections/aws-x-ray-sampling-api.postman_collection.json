@@ -1,0 +1,623 @@
+{
+  "item": [
+    {
+      "id": "b169b421-8207-4bdb-be10-4eb71f8389e6",
+      "name": "Sampling",
+      "description": {
+        "content": "Manage sampling rules",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8661c6ed-1b43-4f2a-994a-5fb54c515088",
+          "name": "AWS X-Ray Get All Sampling Rules",
+          "request": {
+            "name": "AWS X-Ray Get All Sampling Rules",
+            "description": {
+              "content": "Retrieves all sampling rules.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "SamplingRules"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "AWS region",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"NextToken\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "080c831b-c7b2-40a9-8062-3f14023e2a94",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "SamplingRules"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "AWS region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"NextToken\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"SamplingRuleRecords\": [\n    {\n      \"SamplingRule\": {\n        \"ResourceARN\": \"string\",\n        \"Priority\": 6931,\n        \"FixedRate\": 5195.128172322736,\n        \"ReservoirSize\": 4835,\n        \"ServiceName\": \"string\",\n        \"ServiceType\": \"string\",\n        \"Host\": \"string\",\n        \"HTTPMethod\": \"string\",\n        \"URLPath\": \"string\",\n        \"Version\": 8746,\n        \"RuleName\": \"string\",\n        \"RuleARN\": \"string\",\n        \"Attributes\": {\n          \"key_0\": \"string\"\n        }\n      },\n      \"CreatedAt\": \"1986-04-07T13:28:29.818Z\",\n      \"ModifiedAt\": \"2004-02-24T06:50:42.768Z\"\n    },\n    {\n      \"SamplingRule\": {\n        \"ResourceARN\": \"string\",\n        \"Priority\": 434,\n        \"FixedRate\": 583.1015779954596,\n        \"ReservoirSize\": 3493,\n        \"ServiceName\": \"string\",\n        \"ServiceType\": \"string\",\n        \"Host\": \"string\",\n        \"HTTPMethod\": \"string\",\n        \"URLPath\": \"string\",\n        \"Version\": 1333,\n        \"RuleName\": \"string\",\n        \"RuleARN\": \"string\",\n        \"Attributes\": {\n          \"key_0\": \"string\"\n        }\n      },\n      \"CreatedAt\": \"1965-11-15T09:27:48.917Z\",\n      \"ModifiedAt\": \"1964-12-28T20:29:45.151Z\"\n    }\n  ],\n  \"NextToken\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7e614459-e55c-444f-8528-762dd5980df7",
+          "name": "AWS X-Ray Create a Sampling Rule",
+          "request": {
+            "name": "AWS X-Ray Create a Sampling Rule",
+            "description": {
+              "content": "Creates a rule to control sampling behavior for instrumented applications.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "CreateSamplingRule"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "AWS region",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"SamplingRule\": {\n    \"ResourceARN\": \"<string>\",\n    \"Priority\": \"<integer>\",\n    \"FixedRate\": \"<number>\",\n    \"ReservoirSize\": \"<integer>\",\n    \"ServiceName\": \"<string>\",\n    \"ServiceType\": \"<string>\",\n    \"Host\": \"<string>\",\n    \"HTTPMethod\": \"<string>\",\n    \"URLPath\": \"<string>\",\n    \"Version\": \"<integer>\",\n    \"RuleName\": \"<string>\",\n    \"RuleARN\": \"<string>\",\n    \"Attributes\": {\n      \"key_0\": \"<string>\"\n    }\n  },\n  \"Tags\": [\n    {\n      \"Key\": \"<string>\",\n      \"Value\": \"<string>\"\n    },\n    {\n      \"Key\": \"<string>\",\n      \"Value\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f215ee59-67db-4de6-87f6-51987197da79",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "CreateSamplingRule"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "AWS region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"SamplingRule\": {\n    \"ResourceARN\": \"string\",\n    \"Priority\": 5999,\n    \"FixedRate\": 7825.290402457882,\n    \"ReservoirSize\": 9870,\n    \"ServiceName\": \"string\",\n    \"ServiceType\": \"string\",\n    \"Host\": \"string\",\n    \"HTTPMethod\": \"string\",\n    \"URLPath\": \"string\",\n    \"Version\": 6249,\n    \"RuleName\": \"string\",\n    \"RuleARN\": \"string\",\n    \"Attributes\": {\n      \"key_0\": \"string\"\n    }\n  },\n  \"Tags\": [\n    {\n      \"Key\": \"string\",\n      \"Value\": \"string\"\n    },\n    {\n      \"Key\": \"string\",\n      \"Value\": \"string\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"SamplingRuleRecord\": {\n    \"SamplingRule\": {\n      \"ResourceARN\": \"string\",\n      \"Priority\": 9206,\n      \"FixedRate\": 2656.235985906963,\n      \"ReservoirSize\": 6034,\n      \"ServiceName\": \"string\",\n      \"ServiceType\": \"string\",\n      \"Host\": \"string\",\n      \"HTTPMethod\": \"string\",\n      \"URLPath\": \"string\",\n      \"Version\": 4207,\n      \"RuleName\": \"string\",\n      \"RuleARN\": \"string\",\n      \"Attributes\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      }\n    },\n    \"CreatedAt\": \"1985-06-28T15:28:21.091Z\",\n    \"ModifiedAt\": \"2013-08-26T19:23:48.376Z\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a7c2fa77-0c63-479a-b3b4-56a2eb6446e6",
+          "name": "AWS X-Ray Update a Sampling Rule",
+          "request": {
+            "name": "AWS X-Ray Update a Sampling Rule",
+            "description": {
+              "content": "Modifies a sampling rule's configuration.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "UpdateSamplingRule"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "AWS region",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"SamplingRuleUpdate\": {\n    \"RuleName\": \"<string>\",\n    \"RuleARN\": \"<string>\",\n    \"ResourceARN\": \"<string>\",\n    \"Priority\": \"<integer>\",\n    \"FixedRate\": \"<number>\",\n    \"ReservoirSize\": \"<integer>\",\n    \"Host\": \"<string>\",\n    \"ServiceName\": \"<string>\",\n    \"ServiceType\": \"<string>\",\n    \"HTTPMethod\": \"<string>\",\n    \"URLPath\": \"<string>\",\n    \"Attributes\": {\n      \"key_0\": \"<string>\",\n      \"key_1\": \"<string>\"\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ec9707fb-d9d9-4e7a-aea8-51d88ee5a7db",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "UpdateSamplingRule"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "AWS region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"SamplingRuleUpdate\": {\n    \"RuleName\": \"<string>\",\n    \"RuleARN\": \"<string>\",\n    \"ResourceARN\": \"<string>\",\n    \"Priority\": \"<integer>\",\n    \"FixedRate\": \"<number>\",\n    \"ReservoirSize\": \"<integer>\",\n    \"Host\": \"<string>\",\n    \"ServiceName\": \"<string>\",\n    \"ServiceType\": \"<string>\",\n    \"HTTPMethod\": \"<string>\",\n    \"URLPath\": \"<string>\",\n    \"Attributes\": {\n      \"key_0\": \"<string>\",\n      \"key_1\": \"<string>\",\n      \"key_2\": \"<string>\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"SamplingRuleRecord\": {\n    \"SamplingRule\": {\n      \"ResourceARN\": \"string\",\n      \"Priority\": 9206,\n      \"FixedRate\": 2656.235985906963,\n      \"ReservoirSize\": 6034,\n      \"ServiceName\": \"string\",\n      \"ServiceType\": \"string\",\n      \"Host\": \"string\",\n      \"HTTPMethod\": \"string\",\n      \"URLPath\": \"string\",\n      \"Version\": 4207,\n      \"RuleName\": \"string\",\n      \"RuleARN\": \"string\",\n      \"Attributes\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      }\n    },\n    \"CreatedAt\": \"1985-06-28T15:28:21.091Z\",\n    \"ModifiedAt\": \"2013-08-26T19:23:48.376Z\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "77f5d237-5691-4c1f-8d76-77a2a86af15e",
+          "name": "AWS X-Ray Delete a Sampling Rule",
+          "request": {
+            "name": "AWS X-Ray Delete a Sampling Rule",
+            "description": {
+              "content": "Deletes a sampling rule.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "DeleteSamplingRule"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "AWS region",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"RuleName\": \"<string>\",\n  \"RuleARN\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "624c2b7b-14ad-4c91-85a3-dab65cc04348",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "DeleteSamplingRule"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "AWS region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"RuleName\": \"<string>\",\n  \"RuleARN\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"SamplingRuleRecord\": {\n    \"SamplingRule\": {\n      \"ResourceARN\": \"string\",\n      \"Priority\": 9206,\n      \"FixedRate\": 2656.235985906963,\n      \"ReservoirSize\": 6034,\n      \"ServiceName\": \"string\",\n      \"ServiceType\": \"string\",\n      \"Host\": \"string\",\n      \"HTTPMethod\": \"string\",\n      \"URLPath\": \"string\",\n      \"Version\": 4207,\n      \"RuleName\": \"string\",\n      \"RuleARN\": \"string\",\n      \"Attributes\": {\n        \"key_0\": \"string\",\n        \"key_1\": \"string\"\n      }\n    },\n    \"CreatedAt\": \"1985-06-28T15:28:21.091Z\",\n    \"ModifiedAt\": \"2013-08-26T19:23:48.376Z\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "28bf4367-da30-4918-92c7-3cc27d997106",
+          "name": "AWS X-Ray Get Sampling Targets",
+          "request": {
+            "name": "AWS X-Ray Get Sampling Targets",
+            "description": {
+              "content": "Requests a sampling quota for rules that the service is using to sample requests.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "SamplingTargets"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "AWS region",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"SamplingStatisticsDocuments\": [\n    {\n      \"RuleName\": \"<string>\",\n      \"ClientID\": \"<string>\",\n      \"Timestamp\": \"<dateTime>\",\n      \"RequestCount\": \"<integer>\",\n      \"SampledCount\": \"<integer>\",\n      \"BorrowCount\": \"<integer>\"\n    },\n    {\n      \"RuleName\": \"<string>\",\n      \"ClientID\": \"<string>\",\n      \"Timestamp\": \"<dateTime>\",\n      \"RequestCount\": \"<integer>\",\n      \"SampledCount\": \"<integer>\",\n      \"BorrowCount\": \"<integer>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2f7ae035-7f5a-4281-b870-1cbd931d391c",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "SamplingTargets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "AWS region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"SamplingStatisticsDocuments\": [\n    {\n      \"RuleName\": \"<string>\",\n      \"ClientID\": \"<string>\",\n      \"Timestamp\": \"<dateTime>\",\n      \"RequestCount\": \"<integer>\",\n      \"SampledCount\": \"<integer>\",\n      \"BorrowCount\": \"<integer>\"\n    },\n    {\n      \"RuleName\": \"<string>\",\n      \"ClientID\": \"<string>\",\n      \"Timestamp\": \"<dateTime>\",\n      \"RequestCount\": \"<integer>\",\n      \"SampledCount\": \"<integer>\",\n      \"BorrowCount\": \"<integer>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"SamplingTargetDocuments\": [\n    {\n      \"RuleName\": \"string\",\n      \"FixedRate\": 7614.709806907917,\n      \"ReservoirQuota\": 5515,\n      \"ReservoirQuotaTTL\": \"1948-08-19T17:52:16.828Z\",\n      \"Interval\": 9349\n    },\n    {\n      \"RuleName\": \"string\",\n      \"FixedRate\": 134.76278547419395,\n      \"ReservoirQuota\": 1954,\n      \"ReservoirQuotaTTL\": \"1985-08-31T04:36:29.125Z\",\n      \"Interval\": 7674\n    }\n  ],\n  \"LastRuleModification\": \"2011-10-28T21:02:40.415Z\",\n  \"UnprocessedStatistics\": [\n    {\n      \"RuleName\": \"string\",\n      \"ErrorCode\": \"string\",\n      \"Message\": \"string\"\n    },\n    {\n      \"RuleName\": \"string\",\n      \"ErrorCode\": \"string\",\n      \"Message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "AWS region",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "us-east-1",
+      "key": "region"
+    },
+    {
+      "type": "string",
+      "value": "https://xray.{{region}}.amazonaws.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "f64fafa5-f1bb-4b20-b8a4-b474c7f7273e",
+    "name": "AWS X-Ray Encryption Sampling API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "AWS X-Ray provides APIs for managing trace data, sampling rules, groups, and encryption configuration. X-Ray helps developers analyze and debug distributed applications by collecting trace data as requests travel through application components.\n\nContact Support:\n Name: Amazon Web Services",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,284 @@
+{
+  "item": [
+    {
+      "id": "b87b13b4-1854-4cdd-b3f9-43f1b66721ae",
+      "name": "Insights",
+      "description": {
+        "content": "Automated anomaly detection insights",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f8222836-3349-4064-82db-1dd1310e5a80",
+          "name": "AWS X-Ray Get Insight Summaries",
+          "request": {
+            "name": "AWS X-Ray Get Insight Summaries",
+            "description": {
+              "content": "Retrieves the summaries of all insights for the specified group.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Insights"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "AWS region",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"StartTime\": \"<dateTime>\",\n  \"EndTime\": \"<dateTime>\",\n  \"States\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"GroupARN\": \"<string>\",\n  \"GroupName\": \"<string>\",\n  \"MaxResults\": \"<integer>\",\n  \"NextToken\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7dac1f36-2efa-406f-a6e9-249a37a6f5b2",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Insights"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "AWS region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"StartTime\": \"<dateTime>\",\n  \"EndTime\": \"<dateTime>\",\n  \"States\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"GroupARN\": \"<string>\",\n  \"GroupName\": \"<string>\",\n  \"MaxResults\": \"<integer>\",\n  \"NextToken\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"InsightSummaries\": [\n    {\n      \"InsightId\": \"string\",\n      \"GroupARN\": \"string\",\n      \"GroupName\": \"string\",\n      \"RootCauseServiceId\": {\n        \"Name\": \"string\",\n        \"Names\": [\n          \"string\",\n          \"string\"\n        ],\n        \"AccountId\": \"string\",\n        \"Type\": \"string\"\n      },\n      \"Categories\": [\n        \"FAULT\",\n        \"FAULT\"\n      ],\n      \"State\": \"ACTIVE\",\n      \"StartTime\": \"1979-03-14T20:35:31.463Z\",\n      \"EndTime\": \"1989-08-02T16:36:33.407Z\",\n      \"Summary\": \"string\",\n      \"ClientRequestImpactStatistics\": {\n        \"FaultCount\": 3835,\n        \"OkCount\": 3523,\n        \"TotalCount\": 7978\n      },\n      \"RootCauseServiceRequestImpactStatistics\": {\n        \"FaultCount\": 875,\n        \"OkCount\": 3948,\n        \"TotalCount\": 5241\n      },\n      \"TopAnomalousServices\": [\n        {\n          \"ServiceId\": {\n            \"Name\": \"string\",\n            \"Names\": [\n              \"string\",\n              \"string\"\n            ],\n            \"AccountId\": \"string\",\n            \"Type\": \"string\"\n          }\n        },\n        {\n          \"ServiceId\": {\n            \"Name\": \"string\",\n            \"Names\": [\n              \"string\",\n              \"string\"\n            ],\n            \"AccountId\": \"string\",\n            \"Type\": \"string\"\n          }\n        }\n      ],\n      \"LastUpdateTime\": \"2023-09-17T15:43:50.862Z\"\n    },\n    {\n      \"InsightId\": \"string\",\n      \"GroupARN\": \"string\",\n      \"GroupName\": \"string\",\n      \"RootCauseServiceId\": {\n        \"Name\": \"string\",\n        \"Names\": [\n          \"string\",\n          \"string\"\n        ],\n        \"AccountId\": \"string\",\n        \"Type\": \"string\"\n      },\n      \"Categories\": [\n        \"FAULT\",\n        \"FAULT\"\n      ],\n      \"State\": \"CLOSED\",\n      \"StartTime\": \"1955-05-31T15:49:22.479Z\",\n      \"EndTime\": \"2023-02-25T12:06:53.477Z\",\n      \"Summary\": \"string\",\n      \"ClientRequestImpactStatistics\": {\n        \"FaultCount\": 3417,\n        \"OkCount\": 3779,\n        \"TotalCount\": 5018\n      },\n      \"RootCauseServiceRequestImpactStatistics\": {\n        \"FaultCount\": 3891,\n        \"OkCount\": 3724,\n        \"TotalCount\": 650\n      },\n      \"TopAnomalousServices\": [\n        {\n          \"ServiceId\": {\n            \"Name\": \"string\",\n            \"Names\": [\n              \"string\",\n              \"string\"\n            ],\n            \"AccountId\": \"string\",\n            \"Type\": \"string\"\n          }\n        },\n        {\n          \"ServiceId\": {\n            \"Name\": \"string\",\n            \"Names\": [\n              \"string\",\n              \"string\"\n            ],\n            \"AccountId\": \"string\",\n            \"Type\": \"string\"\n          }\n        }\n      ],\n      \"LastUpdateTime\": \"1946-10-29T08:31:43.666Z\"\n    }\n  ],\n  \"NextToken\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e49dcd40-9df2-4e4f-9c7e-2f8f02fcea92",
+          "name": "AWS X-Ray Get Insight Details",
+          "request": {
+            "name": "AWS X-Ray Get Insight Details",
+            "description": {
+              "content": "Retrieves the summary information of an insight.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Insight"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "AWS region",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"InsightId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "00af4de2-e1c1-44e8-a540-9cc78cb438ae",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Insight"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "AWS region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"InsightId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Insight\": {\n    \"InsightId\": \"string\",\n    \"GroupARN\": \"string\",\n    \"GroupName\": \"string\",\n    \"RootCauseServiceId\": {\n      \"Name\": \"string\",\n      \"Names\": [\n        \"string\",\n        \"string\"\n      ],\n      \"AccountId\": \"string\",\n      \"Type\": \"string\"\n    },\n    \"Categories\": [\n      \"string\",\n      \"string\"\n    ],\n    \"State\": \"ACTIVE\",\n    \"StartTime\": \"1997-08-22T01:29:28.436Z\",\n    \"EndTime\": \"2004-01-16T00:32:24.377Z\",\n    \"Summary\": \"string\",\n    \"ClientRequestImpactStatistics\": {\n      \"FaultCount\": 7632,\n      \"OkCount\": 1855,\n      \"TotalCount\": 8962\n    },\n    \"RootCauseServiceRequestImpactStatistics\": {\n      \"FaultCount\": 292,\n      \"OkCount\": 9770,\n      \"TotalCount\": 5630\n    },\n    \"TopAnomalousServices\": [\n      {\n        \"ServiceId\": {\n          \"Name\": \"string\",\n          \"Names\": [\n            \"string\",\n            \"string\"\n          ],\n          \"AccountId\": \"string\",\n          \"Type\": \"string\"\n        }\n      },\n      {\n        \"ServiceId\": {\n          \"Name\": \"string\",\n          \"Names\": [\n            \"string\",\n            \"string\"\n          ],\n          \"AccountId\": \"string\",\n          \"Type\": \"string\"\n        }\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "AWS region",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "us-east-1",
+      "key": "region"
+    },
+    {
+      "type": "string",
+      "value": "https://xray.{{region}}.amazonaws.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "eeb02c10-dec1-4a46-9904-f45d9443e9bc",
+    "name": "AWS X-Ray Encryption Insights API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "AWS X-Ray provides APIs for managing trace data, sampling rules, groups, and encryption configuration. X-Ray helps developers analyze and debug distributed applications by collecting trace data as requests travel through application components.\n\nContact Support:\n Name: Amazon Web Services",
+      "type": "text/plain"
+    }
+  }
+}
