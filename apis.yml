@@ -52,6 +52,8 @@ apis:
   humanURL: https://aws.amazon.com/xray/
   baseURL: https://xray.{region}.amazonaws.com
   tags:
+  - Group
+  tags_raw:
   - Groups
   properties:
   - type: OpenAPI
