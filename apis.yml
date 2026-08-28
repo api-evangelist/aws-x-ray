@@ -5,6 +5,18 @@ description: >-
   tracing of requests as they travel through the application, identifying performance bottlenecks and errors. It is now
   part of Amazon CloudWatch Application Signals for unified observability.
 type: Index
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: self-serve
