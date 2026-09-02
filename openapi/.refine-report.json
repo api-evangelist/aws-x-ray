@@ -25,6 +25,17 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
+  "notes": [
+    "aws-x-ray-encryption-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "aws-x-ray-groups-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "aws-x-ray-insights-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "aws-x-ray-sampling-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "aws-x-ray-service-graph-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "aws-x-ray-tagresource-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "aws-x-ray-tags-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "aws-x-ray-traces-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "aws-x-ray-untagresource-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
   "skipped": []
 }
