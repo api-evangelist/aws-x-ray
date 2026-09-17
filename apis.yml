@@ -126,22 +126,6 @@ apis:
     url: https://docs.aws.amazon.com/xray/latest/devguide/aws-xray.html
   - type: APIReference
     url: https://docs.aws.amazon.com/xray/latest/api/Welcome.html
-- aid: aws-x-ray:aws-x-ray-tagresource-api
-  name: AWS X-Ray TagResource API
-  description: The TagResource API from AWS X-Ray — 1 operation(s) for tagresource.
-  humanURL: https://aws.amazon.com/xray/
-  baseURL: https://xray.{region}.amazonaws.com
-  tags:
-  - TagResource
-  properties:
-  - type: OpenAPI
-    url: openapi/aws-x-ray-tagresource-api-openapi.yml
-  - type: JSONSchema
-    url: json-schema/aws-x-ray-trace-segment.yml
-  - type: Documentation
-    url: https://docs.aws.amazon.com/xray/latest/devguide/aws-xray.html
-  - type: APIReference
-    url: https://docs.aws.amazon.com/xray/latest/api/Welcome.html
 - aid: aws-x-ray:aws-x-ray-tags-api
   name: AWS X-Ray Tags API
   description: The Tags API from AWS X-Ray — 1 operation(s) for tags.
@@ -174,16 +158,32 @@ apis:
     url: https://docs.aws.amazon.com/xray/latest/devguide/aws-xray.html
   - type: APIReference
     url: https://docs.aws.amazon.com/xray/latest/api/Welcome.html
-- aid: aws-x-ray:aws-x-ray-untagresource-api
-  name: AWS X-Ray UntagResource API
-  description: The UntagResource API from AWS X-Ray — 1 operation(s) for untagresource.
+- aid: aws-x-ray:aws-x-ray-tag-resource-api
+  name: AWS X-Ray Tag Resource API
+  description: The Tag Resource API from AWS X-Ray — 1 operation(s) for tag resource.
   humanURL: https://aws.amazon.com/xray/
   baseURL: https://xray.{region}.amazonaws.com
   tags:
-  - UntagResource
+  - Tag Resource
   properties:
   - type: OpenAPI
-    url: openapi/aws-x-ray-untagresource-api-openapi.yml
+    url: openapi/aws-x-ray-tag-resource-api-openapi.yml
+  - type: JSONSchema
+    url: json-schema/aws-x-ray-trace-segment.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/xray/latest/devguide/aws-xray.html
+  - type: APIReference
+    url: https://docs.aws.amazon.com/xray/latest/api/Welcome.html
+- aid: aws-x-ray:aws-x-ray-untag-resource-api
+  name: AWS X-Ray Untag Resource API
+  description: The Untag Resource API from AWS X-Ray — 1 operation(s) for untag resource.
+  humanURL: https://aws.amazon.com/xray/
+  baseURL: https://xray.{region}.amazonaws.com
+  tags:
+  - Untag Resource
+  properties:
+  - type: OpenAPI
+    url: openapi/aws-x-ray-untag-resource-api-openapi.yml
   - type: JSONSchema
     url: json-schema/aws-x-ray-trace-segment.yml
   - type: Documentation
