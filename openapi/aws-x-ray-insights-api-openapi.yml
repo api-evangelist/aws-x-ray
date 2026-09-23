@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: AWS X-Ray Encryption Insights API
+  title: AWS X-Ray Insights API
   description: AWS X-Ray provides APIs for managing trace data, sampling rules, groups, and encryption configuration. X-Ray helps developers analyze and debug distributed applications by collecting trace data as requests travel through application components.
   version: '2016-04-12'
   contact:
@@ -166,6 +166,19 @@ components:
             properties:
               ServiceId:
                 $ref: '#/components/schemas/ServiceId'
+    ServiceId:
+      type: object
+      properties:
+        Name:
+          type: string
+        Names:
+          type: array
+          items:
+            type: string
+        AccountId:
+          type: string
+        Type:
+          type: string
     InsightSummary:
       type: object
       properties:
@@ -230,19 +243,6 @@ components:
         LastUpdateTime:
           type: string
           format: date-time
-    ServiceId:
-      type: object
-      properties:
-        Name:
-          type: string
-        Names:
-          type: array
-          items:
-            type: string
-        AccountId:
-          type: string
-        Type:
-          type: string
   securitySchemes:
     aws_sig_v4:
       type: apiKey

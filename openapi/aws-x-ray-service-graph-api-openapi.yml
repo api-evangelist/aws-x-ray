@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: AWS X-Ray Encryption Service Graph API
+  title: AWS X-Ray Service Graph API
   description: AWS X-Ray provides APIs for managing trace data, sampling rules, groups, and encryption configuration. X-Ray helps developers analyze and debug distributed applications by collecting trace data as requests travel through application components.
   version: '2016-04-12'
   contact:
@@ -114,93 +114,13 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    TimeSeriesServiceStatistics:
+    HistogramEntry:
       type: object
       properties:
-        Timestamp:
-          type: string
-          format: date-time
-        EdgeSummaryStatistics:
-          $ref: '#/components/schemas/EdgeStatistics'
-        ServiceSummaryStatistics:
-          $ref: '#/components/schemas/ServiceStatistics'
-        ServiceForecastStatistics:
-          type: object
-          properties:
-            FaultCountHigh:
-              type: integer
-              format: int64
-            FaultCountLow:
-              type: integer
-              format: int64
-        ResponseTimeHistogram:
-          type: array
-          items:
-            $ref: '#/components/schemas/HistogramEntry'
-    ServiceStatistics:
-      type: object
-      properties:
-        OkCount:
-          type: integer
-          format: int64
-        ErrorStatistics:
-          type: object
-          properties:
-            ThrottleCount:
-              type: integer
-              format: int64
-            OtherCount:
-              type: integer
-              format: int64
-            TotalCount:
-              type: integer
-              format: int64
-        FaultStatistics:
-          type: object
-          properties:
-            OtherCount:
-              type: integer
-              format: int64
-            TotalCount:
-              type: integer
-              format: int64
-        TotalCount:
-          type: integer
-          format: int64
-        TotalResponseTime:
+        Value:
           type: number
-    EdgeStatistics:
-      type: object
-      properties:
-        OkCount:
+        Count:
           type: integer
-          format: int64
-        ErrorStatistics:
-          type: object
-          properties:
-            ThrottleCount:
-              type: integer
-              format: int64
-            OtherCount:
-              type: integer
-              format: int64
-            TotalCount:
-              type: integer
-              format: int64
-        FaultStatistics:
-          type: object
-          properties:
-            OtherCount:
-              type: integer
-              format: int64
-            TotalCount:
-              type: integer
-              format: int64
-        TotalCount:
-          type: integer
-          format: int64
-        TotalResponseTime:
-          type: number
     Service:
       type: object
       properties:
@@ -255,6 +175,38 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/HistogramEntry'
+    ServiceStatistics:
+      type: object
+      properties:
+        OkCount:
+          type: integer
+          format: int64
+        ErrorStatistics:
+          type: object
+          properties:
+            ThrottleCount:
+              type: integer
+              format: int64
+            OtherCount:
+              type: integer
+              format: int64
+            TotalCount:
+              type: integer
+              format: int64
+        FaultStatistics:
+          type: object
+          properties:
+            OtherCount:
+              type: integer
+              format: int64
+            TotalCount:
+              type: integer
+              format: int64
+        TotalCount:
+          type: integer
+          format: int64
+        TotalResponseTime:
+          type: number
     GetServiceGraphResult:
       type: object
       properties:
@@ -272,13 +224,61 @@ components:
           type: boolean
         NextToken:
           type: string
-    HistogramEntry:
+    TimeSeriesServiceStatistics:
       type: object
       properties:
-        Value:
-          type: number
-        Count:
+        Timestamp:
+          type: string
+          format: date-time
+        EdgeSummaryStatistics:
+          $ref: '#/components/schemas/EdgeStatistics'
+        ServiceSummaryStatistics:
+          $ref: '#/components/schemas/ServiceStatistics'
+        ServiceForecastStatistics:
+          type: object
+          properties:
+            FaultCountHigh:
+              type: integer
+              format: int64
+            FaultCountLow:
+              type: integer
+              format: int64
+        ResponseTimeHistogram:
+          type: array
+          items:
+            $ref: '#/components/schemas/HistogramEntry'
+    EdgeStatistics:
+      type: object
+      properties:
+        OkCount:
           type: integer
+          format: int64
+        ErrorStatistics:
+          type: object
+          properties:
+            ThrottleCount:
+              type: integer
+              format: int64
+            OtherCount:
+              type: integer
+              format: int64
+            TotalCount:
+              type: integer
+              format: int64
+        FaultStatistics:
+          type: object
+          properties:
+            OtherCount:
+              type: integer
+              format: int64
+            TotalCount:
+              type: integer
+              format: int64
+        TotalCount:
+          type: integer
+          format: int64
+        TotalResponseTime:
+          type: number
   securitySchemes:
     aws_sig_v4:
       type: apiKey

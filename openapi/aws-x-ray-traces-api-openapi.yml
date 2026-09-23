@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: AWS X-Ray Encryption Traces API
+  title: AWS X-Ray Traces API
   description: AWS X-Ray provides APIs for managing trace data, sampling rules, groups, and encryption configuration. X-Ray helps developers analyze and debug distributed applications by collecting trace data as requests travel through application components.
   version: '2016-04-12'
   contact:
@@ -208,19 +208,6 @@ components:
         MatchedEventTime:
           type: string
           format: date-time
-    BatchGetTracesResult:
-      type: object
-      properties:
-        Traces:
-          type: array
-          items:
-            $ref: '#/components/schemas/Trace'
-        UnprocessedTraceIds:
-          type: array
-          items:
-            type: string
-        NextToken:
-          type: string
     Trace:
       type: object
       properties:
@@ -241,18 +228,18 @@ components:
                 type: string
               Document:
                 type: string
-    ServiceId:
+    BatchGetTracesResult:
       type: object
       properties:
-        Name:
-          type: string
-        Names:
+        Traces:
+          type: array
+          items:
+            $ref: '#/components/schemas/Trace'
+        UnprocessedTraceIds:
           type: array
           items:
             type: string
-        AccountId:
-          type: string
-        Type:
+        NextToken:
           type: string
     GetTraceSummariesResult:
       type: object
@@ -268,6 +255,19 @@ components:
           type: integer
           format: int64
         NextToken:
+          type: string
+    ServiceId:
+      type: object
+      properties:
+        Name:
+          type: string
+        Names:
+          type: array
+          items:
+            type: string
+        AccountId:
+          type: string
+        Type:
           type: string
   securitySchemes:
     aws_sig_v4:

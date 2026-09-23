@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: AWS X-Ray Encryption Sampling API
+  title: AWS X-Ray Sampling API
   description: AWS X-Ray provides APIs for managing trace data, sampling rules, groups, and encryption configuration. X-Ray helps developers analyze and debug distributed applications by collecting trace data as requests travel through application components.
   version: '2016-04-12'
   contact:
@@ -262,6 +262,17 @@ components:
           type: string
         Value:
           type: string
+    SamplingRuleRecord:
+      type: object
+      properties:
+        SamplingRule:
+          $ref: '#/components/schemas/SamplingRule'
+        CreatedAt:
+          type: string
+          format: date-time
+        ModifiedAt:
+          type: string
+          format: date-time
     SamplingRule:
       type: object
       required:
@@ -304,17 +315,6 @@ components:
           type: object
           additionalProperties:
             type: string
-    SamplingRuleRecord:
-      type: object
-      properties:
-        SamplingRule:
-          $ref: '#/components/schemas/SamplingRule'
-        CreatedAt:
-          type: string
-          format: date-time
-        ModifiedAt:
-          type: string
-          format: date-time
   securitySchemes:
     aws_sig_v4:
       type: apiKey

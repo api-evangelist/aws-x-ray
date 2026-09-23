@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: AWS X-Ray Encryption Groups API
+  title: AWS X-Ray Groups API
   description: AWS X-Ray provides APIs for managing trace data, sampling rules, groups, and encryption configuration. X-Ray helps developers analyze and debug distributed applications by collecting trace data as requests travel through application components.
   version: '2016-04-12'
   contact:
@@ -191,7 +191,17 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    GroupSummary:
+    Tag:
+      type: object
+      required:
+      - Key
+      - Value
+      properties:
+        Key:
+          type: string
+        Value:
+          type: string
+    Group:
       type: object
       properties:
         GroupName:
@@ -207,17 +217,7 @@ components:
               type: boolean
             NotificationsEnabled:
               type: boolean
-    Tag:
-      type: object
-      required:
-      - Key
-      - Value
-      properties:
-        Key:
-          type: string
-        Value:
-          type: string
-    Group:
+    GroupSummary:
       type: object
       properties:
         GroupName:

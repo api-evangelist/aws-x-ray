@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: AWS X-Ray Encryption Tag Resource API
+  title: AWS X-Ray Untag Resource API
   description: AWS X-Ray provides APIs for managing trace data, sampling rules, groups, and encryption configuration. X-Ray helps developers analyze and debug distributed applications by collecting trace data as requests travel through application components.
   version: '2016-04-12'
   contact:
@@ -16,15 +16,15 @@ servers:
 security:
 - aws_sig_v4: []
 tags:
-- name: TagResource
+- name: Untag Resource
 paths:
-  /TagResource:
+  /UntagResource:
     post:
-      operationId: TagResource
-      summary: AWS X-Ray Tag a Resource
-      description: Applies tags to an existing X-Ray resource.
+      operationId: UntagResource
+      summary: AWS X-Ray Untag a Resource
+      description: Removes tags from an X-Ray resource.
       tags:
-      - TagResource
+      - Untag Resource
       requestBody:
         required: true
         content:
@@ -33,14 +33,14 @@ paths:
               type: object
               required:
               - ResourceARN
-              - Tags
+              - TagKeys
               properties:
                 ResourceARN:
                   type: string
-                Tags:
+                TagKeys:
                   type: array
                   items:
-                    $ref: '#/components/schemas/Tag'
+                    type: string
       responses:
         '200':
           description: Successful response
@@ -48,17 +48,6 @@ paths:
         delay: 0
         dispatcher: FALLBACK
 components:
-  schemas:
-    Tag:
-      type: object
-      required:
-      - Key
-      - Value
-      properties:
-        Key:
-          type: string
-        Value:
-          type: string
   securitySchemes:
     aws_sig_v4:
       type: apiKey

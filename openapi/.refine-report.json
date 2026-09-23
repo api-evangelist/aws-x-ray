@@ -1,15 +1,7 @@
 {
   "provider": "aws-x-ray",
   "sources": [
-    "aws-x-ray-encryption-api-openapi.yml",
-    "aws-x-ray-groups-api-openapi.yml",
-    "aws-x-ray-insights-api-openapi.yml",
-    "aws-x-ray-sampling-api-openapi.yml",
-    "aws-x-ray-service-graph-api-openapi.yml",
-    "aws-x-ray-tagresource-api-openapi.yml",
-    "aws-x-ray-tags-api-openapi.yml",
-    "aws-x-ray-traces-api-openapi.yml",
-    "aws-x-ray-untagresource-api-openapi.yml"
+    "_original/aws-x-ray-openapi.yml"
   ],
   "outputs": [
     "aws-x-ray-encryption-api-openapi.yml",
@@ -22,20 +14,32 @@
     "aws-x-ray-traces-api-openapi.yml",
     "aws-x-ray-untagresource-api-openapi.yml"
   ],
-  "archived": [],
+  "archived": [
+    "deleted 2 superseded output(s) from the previous generation"
+  ],
   "errors": [],
   "warnings": [],
   "notes": [
-    "aws-x-ray-encryption-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "aws-x-ray-groups-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "aws-x-ray-insights-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "aws-x-ray-sampling-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "aws-x-ray-service-graph-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "aws-x-ray-tagresource-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "aws-x-ray-tags-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "aws-x-ray-traces-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "aws-x-ray-untagresource-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "apis.yml register: already-registered"
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "aws-x-ray-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "aws-x-ray-openapi.yml: tagged paths POST /Tags -> Tags",
+    "aws-x-ray-openapi.yml: tagged paths POST /TagResource -> TagResource",
+    "aws-x-ray-openapi.yml: tagged paths POST /UntagResource -> UntagResource",
+    "aws-x-ray-openapi.yml: declared missing tag: TagResource",
+    "aws-x-ray-openapi.yml: declared missing tag: Tags",
+    "aws-x-ray-openapi.yml: declared missing tag: UntagResource",
+    "superseded outputs removed: aws-x-ray-tag-resource-api-openapi.yml, aws-x-ray-untag-resource-api-openapi.yml",
+    "apis.yml register: written (+2 apis, 9 total)"
   ],
-  "skipped": []
+  "skipped": [
+    "aws-x-ray-encryption-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "aws-x-ray-groups-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "aws-x-ray-insights-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "aws-x-ray-sampling-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "aws-x-ray-service-graph-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "aws-x-ray-tag-resource-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "aws-x-ray-tags-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "aws-x-ray-traces-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "aws-x-ray-untag-resource-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
