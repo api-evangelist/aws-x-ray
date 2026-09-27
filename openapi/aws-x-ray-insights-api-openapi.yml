@@ -107,6 +107,19 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
+    ServiceId:
+      type: object
+      properties:
+        Name:
+          type: string
+        Names:
+          type: array
+          items:
+            type: string
+        AccountId:
+          type: string
+        Type:
+          type: string
     Insight:
       type: object
       properties:
@@ -166,19 +179,6 @@ components:
             properties:
               ServiceId:
                 $ref: '#/components/schemas/ServiceId'
-    ServiceId:
-      type: object
-      properties:
-        Name:
-          type: string
-        Names:
-          type: array
-          items:
-            type: string
-        AccountId:
-          type: string
-        Type:
-          type: string
     InsightSummary:
       type: object
       properties:

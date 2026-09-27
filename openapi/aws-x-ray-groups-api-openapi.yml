@@ -191,17 +191,7 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    Tag:
-      type: object
-      required:
-      - Key
-      - Value
-      properties:
-        Key:
-          type: string
-        Value:
-          type: string
-    Group:
+    GroupSummary:
       type: object
       properties:
         GroupName:
@@ -217,7 +207,17 @@ components:
               type: boolean
             NotificationsEnabled:
               type: boolean
-    GroupSummary:
+    Tag:
+      type: object
+      required:
+      - Key
+      - Value
+      properties:
+        Key:
+          type: string
+        Value:
+          type: string
+    Group:
       type: object
       properties:
         GroupName:

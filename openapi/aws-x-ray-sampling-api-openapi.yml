@@ -262,17 +262,6 @@ components:
           type: string
         Value:
           type: string
-    SamplingRuleRecord:
-      type: object
-      properties:
-        SamplingRule:
-          $ref: '#/components/schemas/SamplingRule'
-        CreatedAt:
-          type: string
-          format: date-time
-        ModifiedAt:
-          type: string
-          format: date-time
     SamplingRule:
       type: object
       required:
@@ -315,6 +304,17 @@ components:
           type: object
           additionalProperties:
             type: string
+    SamplingRuleRecord:
+      type: object
+      properties:
+        SamplingRule:
+          $ref: '#/components/schemas/SamplingRule'
+        CreatedAt:
+          type: string
+          format: date-time
+        ModifiedAt:
+          type: string
+          format: date-time
   securitySchemes:
     aws_sig_v4:
       type: apiKey

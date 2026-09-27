@@ -114,116 +114,6 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    HistogramEntry:
-      type: object
-      properties:
-        Value:
-          type: number
-        Count:
-          type: integer
-    Service:
-      type: object
-      properties:
-        ReferenceId:
-          type: integer
-        Name:
-          type: string
-        Names:
-          type: array
-          items:
-            type: string
-        Root:
-          type: boolean
-        AccountId:
-          type: string
-        Type:
-          type: string
-        State:
-          type: string
-        StartTime:
-          type: string
-          format: date-time
-        EndTime:
-          type: string
-          format: date-time
-        Edges:
-          type: array
-          items:
-            type: object
-            properties:
-              ReferenceId:
-                type: integer
-              StartTime:
-                type: string
-                format: date-time
-              EndTime:
-                type: string
-                format: date-time
-              SummaryStatistics:
-                $ref: '#/components/schemas/EdgeStatistics'
-              ResponseTimeHistogram:
-                type: array
-                items:
-                  $ref: '#/components/schemas/HistogramEntry'
-        SummaryStatistics:
-          $ref: '#/components/schemas/ServiceStatistics'
-        ResponseTimeHistogram:
-          type: array
-          items:
-            $ref: '#/components/schemas/HistogramEntry'
-        DurationHistogram:
-          type: array
-          items:
-            $ref: '#/components/schemas/HistogramEntry'
-    ServiceStatistics:
-      type: object
-      properties:
-        OkCount:
-          type: integer
-          format: int64
-        ErrorStatistics:
-          type: object
-          properties:
-            ThrottleCount:
-              type: integer
-              format: int64
-            OtherCount:
-              type: integer
-              format: int64
-            TotalCount:
-              type: integer
-              format: int64
-        FaultStatistics:
-          type: object
-          properties:
-            OtherCount:
-              type: integer
-              format: int64
-            TotalCount:
-              type: integer
-              format: int64
-        TotalCount:
-          type: integer
-          format: int64
-        TotalResponseTime:
-          type: number
-    GetServiceGraphResult:
-      type: object
-      properties:
-        StartTime:
-          type: string
-          format: date-time
-        EndTime:
-          type: string
-          format: date-time
-        Services:
-          type: array
-          items:
-            $ref: '#/components/schemas/Service'
-        ContainsOldGroupVersions:
-          type: boolean
-        NextToken:
-          type: string
     TimeSeriesServiceStatistics:
       type: object
       properties:
@@ -279,6 +169,116 @@ components:
           format: int64
         TotalResponseTime:
           type: number
+    GetServiceGraphResult:
+      type: object
+      properties:
+        StartTime:
+          type: string
+          format: date-time
+        EndTime:
+          type: string
+          format: date-time
+        Services:
+          type: array
+          items:
+            $ref: '#/components/schemas/Service'
+        ContainsOldGroupVersions:
+          type: boolean
+        NextToken:
+          type: string
+    ServiceStatistics:
+      type: object
+      properties:
+        OkCount:
+          type: integer
+          format: int64
+        ErrorStatistics:
+          type: object
+          properties:
+            ThrottleCount:
+              type: integer
+              format: int64
+            OtherCount:
+              type: integer
+              format: int64
+            TotalCount:
+              type: integer
+              format: int64
+        FaultStatistics:
+          type: object
+          properties:
+            OtherCount:
+              type: integer
+              format: int64
+            TotalCount:
+              type: integer
+              format: int64
+        TotalCount:
+          type: integer
+          format: int64
+        TotalResponseTime:
+          type: number
+    Service:
+      type: object
+      properties:
+        ReferenceId:
+          type: integer
+        Name:
+          type: string
+        Names:
+          type: array
+          items:
+            type: string
+        Root:
+          type: boolean
+        AccountId:
+          type: string
+        Type:
+          type: string
+        State:
+          type: string
+        StartTime:
+          type: string
+          format: date-time
+        EndTime:
+          type: string
+          format: date-time
+        Edges:
+          type: array
+          items:
+            type: object
+            properties:
+              ReferenceId:
+                type: integer
+              StartTime:
+                type: string
+                format: date-time
+              EndTime:
+                type: string
+                format: date-time
+              SummaryStatistics:
+                $ref: '#/components/schemas/EdgeStatistics'
+              ResponseTimeHistogram:
+                type: array
+                items:
+                  $ref: '#/components/schemas/HistogramEntry'
+        SummaryStatistics:
+          $ref: '#/components/schemas/ServiceStatistics'
+        ResponseTimeHistogram:
+          type: array
+          items:
+            $ref: '#/components/schemas/HistogramEntry'
+        DurationHistogram:
+          type: array
+          items:
+            $ref: '#/components/schemas/HistogramEntry'
+    HistogramEntry:
+      type: object
+      properties:
+        Value:
+          type: number
+        Count:
+          type: integer
   securitySchemes:
     aws_sig_v4:
       type: apiKey
