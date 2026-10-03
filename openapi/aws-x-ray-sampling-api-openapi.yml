@@ -252,16 +252,17 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    Tag:
+    SamplingRuleRecord:
       type: object
-      required:
-      - Key
-      - Value
       properties:
-        Key:
+        SamplingRule:
+          $ref: '#/components/schemas/SamplingRule'
+        CreatedAt:
           type: string
-        Value:
+          format: date-time
+        ModifiedAt:
           type: string
+          format: date-time
     SamplingRule:
       type: object
       required:
@@ -304,17 +305,16 @@ components:
           type: object
           additionalProperties:
             type: string
-    SamplingRuleRecord:
+    Tag:
       type: object
+      required:
+      - Key
+      - Value
       properties:
-        SamplingRule:
-          $ref: '#/components/schemas/SamplingRule'
-        CreatedAt:
+        Key:
           type: string
-          format: date-time
-        ModifiedAt:
+        Value:
           type: string
-          format: date-time
   securitySchemes:
     aws_sig_v4:
       type: apiKey

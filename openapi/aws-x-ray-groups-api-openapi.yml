@@ -191,6 +191,22 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
+    Group:
+      type: object
+      properties:
+        GroupName:
+          type: string
+        GroupARN:
+          type: string
+        FilterExpression:
+          type: string
+        InsightsConfiguration:
+          type: object
+          properties:
+            InsightsEnabled:
+              type: boolean
+            NotificationsEnabled:
+              type: boolean
     GroupSummary:
       type: object
       properties:
@@ -217,22 +233,6 @@ components:
           type: string
         Value:
           type: string
-    Group:
-      type: object
-      properties:
-        GroupName:
-          type: string
-        GroupARN:
-          type: string
-        FilterExpression:
-          type: string
-        InsightsConfiguration:
-          type: object
-          properties:
-            InsightsEnabled:
-              type: boolean
-            NotificationsEnabled:
-              type: boolean
   securitySchemes:
     aws_sig_v4:
       type: apiKey
