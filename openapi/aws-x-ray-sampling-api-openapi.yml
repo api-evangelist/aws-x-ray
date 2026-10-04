@@ -263,6 +263,16 @@ components:
         ModifiedAt:
           type: string
           format: date-time
+    Tag:
+      type: object
+      required:
+      - Key
+      - Value
+      properties:
+        Key:
+          type: string
+        Value:
+          type: string
     SamplingRule:
       type: object
       required:
@@ -305,16 +315,6 @@ components:
           type: object
           additionalProperties:
             type: string
-    Tag:
-      type: object
-      required:
-      - Key
-      - Value
-      properties:
-        Key:
-          type: string
-        Value:
-          type: string
   securitySchemes:
     aws_sig_v4:
       type: apiKey

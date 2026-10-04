@@ -114,6 +114,13 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
+    HistogramEntry:
+      type: object
+      properties:
+        Value:
+          type: number
+        Count:
+          type: integer
     GetServiceGraphResult:
       type: object
       properties:
@@ -131,38 +138,6 @@ components:
           type: boolean
         NextToken:
           type: string
-    ServiceStatistics:
-      type: object
-      properties:
-        OkCount:
-          type: integer
-          format: int64
-        ErrorStatistics:
-          type: object
-          properties:
-            ThrottleCount:
-              type: integer
-              format: int64
-            OtherCount:
-              type: integer
-              format: int64
-            TotalCount:
-              type: integer
-              format: int64
-        FaultStatistics:
-          type: object
-          properties:
-            OtherCount:
-              type: integer
-              format: int64
-            TotalCount:
-              type: integer
-              format: int64
-        TotalCount:
-          type: integer
-          format: int64
-        TotalResponseTime:
-          type: number
     EdgeStatistics:
       type: object
       properties:
@@ -195,13 +170,29 @@ components:
           format: int64
         TotalResponseTime:
           type: number
-    HistogramEntry:
+    TimeSeriesServiceStatistics:
       type: object
       properties:
-        Value:
-          type: number
-        Count:
-          type: integer
+        Timestamp:
+          type: string
+          format: date-time
+        EdgeSummaryStatistics:
+          $ref: '#/components/schemas/EdgeStatistics'
+        ServiceSummaryStatistics:
+          $ref: '#/components/schemas/ServiceStatistics'
+        ServiceForecastStatistics:
+          type: object
+          properties:
+            FaultCountHigh:
+              type: integer
+              format: int64
+            FaultCountLow:
+              type: integer
+              format: int64
+        ResponseTimeHistogram:
+          type: array
+          items:
+            $ref: '#/components/schemas/HistogramEntry'
     Service:
       type: object
       properties:
@@ -256,29 +247,38 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/HistogramEntry'
-    TimeSeriesServiceStatistics:
+    ServiceStatistics:
       type: object
       properties:
-        Timestamp:
-          type: string
-          format: date-time
-        EdgeSummaryStatistics:
-          $ref: '#/components/schemas/EdgeStatistics'
-        ServiceSummaryStatistics:
-          $ref: '#/components/schemas/ServiceStatistics'
-        ServiceForecastStatistics:
+        OkCount:
+          type: integer
+          format: int64
+        ErrorStatistics:
           type: object
           properties:
-            FaultCountHigh:
+            ThrottleCount:
               type: integer
               format: int64
-            FaultCountLow:
+            OtherCount:
               type: integer
               format: int64
-        ResponseTimeHistogram:
-          type: array
-          items:
-            $ref: '#/components/schemas/HistogramEntry'
+            TotalCount:
+              type: integer
+              format: int64
+        FaultStatistics:
+          type: object
+          properties:
+            OtherCount:
+              type: integer
+              format: int64
+            TotalCount:
+              type: integer
+              format: int64
+        TotalCount:
+          type: integer
+          format: int64
+        TotalResponseTime:
+          type: number
   securitySchemes:
     aws_sig_v4:
       type: apiKey

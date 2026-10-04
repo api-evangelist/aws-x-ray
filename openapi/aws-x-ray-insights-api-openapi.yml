@@ -166,6 +166,19 @@ components:
             properties:
               ServiceId:
                 $ref: '#/components/schemas/ServiceId'
+    ServiceId:
+      type: object
+      properties:
+        Name:
+          type: string
+        Names:
+          type: array
+          items:
+            type: string
+        AccountId:
+          type: string
+        Type:
+          type: string
     InsightSummary:
       type: object
       properties:
@@ -230,19 +243,6 @@ components:
         LastUpdateTime:
           type: string
           format: date-time
-    ServiceId:
-      type: object
-      properties:
-        Name:
-          type: string
-        Names:
-          type: array
-          items:
-            type: string
-        AccountId:
-          type: string
-        Type:
-          type: string
   securitySchemes:
     aws_sig_v4:
       type: apiKey
