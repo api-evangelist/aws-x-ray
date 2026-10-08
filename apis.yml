@@ -191,6 +191,12 @@ apis:
   - type: APIReference
     url: https://docs.aws.amazon.com/xray/latest/api/Welcome.html
 common:
+  - type: Plans
+    url: plans/aws-x-ray-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/aws-x-ray-rate-limits.yml
+  - type: FinOps
+    url: finops/aws-x-ray-finops.yml
   - type: CapabilityMap
     url: capabilities/aws-x-ray-capability-edges.yml
     name: AWS X-Ray Business Capability Map
