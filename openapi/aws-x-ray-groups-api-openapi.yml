@@ -191,7 +191,7 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    GroupSummary:
+    Group:
       type: object
       properties:
         GroupName:
@@ -217,7 +217,7 @@ components:
           type: string
         Value:
           type: string
-    Group:
+    GroupSummary:
       type: object
       properties:
         GroupName:

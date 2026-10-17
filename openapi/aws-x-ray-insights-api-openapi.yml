@@ -107,65 +107,6 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    Insight:
-      type: object
-      properties:
-        InsightId:
-          type: string
-        GroupARN:
-          type: string
-        GroupName:
-          type: string
-        RootCauseServiceId:
-          $ref: '#/components/schemas/ServiceId'
-        Categories:
-          type: array
-          items:
-            type: string
-        State:
-          type: string
-          enum:
-          - ACTIVE
-          - CLOSED
-        StartTime:
-          type: string
-          format: date-time
-        EndTime:
-          type: string
-          format: date-time
-        Summary:
-          type: string
-        ClientRequestImpactStatistics:
-          type: object
-          properties:
-            FaultCount:
-              type: integer
-              format: int64
-            OkCount:
-              type: integer
-              format: int64
-            TotalCount:
-              type: integer
-              format: int64
-        RootCauseServiceRequestImpactStatistics:
-          type: object
-          properties:
-            FaultCount:
-              type: integer
-              format: int64
-            OkCount:
-              type: integer
-              format: int64
-            TotalCount:
-              type: integer
-              format: int64
-        TopAnomalousServices:
-          type: array
-          items:
-            type: object
-            properties:
-              ServiceId:
-                $ref: '#/components/schemas/ServiceId'
     ServiceId:
       type: object
       properties:
@@ -243,6 +184,65 @@ components:
         LastUpdateTime:
           type: string
           format: date-time
+    Insight:
+      type: object
+      properties:
+        InsightId:
+          type: string
+        GroupARN:
+          type: string
+        GroupName:
+          type: string
+        RootCauseServiceId:
+          $ref: '#/components/schemas/ServiceId'
+        Categories:
+          type: array
+          items:
+            type: string
+        State:
+          type: string
+          enum:
+          - ACTIVE
+          - CLOSED
+        StartTime:
+          type: string
+          format: date-time
+        EndTime:
+          type: string
+          format: date-time
+        Summary:
+          type: string
+        ClientRequestImpactStatistics:
+          type: object
+          properties:
+            FaultCount:
+              type: integer
+              format: int64
+            OkCount:
+              type: integer
+              format: int64
+            TotalCount:
+              type: integer
+              format: int64
+        RootCauseServiceRequestImpactStatistics:
+          type: object
+          properties:
+            FaultCount:
+              type: integer
+              format: int64
+            OkCount:
+              type: integer
+              format: int64
+            TotalCount:
+              type: integer
+              format: int64
+        TopAnomalousServices:
+          type: array
+          items:
+            type: object
+            properties:
+              ServiceId:
+                $ref: '#/components/schemas/ServiceId'
   securitySchemes:
     aws_sig_v4:
       type: apiKey

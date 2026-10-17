@@ -121,23 +121,6 @@ components:
           type: number
         Count:
           type: integer
-    GetServiceGraphResult:
-      type: object
-      properties:
-        StartTime:
-          type: string
-          format: date-time
-        EndTime:
-          type: string
-          format: date-time
-        Services:
-          type: array
-          items:
-            $ref: '#/components/schemas/Service'
-        ContainsOldGroupVersions:
-          type: boolean
-        NextToken:
-          type: string
     EdgeStatistics:
       type: object
       properties:
@@ -170,29 +153,23 @@ components:
           format: int64
         TotalResponseTime:
           type: number
-    TimeSeriesServiceStatistics:
+    GetServiceGraphResult:
       type: object
       properties:
-        Timestamp:
+        StartTime:
           type: string
           format: date-time
-        EdgeSummaryStatistics:
-          $ref: '#/components/schemas/EdgeStatistics'
-        ServiceSummaryStatistics:
-          $ref: '#/components/schemas/ServiceStatistics'
-        ServiceForecastStatistics:
-          type: object
-          properties:
-            FaultCountHigh:
-              type: integer
-              format: int64
-            FaultCountLow:
-              type: integer
-              format: int64
-        ResponseTimeHistogram:
+        EndTime:
+          type: string
+          format: date-time
+        Services:
           type: array
           items:
-            $ref: '#/components/schemas/HistogramEntry'
+            $ref: '#/components/schemas/Service'
+        ContainsOldGroupVersions:
+          type: boolean
+        NextToken:
+          type: string
     Service:
       type: object
       properties:
@@ -279,6 +256,29 @@ components:
           format: int64
         TotalResponseTime:
           type: number
+    TimeSeriesServiceStatistics:
+      type: object
+      properties:
+        Timestamp:
+          type: string
+          format: date-time
+        EdgeSummaryStatistics:
+          $ref: '#/components/schemas/EdgeStatistics'
+        ServiceSummaryStatistics:
+          $ref: '#/components/schemas/ServiceStatistics'
+        ServiceForecastStatistics:
+          type: object
+          properties:
+            FaultCountHigh:
+              type: integer
+              format: int64
+            FaultCountLow:
+              type: integer
+              format: int64
+        ResponseTimeHistogram:
+          type: array
+          items:
+            $ref: '#/components/schemas/HistogramEntry'
   securitySchemes:
     aws_sig_v4:
       type: apiKey
