@@ -1,4 +1,4 @@
-# AWS X-Ray (aws-x-ray)
+# AWS X-Ray
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,71 +66,242 @@
 
 AWS X-Ray is a service that helps developers analyze and debug distributed applications by providing end-to-end tracing of requests as they travel through the application, identifying performance bottlenecks and errors. It is now part of Amazon CloudWatch Application Signals for unified observability.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/aws-x-ray/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/aws-x-ray/refs/heads/main/apis.yml)
+**Areas:** AWS · Debugging · Developer Tools · Distributed Tracing · Microservices · Observability
 
-## Scope
+## AWS X-Ray on APIs.io
 
-- **Type:** Index
+Everything profiled for AWS X-Ray is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/aws-x-ray/](https://apis.io/providers/aws-x-ray/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (10)
 
-- AWS
-- Debugging
-- Distributed Tracing
-- Microservices
-- Observability
+- [AWS X-Ray Encryption API](https://apis.io/apis/aws-x-ray/aws-x-ray-encryption-api/) — Manage encryption configuration
+- [AWS X-Ray Groups API](https://apis.io/apis/aws-x-ray/aws-x-ray-groups-api/) — Manage trace groups
+- [AWS X-Ray Insights API](https://apis.io/apis/aws-x-ray/aws-x-ray-insights-api/) — Automated anomaly detection insights
+- [AWS X-Ray Sampling API](https://apis.io/apis/aws-x-ray/aws-x-ray-sampling-api/) — Manage sampling rules
+- [AWS X-Ray Service Graph API](https://apis.io/apis/aws-x-ray/aws-x-ray-service-graph-api/) — Service map and statistics
+- [AWS X-Ray Tags API](https://apis.io/apis/aws-x-ray/aws-x-ray-tags-api/) — The Tags API from AWS X-Ray — 1 operation(s) for tags.
+- [AWS X-Ray Traces API](https://apis.io/apis/aws-x-ray/aws-x-ray-traces-api/) — Upload and retrieve trace data
+- [AWS X-Ray Tag Resource API](https://apis.io/apis/aws-x-ray/aws-x-ray-tag-resource-api/) — The Tag Resource API from AWS X-Ray — 1 operation(s) for tag resource.
+- [AWS X-Ray Untag Resource API](https://apis.io/apis/aws-x-ray/aws-x-ray-untag-resource-api/) — The Untag Resource API from AWS X-Ray — 1 operation(s) for untag resource.
+- [AWS X-Ray X Ray Operations API](https://apis.io/apis/aws-x-ray/aws-x-ray-operations-api/) — The X Ray Operations API from AWS X-Ray — 24 operation(s) for x ray operations.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-03-26
-- **Modified:** 2026-05-19
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Agentic access (1)
 
-### AWS X-Ray
+Which operations an agent can call, which act, and which need a human in the loop.
 
-AWS X-Ray is a service that helps developers analyze and debug distributed applications by providing end-to-end tracing of requests as they travel through the application, identifying performance bottlenecks and errors. It is now part of Amazon CloudWatch Application Signals for unified observability.
+- [Aws X Ray Agentic Access](https://apis.io/agentic-access/aws-x-ray/aws-x-ray-agentic-access/)
 
-- **Human URL:** [https://aws.amazon.com/xray/](https://aws.amazon.com/xray/)
-- **Base URL:** `https://xray.{region}.amazonaws.com`
+#### JSON Schema (19)
 
-#### Tags
+The data models the API reads and writes.
 
-- AWS
-- Debugging
-- Distributed Tracing
-- Microservices
-- Observability
+- [BatchGetTracesResult](https://apis.io/schemas/aws-x-ray/x-ray-batchgettracesresult/)
+- [EdgeStatistics](https://apis.io/schemas/aws-x-ray/x-ray-edgestatistics/)
+- [EncryptionConfig](https://apis.io/schemas/aws-x-ray/x-ray-encryptionconfig/)
+- [GetServiceGraphResult](https://apis.io/schemas/aws-x-ray/x-ray-getservicegraphresult/)
+- [GetTraceSummariesResult](https://apis.io/schemas/aws-x-ray/x-ray-gettracesummariesresult/)
+- [Group](https://apis.io/schemas/aws-x-ray/x-ray-group/)
+- [GroupSummary](https://apis.io/schemas/aws-x-ray/x-ray-groupsummary/)
+- [HistogramEntry](https://apis.io/schemas/aws-x-ray/x-ray-histogramentry/)
+- [Insight](https://apis.io/schemas/aws-x-ray/x-ray-insight/)
+- [InsightSummary](https://apis.io/schemas/aws-x-ray/x-ray-insightsummary/)
+- [SamplingRule](https://apis.io/schemas/aws-x-ray/x-ray-samplingrule/)
+- [SamplingRuleRecord](https://apis.io/schemas/aws-x-ray/x-ray-samplingrulerecord/)
+- [Service](https://apis.io/schemas/aws-x-ray/x-ray-service/)
+- [ServiceId](https://apis.io/schemas/aws-x-ray/x-ray-serviceid/)
+- [ServiceStatistics](https://apis.io/schemas/aws-x-ray/x-ray-servicestatistics/)
+- [Tag](https://apis.io/schemas/aws-x-ray/x-ray-tag/)
+- [TimeSeriesServiceStatistics](https://apis.io/schemas/aws-x-ray/x-ray-timeseriesservicestatistics/)
+- [Trace](https://apis.io/schemas/aws-x-ray/x-ray-trace/)
+- [TraceSummary](https://apis.io/schemas/aws-x-ray/x-ray-tracesummary/)
 
-#### Properties
+#### JSON Structure (19)
 
-- [OpenAPI](openapi/aws-x-ray-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/aws-x-ray.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/aws-x-ray.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [JSON Schema](json-schema/aws-x-ray-trace-segment.yml) — [JSON Schema](https://json-schema.org/specification)
-- [Documentation](https://docs.aws.amazon.com/xray/latest/devguide/aws-xray.html)
-- [API Reference](https://docs.aws.amazon.com/xray/latest/api/Welcome.html)
+Data models expressed in JSON Structure.
 
-## Common Properties
+- [X Ray Batchgettracesresult Structure](https://apis.io/json-structure/aws-x-ray/x-ray-batchgettracesresult-structure/)
+- [X Ray Edgestatistics Structure](https://apis.io/json-structure/aws-x-ray/x-ray-edgestatistics-structure/)
+- [X Ray Encryptionconfig Structure](https://apis.io/json-structure/aws-x-ray/x-ray-encryptionconfig-structure/)
+- [X Ray Getservicegraphresult Structure](https://apis.io/json-structure/aws-x-ray/x-ray-getservicegraphresult-structure/)
+- [X Ray Gettracesummariesresult Structure](https://apis.io/json-structure/aws-x-ray/x-ray-gettracesummariesresult-structure/)
+- [X Ray Group Structure](https://apis.io/json-structure/aws-x-ray/x-ray-group-structure/)
+- [X Ray Groupsummary Structure](https://apis.io/json-structure/aws-x-ray/x-ray-groupsummary-structure/)
+- [X Ray Histogramentry Structure](https://apis.io/json-structure/aws-x-ray/x-ray-histogramentry-structure/)
+- [X Ray Insight Structure](https://apis.io/json-structure/aws-x-ray/x-ray-insight-structure/)
+- [X Ray Insightsummary Structure](https://apis.io/json-structure/aws-x-ray/x-ray-insightsummary-structure/)
+- [X Ray Samplingrule Structure](https://apis.io/json-structure/aws-x-ray/x-ray-samplingrule-structure/)
+- [X Ray Samplingrulerecord Structure](https://apis.io/json-structure/aws-x-ray/x-ray-samplingrulerecord-structure/)
+- [X Ray Service Structure](https://apis.io/json-structure/aws-x-ray/x-ray-service-structure/)
+- [X Ray Serviceid Structure](https://apis.io/json-structure/aws-x-ray/x-ray-serviceid-structure/)
+- [X Ray Servicestatistics Structure](https://apis.io/json-structure/aws-x-ray/x-ray-servicestatistics-structure/)
+- [X Ray Tag Structure](https://apis.io/json-structure/aws-x-ray/x-ray-tag-structure/)
+- [X Ray Timeseriesservicestatistics Structure](https://apis.io/json-structure/aws-x-ray/x-ray-timeseriesservicestatistics-structure/)
+- [X Ray Trace Structure](https://apis.io/json-structure/aws-x-ray/x-ray-trace-structure/)
+- [X Ray Tracesummary Structure](https://apis.io/json-structure/aws-x-ray/x-ray-tracesummary-structure/)
+
+#### JSON-LD (1)
+
+Linked-data contexts for the provider's vocabulary.
+
+- [Aws X Ray Context](https://apis.io/jsonld/aws-x-ray/aws-x-ray-context/)
+
+#### Vocabulary (1)
+
+The provider's domain terms, defined.
+
+- [AWS X-Ray Vocabulary](https://apis.io/vocabularies/aws-x-ray/aws-x-ray-vocabulary/)
+
+#### Examples (19)
+
+Example requests and responses.
+
+- [X Ray Batchgettracesresult Example](https://apis.io/examples/aws-x-ray/x-ray-batchgettracesresult-example/)
+- [X Ray Edgestatistics Example](https://apis.io/examples/aws-x-ray/x-ray-edgestatistics-example/)
+- [X Ray Encryptionconfig Example](https://apis.io/examples/aws-x-ray/x-ray-encryptionconfig-example/)
+- [X Ray Getservicegraphresult Example](https://apis.io/examples/aws-x-ray/x-ray-getservicegraphresult-example/)
+- [X Ray Gettracesummariesresult Example](https://apis.io/examples/aws-x-ray/x-ray-gettracesummariesresult-example/)
+- [X Ray Group Example](https://apis.io/examples/aws-x-ray/x-ray-group-example/)
+- [X Ray Groupsummary Example](https://apis.io/examples/aws-x-ray/x-ray-groupsummary-example/)
+- [X Ray Histogramentry Example](https://apis.io/examples/aws-x-ray/x-ray-histogramentry-example/)
+- [X Ray Insight Example](https://apis.io/examples/aws-x-ray/x-ray-insight-example/)
+- [X Ray Insightsummary Example](https://apis.io/examples/aws-x-ray/x-ray-insightsummary-example/)
+- [X Ray Samplingrule Example](https://apis.io/examples/aws-x-ray/x-ray-samplingrule-example/)
+- [X Ray Samplingrulerecord Example](https://apis.io/examples/aws-x-ray/x-ray-samplingrulerecord-example/)
+- [X Ray Service Example](https://apis.io/examples/aws-x-ray/x-ray-service-example/)
+- [X Ray Serviceid Example](https://apis.io/examples/aws-x-ray/x-ray-serviceid-example/)
+- [X Ray Servicestatistics Example](https://apis.io/examples/aws-x-ray/x-ray-servicestatistics-example/)
+- [X Ray Tag Example](https://apis.io/examples/aws-x-ray/x-ray-tag-example/)
+- [X Ray Timeseriesservicestatistics Example](https://apis.io/examples/aws-x-ray/x-ray-timeseriesservicestatistics-example/)
+- [X Ray Trace Example](https://apis.io/examples/aws-x-ray/x-ray-trace-example/)
+- [X Ray Tracesummary Example](https://apis.io/examples/aws-x-ray/x-ray-tracesummary-example/)
+
+#### Collections (19)
+
+Postman and Open Collection request collections.
+
+- [AWS X-Ray API](https://apis.io/collections/aws-x-ray/open-aws-x-ray/)
+- [AWS X-Ray Encryption API](https://apis.io/collections/aws-x-ray/open-aws-x-ray-encryption-api/)
+- [AWS X-Ray Encryption Groups API](https://apis.io/collections/aws-x-ray/open-aws-x-ray-groups-api/)
+- [AWS X-Ray Encryption Insights API](https://apis.io/collections/aws-x-ray/open-aws-x-ray-insights-api/)
+- [AWS X-Ray Encryption Sampling API](https://apis.io/collections/aws-x-ray/open-aws-x-ray-sampling-api/)
+- [AWS X-Ray Encryption Service Graph API](https://apis.io/collections/aws-x-ray/open-aws-x-ray-service-graph-api/)
+- [AWS X-Ray Encryption TagResource API](https://apis.io/collections/aws-x-ray/open-aws-x-ray-tagresource-api/)
+- [AWS X-Ray Encryption Tags API](https://apis.io/collections/aws-x-ray/open-aws-x-ray-tags-api/)
+- [AWS X-Ray Encryption Traces API](https://apis.io/collections/aws-x-ray/open-aws-x-ray-traces-api/)
+- [AWS X-Ray Encryption UntagResource API](https://apis.io/collections/aws-x-ray/open-aws-x-ray-untagresource-api/)
+- [AWS X-Ray Encryption API](https://apis.io/collections/aws-x-ray/postman-aws-x-ray-encryption-api/)
+- [AWS X-Ray Encryption Groups API](https://apis.io/collections/aws-x-ray/postman-aws-x-ray-groups-api/)
+- [AWS X-Ray Encryption Insights API](https://apis.io/collections/aws-x-ray/postman-aws-x-ray-insights-api/)
+- [AWS X-Ray Encryption Sampling API](https://apis.io/collections/aws-x-ray/postman-aws-x-ray-sampling-api/)
+- [AWS X-Ray Encryption Service Graph API](https://apis.io/collections/aws-x-ray/postman-aws-x-ray-service-graph-api/)
+- [AWS X-Ray Encryption TagResource API](https://apis.io/collections/aws-x-ray/postman-aws-x-ray-tagresource-api/)
+- [AWS X-Ray Encryption Tags API](https://apis.io/collections/aws-x-ray/postman-aws-x-ray-tags-api/)
+- [AWS X-Ray Encryption Traces API](https://apis.io/collections/aws-x-ray/postman-aws-x-ray-traces-api/)
+- [AWS X-Ray Encryption UntagResource API](https://apis.io/collections/aws-x-ray/postman-aws-x-ray-untagresource-api/)
+
+#### Governance rules (2)
+
+Spectral rulesets for the provider's contracts.
+
+- [AWS X-Ray — jsonschema rules](https://apis.io/rules/aws-x-ray/aws-x-ray-jsonschema-spectral-rules/)
+- [AWS X-Ray API Rules](https://apis.io/rules/aws-x-ray/aws-x-ray-spectral-rules/)
+
+#### Security (4)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Aws X Ray Authentication](https://apis.io/security/aws-x-ray/aws-x-ray-authentication/)
+- [Aws X Ray Domain Security](https://apis.io/security/aws-x-ray/aws-x-ray-domain-security/)
+- [Aws X Ray Trust Center](https://apis.io/security/aws-x-ray/aws-x-ray-trust-center/)
+- [Aws X Ray Vulnerability Disclosure](https://apis.io/security/aws-x-ray/aws-x-ray-vulnerability-disclosure/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Aws X Ray Plans Pricing](https://apis.io/plans/aws-x-ray/aws-x-ray-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Aws X Ray Rate Limits](https://apis.io/rate-limits/aws-x-ray/aws-x-ray-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Aws X Ray Finops](https://apis.io/finops/aws-x-ray/aws-x-ray-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://aws.amazon.com/xray/)
 - [Documentation](https://docs.aws.amazon.com/xray/latest/devguide/aws-xray.html)
-- [Getting Started](https://aws.amazon.com/xray/getting-started/)
+- [Getting started](https://aws.amazon.com/xray/getting-started/)
 - [Pricing](https://aws.amazon.com/xray/pricing/)
-- [F A Q](https://aws.amazon.com/xray/faqs/)
-- [Terms of Service](https://aws.amazon.com/service-terms/)
-- [Privacy Policy](https://aws.amazon.com/privacy/)
 - [Support](https://aws.amazon.com/premiumsupport/)
 - [Blog](https://aws.amazon.com/blogs/devops/category/management-tools/aws-x-ray/)
-- [Status Page](https://health.aws.amazon.com/health/status)
-- [Spectral Rules](rules/aws-x-ray-spectral-rules.yml)
-- [Vocabulary](vocabulary/aws-x-ray-vocabulary.yaml)
-- [Features](undefined)
-- [Use Cases](undefined)
-- [Integrations](undefined)
-- [Integrations](https://aws.amazon.com/marketplace)
+- [Terms of service](https://aws.amazon.com/service-terms/)
+- [Privacy policy](https://aws.amazon.com/privacy/)
+- [Status](https://health.aws.amazon.com/health/status)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 50.0** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 58.5 |
+| Contract governance | 27.3 |
+| Operational transparency | 34.2 |
+| Developer ergonomics | 46.4 |
+| Access clarity | 47.4 |
+
+**Agent readiness 19.6** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 35.3** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/aws-x-ray/](https://apis.io/providers/aws-x-ray/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for AWS X-Ray: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/aws-x-ray/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
